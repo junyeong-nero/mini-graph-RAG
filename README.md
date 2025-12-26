@@ -15,6 +15,7 @@ Mini-Graph-RAG is a lightweight implementation that extracts knowledge graphs fr
 - **Graph Traversal**: BFS-based neighbor discovery and subgraph extraction
 - **Relevance Ranking**: Score and rank entities/subgraphs for query relevance
 - **Response Generation**: Generate answers using retrieved graph context
+- **Interactive Visualization**: Generate interactive HTML visualizations with filtering and customization options
 
 ## Architecture
 
@@ -115,6 +116,11 @@ python main.py stats -g graph.json
 # Interactive mode
 python main.py interactive document.txt
 python main.py interactive -g graph.json  # Use existing graph
+
+# Visualize knowledge graph
+python main.py visualize -g graph.json -o graph_viz.html
+python main.py visualize -g graph.json --filter-type PERSON PLACE --min-weight 0.5
+python main.py visualize -g graph.json --max-nodes 100 -o filtered_viz.html
 ```
 
 ### Python API
@@ -144,6 +150,18 @@ rag.load_graph("knowledge_graph.json")
 # Get graph statistics
 stats = rag.get_stats()
 print(f"Entities: {stats['entities']}, Relationships: {stats['relationships']}")
+
+# Visualize the knowledge graph
+rag.visualize(output_path="graph_viz.html")
+
+# Visualize with filters
+rag.visualize(
+    output_path="filtered_viz.html",
+    filter_types=["PERSON", "PLACE"],
+    min_weight=0.5,
+    max_nodes=100,
+    show=True  # Automatically open in browser
+)
 ```
 
 ### Example: Korean Novel Analysis
@@ -241,6 +259,9 @@ mini-graph-RAG/
 │   │   ├── retriever.py         # Main retrieval orchestrator
 │   │   ├── traversal.py         # BFS graph traversal
 │   │   └── ranking.py           # Relevance scoring
+│   ├── visualization/
+│   │   ├── __init__.py          # Visualization exports
+│   │   └── pyvis_visualizer.py  # PyVis-based interactive visualization
 │   └── llm/
 │       ├── client.py            # OpenAI API wrapper
 │       └── prompts.py           # Response generation prompts
