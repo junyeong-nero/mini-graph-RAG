@@ -1,1 +1,1 @@
-"""Tests for Mini-Graph-RAG."""
+"""Tests for Tiny-Graph-RAG."""

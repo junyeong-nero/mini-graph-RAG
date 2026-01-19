@@ -1,10 +1,10 @@
-# Mini-Graph-RAG
+# Tiny-Graph-RAG
 
 A naive implementation of Graph-based Retrieval Augmented Generation (RAG) system without using external GraphRAG packages.
 
 ## Overview
 
-Mini-Graph-RAG is a lightweight implementation that extracts knowledge graphs from document data (papers, novels, personal statements, etc.) and enables LLM-powered retrieval using the generated graph structure.
+Tiny-Graph-RAG is a lightweight implementation that extracts knowledge graphs from document data (papers, novels, personal statements, etc.) and enables LLM-powered retrieval using the generated graph structure.
 
 ## Features
 
@@ -56,7 +56,7 @@ uv pip install -e ".[dev]"
 
 ## Configuration
 
-Mini-Graph-RAG can be configured using a `config.yaml` file or environment variables. Environment variables take precedence over settings defined in the YAML file.
+Tiny-Graph-RAG can be configured using a `config.yaml` file or environment variables. Environment variables take precedence over settings defined in the YAML file.
 
 ### YAML Configuration
 
@@ -126,7 +126,7 @@ python main.py visualize -g graph.json --max-nodes 100 -o filtered_viz.html
 ### Python API
 
 ```python
-from mini_graph_rag import GraphRAG
+from tiny_graph_rag import GraphRAG
 
 # Initialize the system
 rag = GraphRAG()
@@ -168,7 +168,7 @@ rag.visualize(
 
 ```python
 import os
-from mini_graph_rag import GraphRAG
+from tiny_graph_rag import GraphRAG
 
 # Paths
 DOCUMENT_PATH = "data/현진건-운수좋은날.txt"
@@ -239,10 +239,10 @@ Response: 요약 — 김첨지에 대해 알려드리겠습니다.
 ## Project Structure
 
 ```
-mini-graph-RAG/
+tiny-graph-RAG/
 ├── main.py                      # CLI entry point
 ├── pyproject.toml               # Project configuration
-├── mini_graph_rag/              # Main package
+├── tiny_graph_rag/              # Main package
 │   ├── __init__.py              # GraphRAG main class
 │   ├── config.py                # Configuration management
 │   ├── chunking/
@@ -307,7 +307,7 @@ python -m pytest tests/ -v
 python -m pytest tests/test_graph.py -v
 
 # Run with coverage
-python -m pytest tests/ --cov=mini_graph_rag
+python -m pytest tests/ --cov=tiny_graph_rag
 ```
 
 ## How It Works

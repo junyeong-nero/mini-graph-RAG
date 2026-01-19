@@ -2,7 +2,7 @@
 
 import pytest
 
-from mini_graph_rag.graph import Entity, KnowledgeGraph, Relationship
+from tiny_graph_rag.graph import Entity, KnowledgeGraph, Relationship
 
 
 class TestEntity:

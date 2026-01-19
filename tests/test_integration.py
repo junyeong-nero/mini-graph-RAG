@@ -1,4 +1,4 @@
-"""Integration tests for Mini-Graph-RAG."""
+"""Integration tests for Tiny-Graph-RAG."""
 
 import json
 import tempfile
@@ -7,8 +7,8 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from mini_graph_rag import Config, GraphRAG
-from mini_graph_rag.graph import Entity, KnowledgeGraph, Relationship
+from tiny_graph_rag import Config, GraphRAG
+from tiny_graph_rag.graph import Entity, KnowledgeGraph, Relationship
 
 
 class TestGraphStorageIntegration:
@@ -16,7 +16,7 @@ class TestGraphStorageIntegration:
 
     def test_save_and_load_json(self):
         """Test saving and loading graph as JSON."""
-        from mini_graph_rag.graph import GraphStorage
+        from tiny_graph_rag.graph import GraphStorage
 
         storage = GraphStorage()
 
@@ -102,7 +102,7 @@ class TestGraphRAGWithMocks:
 
     def test_process_text_with_mock(self, mock_config, mock_llm_client):
         """Test processing text with mocked LLM."""
-        with patch("mini_graph_rag.OpenAIClient", return_value=mock_llm_client):
+        with patch("tiny_graph_rag.OpenAIClient", return_value=mock_llm_client):
             rag = GraphRAG(config=mock_config)
             rag.llm_client = mock_llm_client
 
@@ -115,7 +115,7 @@ class TestGraphRAGWithMocks:
 
     def test_query_with_mock(self, mock_config, mock_llm_client):
         """Test querying with mocked LLM."""
-        with patch("mini_graph_rag.OpenAIClient", return_value=mock_llm_client):
+        with patch("tiny_graph_rag.OpenAIClient", return_value=mock_llm_client):
             rag = GraphRAG(config=mock_config)
             rag.llm_client = mock_llm_client
 
@@ -134,8 +134,8 @@ class TestGraphBuilderIntegration:
 
     def test_build_graph_from_multiple_chunks(self):
         """Test building graph from multiple extraction results."""
-        from mini_graph_rag.extraction import ExtractionResult
-        from mini_graph_rag.graph import Entity, GraphBuilder, Relationship
+        from tiny_graph_rag.extraction import ExtractionResult
+        from tiny_graph_rag.graph import Entity, GraphBuilder, Relationship
 
         builder = GraphBuilder()
 
@@ -188,8 +188,8 @@ class TestRetrievalIntegration:
 
     def test_subgraph_retrieval(self):
         """Test retrieving subgraph."""
-        from mini_graph_rag.graph import Entity, KnowledgeGraph, Relationship
-        from mini_graph_rag.retrieval.traversal import GraphTraversal
+        from tiny_graph_rag.graph import Entity, KnowledgeGraph, Relationship
+        from tiny_graph_rag.retrieval.traversal import GraphTraversal
 
         # Create a test graph
         graph = KnowledgeGraph()

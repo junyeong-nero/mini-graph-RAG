@@ -2,7 +2,7 @@
 
 import pytest
 
-from mini_graph_rag.chunking import Chunk, TextChunker
+from tiny_graph_rag.chunking import Chunk, TextChunker
 
 
 class TestTextChunker:

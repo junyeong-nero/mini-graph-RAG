@@ -1,11 +1,11 @@
-"""Streamlit app for Mini-Graph-RAG visualization and interaction."""
+"""Streamlit app for Tiny-Graph-RAG visualization and interaction."""
 
 import streamlit as st
 from streamlit_agraph import agraph, Node, Edge, Config
 
-from mini_graph_rag import GraphRAG
-from mini_graph_rag.graph.storage import GraphStorage
-from mini_graph_rag.graph.models import KnowledgeGraph
+from tiny_graph_rag import GraphRAG
+from tiny_graph_rag.graph.storage import GraphStorage
+from tiny_graph_rag.graph.models import KnowledgeGraph
 
 
 ENTITY_COLORS = {
@@ -353,12 +353,12 @@ def init_session_state():
 
 def main():
     st.set_page_config(
-        page_title="Mini-Graph-RAG Visualizer",
+        page_title="Tiny-Graph-RAG Visualizer",
         page_icon="🔗",
         layout="wide",
     )
 
-    st.title("🔗 Mini-Graph-RAG Visualizer")
+    st.title("🔗 Tiny-Graph-RAG Visualizer")
     st.markdown("Interactive knowledge graph visualization and querying")
 
     graph_path, load_button, selected_types, max_nodes, stats_placeholder = (
@@ -398,7 +398,7 @@ def main():
 
     st.divider()
     st.markdown(
-        "<div style='text-align: center; color: #888;'>Mini-Graph-RAG Visualizer | Built with Streamlit</div>",
+        "<div style='text-align: center; color: #888;'>Tiny-Graph-RAG Visualizer | Built with Streamlit</div>",
         unsafe_allow_html=True,
     )
 

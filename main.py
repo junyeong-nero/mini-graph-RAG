@@ -1,15 +1,15 @@
-"""CLI entry point for Mini-Graph-RAG."""
+"""CLI entry point for Tiny-Graph-RAG."""
 
 import argparse
 import sys
 
-from mini_graph_rag import GraphRAG
+from tiny_graph_rag import GraphRAG
 
 
 def main():
     """Main entry point for the CLI."""
     parser = argparse.ArgumentParser(
-        description="Mini-Graph-RAG: Graph-based Retrieval Augmented Generation"
+        description="Tiny-Graph-RAG: Graph-based Retrieval Augmented Generation"
     )
     subparsers = parser.add_subparsers(dest="command", help="Available commands")
 
@@ -170,8 +170,8 @@ def run_interactive(args):
 
 def run_visualize(args):
     """Visualize a knowledge graph."""
-    from mini_graph_rag.visualization import PyVisVisualizer
-    from mini_graph_rag.graph.storage import GraphStorage
+    from tiny_graph_rag.visualization import PyVisVisualizer
+    from tiny_graph_rag.graph.storage import GraphStorage
 
     print(f"Loading graph from: {args.graph}")
 

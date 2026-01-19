@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Mini-Graph-RAG is a naive implementation of Graph-based Retrieval Augmented Generation (RAG) without using external GraphRAG packages. The goal is to extract knowledge graphs from documents (papers, novels, personal statements) and enable LLM-powered retrieval using OpenAI API.
+Tiny-Graph-RAG is a naive implementation of Graph-based Retrieval Augmented Generation (RAG) without using external GraphRAG packages. The goal is to extract knowledge graphs from documents (papers, novels, personal statements) and enable LLM-powered retrieval using OpenAI API.
 
 ## Development Setup
 
@@ -37,7 +37,7 @@ The planned architecture follows this pipeline:
 ## Planned Module Structure
 
 ```
-mini_graph_rag/
+tiny_graph_rag/
 ├── chunking/          # Text chunking utilities with context overlap
 ├── extraction/        # Entity and relationship extraction via OpenAI API
 ├── graph/             # Knowledge graph construction and storage

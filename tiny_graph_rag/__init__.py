@@ -1,4 +1,4 @@
-"""Mini-Graph-RAG: A naive implementation of Graph-based RAG."""
+"""Tiny-Graph-RAG: A naive implementation of Graph-based RAG."""
 
 import asyncio
 from pathlib import Path
@@ -13,7 +13,7 @@ from .retrieval import GraphRetriever
 
 
 class GraphRAG:
-    """Main entry point for the Mini-Graph-RAG system."""
+    """Main entry point for the Tiny-Graph-RAG system."""
 
     def __init__(self, config: Config | None = None):
         """Initialize the GraphRAG system.

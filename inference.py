@@ -1,5 +1,5 @@
 import os
-from mini_graph_rag import GraphRAG
+from tiny_graph_rag import GraphRAG
 
 # Paths
 DOCUMENT_PATH = "data/novels/김유정-동백꽃.txt"

@@ -1,5 +1,5 @@
 [project]
-name = "mini-graph-rag"
+name = "tiny-graph-rag"
 version = "0.1.0"
 description = "A naive implementation of Graph-based RAG using OpenAI API"
 readme = "README.md"
@@ -18,7 +18,7 @@ dev = [
 ]
 
 [project.scripts]
-mini-graph-rag = "main:main"
+tiny-graph-rag = "main:main"
 
 [tool.setuptools.packages.find]
-include = ["mini_graph_rag*"]
+include = ["tiny_graph_rag*"]

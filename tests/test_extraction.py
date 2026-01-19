@@ -2,11 +2,11 @@
 
 import pytest
 
-from mini_graph_rag.chunking.chunker import Chunk
-from mini_graph_rag.extraction.extractor import EntityRelationshipExtractor
-from mini_graph_rag.extraction.parser import ExtractionParser
-from mini_graph_rag.graph import Entity, Relationship
-from mini_graph_rag.llm.client import OpenAIClient
+from tiny_graph_rag.chunking.chunker import Chunk
+from tiny_graph_rag.extraction.extractor import EntityRelationshipExtractor
+from tiny_graph_rag.extraction.parser import ExtractionParser
+from tiny_graph_rag.graph import Entity, Relationship
+from tiny_graph_rag.llm.client import OpenAIClient
 
 
 class TestExtractionParser:

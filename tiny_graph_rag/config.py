@@ -1,4 +1,4 @@
-"""Configuration management for Mini-Graph-RAG."""
+"""Configuration management for Tiny-Graph-RAG."""
 
 import os
 from dataclasses import dataclass, field
