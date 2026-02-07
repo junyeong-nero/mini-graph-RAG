@@ -29,6 +29,8 @@ class ExtractionParser:
             if entity:
                 entities.append(entity)
                 entity_map[entity.name.lower()] = entity.entity_id
+                for alias in entity.aliases:
+                    entity_map[alias.lower()] = entity.entity_id
 
         # Parse relationships
         for rel_data in response.get("relationships", []):
@@ -57,11 +59,15 @@ class ExtractionParser:
         if entity_type not in valid_types:
             entity_type = "OTHER"
 
+        raw_aliases = data.get("aliases", [])
+        aliases = [a.strip() for a in raw_aliases if isinstance(a, str) and a.strip()]
+
         return Entity(
             name=name,
             entity_type=entity_type,
             description=data.get("description", ""),
             source_chunks=[chunk_id] if chunk_id else [],
+            aliases=aliases,
         )
 
     def _parse_relationship(

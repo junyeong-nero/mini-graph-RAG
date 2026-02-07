@@ -17,7 +17,7 @@ For relationships, use verb-based types like:
 Return your response as a JSON object with this exact structure:
 {
     "entities": [
-        {"name": "Entity Name", "type": "ENTITY_TYPE", "description": "Brief description"}
+        {"name": "Canonical Name", "type": "ENTITY_TYPE", "description": "Brief description", "aliases": ["nickname", "role-based name"]}
     ],
     "relationships": [
         {"source": "Source Entity Name", "target": "Target Entity Name", "type": "RELATIONSHIP_TYPE", "description": "Brief description of the relationship"}
@@ -27,8 +27,11 @@ Return your response as a JSON object with this exact structure:
 Important:
 - Extract ALL entities mentioned in the text
 - Entity names in relationships must exactly match entity names in the entities list
-- For person mentions, keep role-based mentions or nicknames (e.g., husband, driver, nickname) as entities when they appear
-- Add relationship types like ALIAS_OF or SAME_AS when text strongly implies two mentions are the same person
+- For PERSON entities, use the most specific proper name as "name" and list all other mentions (nicknames, role titles, metaphorical names) in "aliases"
+  Example: {"name": "김첨지", "aliases": ["남편", "인력거꾼"]} — NOT separate entities
+- Only create separate entities for mentions where identity is truly uncertain
+- Add ALIAS_OF or SAME_AS relationships when text implies two distinct mentions refer to the same real-world entity
+- The "aliases" array may be empty if no alternative names exist
 - Be thorough but precise - only extract what is explicitly stated or clearly implied"""
 
 
