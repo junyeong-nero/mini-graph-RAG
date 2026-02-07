@@ -11,3 +11,9 @@ wheels/
 uv.lock
 .gitignore
 .claude/
+
+# Generated evaluation artifacts
+graph.json
+eval_results.json
+data/novels/*-eval-results.json
+data/novels/*-hardset-results.json
