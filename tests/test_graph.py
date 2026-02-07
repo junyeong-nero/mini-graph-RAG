@@ -297,6 +297,83 @@ class TestKnowledgeGraph:
         assert graph.relationships[0].target_entity_id == wife_id
 
 
+    def test_merge_entities_preserves_aliases(self):
+        """Test that merge_entities records the duplicate's name as an alias."""
+        graph = KnowledgeGraph()
+
+        kim = Entity(name="김첨지", entity_type="PERSON")
+        calf = Entity(name="송아지", entity_type="PERSON")
+
+        kim_id = graph.add_entity(kim)
+        calf_id = graph.add_entity(calf)
+
+        graph.merge_entities(kim_id, calf_id)
+
+        canonical = graph.entities[kim_id]
+        assert "송아지" in canonical.aliases
+
+    def test_lookup_by_alias_after_merge(self):
+        """Test that entity can be found by alias name after merge."""
+        graph = KnowledgeGraph()
+
+        kim = Entity(name="김첨지", entity_type="PERSON")
+        husband = Entity(name="남편", entity_type="PERSON")
+
+        kim_id = graph.add_entity(kim)
+        husband_id = graph.add_entity(husband)
+
+        graph.merge_entities(kim_id, husband_id)
+
+        found = graph.get_entity_by_name("남편")
+        assert found is not None
+        assert found.entity_id == kim_id
+
+    def test_add_entity_with_aliases_deduplicates(self):
+        """Test that adding entity whose alias matches existing entity merges them."""
+        graph = KnowledgeGraph()
+
+        kim = Entity(name="김첨지", entity_type="PERSON", description="인력거꾼")
+        kim_id = graph.add_entity(kim)
+
+        alias_entity = Entity(
+            name="인력거꾼",
+            entity_type="PERSON",
+            description="같은 사람",
+            aliases=["김첨지"],
+        )
+        alias_id = graph.add_entity(alias_entity)
+
+        assert alias_id == kim_id
+        assert len(graph.entities) == 1
+
+    def test_entity_aliases_serialization_roundtrip(self):
+        """Test that aliases survive to_dict -> from_dict roundtrip."""
+        entity = Entity(
+            name="김첨지",
+            entity_type="PERSON",
+            aliases=["송아지", "남편"],
+        )
+
+        data = entity.to_dict()
+        assert data["aliases"] == ["송아지", "남편"]
+
+        restored = Entity.from_dict(data)
+        assert restored.aliases == ["송아지", "남편"]
+
+    def test_graph_from_dict_indexes_aliases(self):
+        """Test that KnowledgeGraph.from_dict indexes aliases for lookup."""
+        graph = KnowledgeGraph()
+        entity = Entity(name="김첨지", entity_type="PERSON", aliases=["송아지"])
+        eid = graph.add_entity(entity)
+
+        data = graph.to_dict()
+        restored = KnowledgeGraph.from_dict(data)
+
+        found = restored.get_entity_by_name("송아지")
+        assert found is not None
+        assert found.name == "김첨지"
+
+
 class TestEntityResolution:
     """Tests for LLM-based entity resolution."""
 
@@ -344,3 +421,77 @@ class TestEntityResolution:
 
         assert calf_id not in graph.entities
         assert kim_id in graph.entities
+        assert "송아지" in graph.entities[kim_id].aliases
+
+    def test_resolver_preserves_aliases_and_lookup(self):
+        """After LLM resolution, merged alias name is queryable."""
+        graph = KnowledgeGraph()
+
+        kim = Entity(name="김첨지", entity_type="PERSON", description="인력거꾼")
+        calf = Entity(name="송아지", entity_type="PERSON", description="별명")
+
+        kim_id = graph.add_entity(kim)
+        calf_id = graph.add_entity(calf)
+
+        mock_llm = MagicMock()
+        mock_llm.chat_json.return_value = {
+            "merge_groups": [
+                {
+                    "canonical_entity_id": kim_id,
+                    "duplicate_entity_ids": [calf_id],
+                    "confidence": 0.90,
+                    "reason": "same person",
+                }
+            ]
+        }
+
+        resolver = LLMEntityResolver(llm_client=mock_llm)
+        resolver.resolve(graph)
+
+        found = graph.get_entity_by_name("송아지")
+        assert found is not None
+        assert found.name == "김첨지"
+
+    def test_resolver_skips_low_confidence(self):
+        """Merge groups below min_confidence are ignored."""
+        graph = KnowledgeGraph()
+
+        e1 = Entity(name="A", entity_type="PERSON")
+        e2 = Entity(name="B", entity_type="PERSON")
+        e1_id = graph.add_entity(e1)
+        e2_id = graph.add_entity(e2)
+
+        mock_llm = MagicMock()
+        mock_llm.chat_json.return_value = {
+            "merge_groups": [
+                {
+                    "canonical_entity_id": e1_id,
+                    "duplicate_entity_ids": [e2_id],
+                    "confidence": 0.5,
+                    "reason": "maybe same",
+                }
+            ]
+        }
+
+        resolver = LLMEntityResolver(llm_client=mock_llm, min_confidence=0.75)
+        resolver.resolve(graph)
+
+        assert e1_id in graph.entities
+        assert e2_id in graph.entities
+
+    def test_resolver_handles_llm_error(self):
+        """Resolver gracefully handles LLM API errors."""
+        graph = KnowledgeGraph()
+
+        e1 = Entity(name="A", entity_type="PERSON")
+        e2 = Entity(name="B", entity_type="PERSON")
+        graph.add_entity(e1)
+        graph.add_entity(e2)
+
+        mock_llm = MagicMock()
+        mock_llm.chat_json.side_effect = RuntimeError("API down")
+
+        resolver = LLMEntityResolver(llm_client=mock_llm)
+        resolver.resolve(graph)
+
+        assert len(graph.entities) == 2

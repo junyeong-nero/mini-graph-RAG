@@ -126,6 +126,47 @@ class TestExtractionParser:
         assert len(relationships) == 1
         assert relationships[0].relationship_type == "WORKS_FOR"
 
+    def test_parse_entity_with_aliases(self):
+        """Test that aliases from LLM response are parsed into Entity."""
+        parser = ExtractionParser()
+
+        response = {
+            "entities": [
+                {
+                    "name": "김첨지",
+                    "type": "PERSON",
+                    "description": "인력거꾼",
+                    "aliases": ["남편", "인력거꾼"],
+                },
+            ],
+            "relationships": [],
+        }
+
+        entities, _ = parser.parse(response, chunk_id="c1")
+
+        assert len(entities) == 1
+        assert entities[0].aliases == ["남편", "인력거꾼"]
+
+    def test_parse_relationship_resolves_via_alias(self):
+        """Test that relationships referencing alias names resolve correctly."""
+        parser = ExtractionParser()
+
+        response = {
+            "entities": [
+                {"name": "김첨지", "type": "PERSON", "aliases": ["남편"]},
+                {"name": "아내", "type": "PERSON"},
+            ],
+            "relationships": [
+                {"source": "남편", "target": "아내", "type": "HUSBAND_OF"},
+            ],
+        }
+
+        entities, relationships = parser.parse(response)
+
+        assert len(relationships) == 1
+        kim = next(e for e in entities if e.name == "김첨지")
+        assert relationships[0].source_entity_id == kim.entity_id
+
     def test_parse_case_insensitive_entity_matching(self):
         """Test that relationship entity matching is case insensitive."""
         parser = ExtractionParser()
