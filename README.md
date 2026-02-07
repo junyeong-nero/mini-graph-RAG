@@ -1,136 +1,126 @@
-# 🔗 Tiny-Graph-RAG
+# Tiny-Graph-RAG
 
-Tiny-Graph-RAG는 OpenAI API를 활용하여 문서로부터 지식 그래프(Knowledge Graph)를 구축하고, 이를 기반으로 답변을 생성하는 경량 Graph-based RAG 구현체입니다.
+Tiny-Graph-RAG는 OpenAI API를 이용해 텍스트에서 엔티티/관계를 추출하고, JSON 기반 지식 그래프를 만든 뒤 그래프 탐색으로 답변 컨텍스트를 구성하는 실험용 Graph RAG 프로젝트입니다.
 
-단순한 벡터 검색(Vector Search)의 한계를 넘어, 문서 내 엔티티 간의 관계를 구조화하여 더 깊이 있고 설명 가능한 답변을 제공하는 것을 목표로 합니다.
+벡터 DB 기반 검색 대신, 엔티티 연결 구조(BFS + 휴리스틱 랭킹)를 활용해 retrieval 과정을 투명하게 확인하는 데 초점을 둡니다.
 
-## 🚀 파이프라인 (Architecture)
+## 프로젝트 범위
 
-### 1. 지식 그래프 구축 (Ingestion Pipeline)
-문서에서 의미 있는 정보를 추출하여 구조화된 그래프 데이터로 변환하는 과정입니다.
+- 교육/실험 목적의 naive Graph RAG 구현
+- 텍스트 문서 -> 지식 그래프(JSON) -> 질의/평가 파이프라인 제공
+- OpenAI 호환 API(`OPENAI_BASE_URL`) 지원
+- 노벨 데이터셋(`data/novels`) 기반 일반/하드셋 평가 지원
 
-```mermaid
-flowchart TD
-    Doc[문서/텍스트] --> Chunker[TextChunker]
-    Chunker -- "Chunks" --> Extractor[LLM Extractor]
-    Extractor -- "Parallel Extraction" --> Parser[ExtractionParser]
-    Parser -- "Entities & Relationships" --> Builder[GraphBuilder]
-    Builder -- "Merge & De-duplicate" --> KG[(Knowledge Graph JSON)]
-```
-
-### 2. 검색 및 답변 생성 (Query Pipeline)
-사용자의 질문에 대해 그래프를 탐색하고 관련 있는 서브그래프를 추출하여 답변을 생성합니다.
-
-```mermaid
-flowchart TD
-    Query[사용자 질문] --> QExt[LLM: 엔티티 추출]
-    QExt -- "Seed Entities" --> Traverse[BFS Graph Traversal]
-    KG[(Knowledge Graph)] --> Traverse
-    Traverse -- "Subgraph" --> Ranker[Heuristic Ranker]
-    Ranker -- "Top-K Context" --> Context[Context Formatter]
-    Context --> Generator[LLM Answer Generator]
-    Generator --> Answer[최종 답변]
-```
-
-## ✨ 주요 기능
-
-- **지능형 엔티티/관계 추출**: OpenAI GPT 모델을 활용해 비정형 텍스트에서 엔티티와 관계를 정밀하게 추출합니다.
-- **비동기 배치 처리**: `asyncio.gather`를 통해 대량의 텍스트 청크를 병렬로 처리하여 지식 그래프 구축 속도를 높였습니다.
-- **그래프 정규화 및 병합**: 동일한 엔티티가 여러 청크에서 발견될 경우, 이름 정규화 및 병합 로직을 통해 하나의 노드로 통합합니다.
-- **다중 홉 탐색 및 랭킹**: 질문과 관련된 엔티티로부터 BFS(Breadth-First Search) 탐색을 수행하고, 관련성 기반 휴리스틱 랭킹을 통해 최적의 컨텍스트를 구성합니다.
-- **인터랙티브 시각화**: PyVis 및 Streamlit-Agraph를 지원하여 구축된 그래프를 웹 브라우저에서 직접 탐색할 수 있습니다.
-
-## 📸 스크린샷 (Screenshots)
-
-| 지식 그래프 시각화 | 질문 및 답변 생성 |
-|:---:|:---:|
-| ![Graph Visualization](assets/3.png) | ![Query Interface](assets/4.png) |
-
-## 🛠️ 설치 방법
-
-이 프로젝트는 `uv` 또는 `pip`을 사용하여 설치할 수 있습니다.
-
-```bash
-# 저장소 복제
-git clone https://github.com/your-repo/tiny-graph-RAG.git
-cd tiny-graph-RAG
-
-# 가상환경 구축 및 패키지 설치
-uv sync  # uv 사용 시
-# 또는
-pip install -e .
-```
-
-## ⚙️ 설정 (Configuration)
-
-`.env` 파일이나 `config.yaml` 파일을 통해 설정할 수 있습니다.
-
-```bash
-# .env 설정
-export OPENAI_API_KEY='your-api-key-here'
-```
-
-또는 `config.yaml` 수정:
-```yaml
-openai:
-  model: "gpt-4o-mini"
-  temperature: 0.0
-chunking:
-  chunk_size: 1000
-  chunk_overlap: 200
-```
-
-## 💻 사용 방법
-
-### CLI 모드
-
-**1. 문서 처리 (그래프 생성)**
-```bash
-python main.py process data/novels/김유정-동백꽃.txt -o graph.json
-```
-
-**2. 질문하기**
-```bash
-python main.py query "점순이가 주인공에게 왜 감자를 줬어?" -g graph.json
-```
-
-**3. 시각화 HTML 생성**
-```bash
-python main.py visualize -g graph.json -o viz.html
-```
-
-### Streamlit 웹 인터페이스
-더 편리한 그래프 탐색과 질문을 위해 웹 UI를 실행할 수 있습니다.
-
-```bash
-streamlit run streamlit_app.py
-```
-
-### 예제 스크립트 실행
-단순한 파이썬 스크립트를 통한 추론 예시입니다.
-```bash
-python inference.py
-```
-
-## 🧪 테스트 실행
-
-`pytest`를 사용하여 단위 테스트 및 통합 테스트를 실행할 수 있습니다.
-
-```bash
-pytest tests/
-```
-
-## 📂 프로젝트 구조
+## 아키텍처 요약
 
 ```text
-tiny_graph_rag/
-├── chunking/      # 텍스트 분할 및 청킹 로직
-├── extraction/    # LLM 기반 엔티티/관계 추출 및 파싱
-├── graph/         # 지식 그래프 데이터 모델 및 저장 로직
-├── llm/           # OpenAI API 클라이언트 및 프롬프트
-├── retrieval/     # 그래프 탐색, 랭킹 및 컨텍스트 생성
-└── visualization/ # PyVis 기반 시각화 엔진
+Document
+  -> TextChunker
+  -> EntityRelationshipExtractor (LLM JSON)
+  -> ExtractionParser
+  -> GraphBuilder / KnowledgeGraph
+  -> GraphRetriever (query entity extraction -> BFS traversal -> ranking)
+  -> LLM answer generation
 ```
 
-## 📜 라이선스
-MIT License
+핵심 모듈은 `tiny_graph_rag/` 아래에 있으며 상세 설명은 `docs/README.md`를 참고하세요.
+
+## 빠른 시작
+
+요구 사항: Python 3.13+, OpenAI API Key
+
+```bash
+uv sync
+export OPENAI_API_KEY="your-api-key"
+```
+
+`config.yaml`로 기본 모델/청킹 설정을 관리하고, 환경변수가 최종 우선순위를 가집니다.
+
+## 실행 방법 (CLI)
+
+### 1) 문서에서 그래프 생성
+
+```bash
+uv run python main.py process "data/novels/김유정-동백꽃.txt" -o "data/novels/김유정-동백꽃-KG.json"
+```
+
+### 2) 그래프 질의
+
+```bash
+uv run python main.py query "점순이와 우리 수탉의 관계를 설명해줘." -g "data/novels/김유정-동백꽃-KG.json"
+```
+
+### 3) 그래프 통계 확인
+
+```bash
+uv run python main.py stats -g "data/novels/김유정-동백꽃-KG.json"
+```
+
+### 4) 시각화 HTML 생성
+
+```bash
+uv run python main.py visualize -g "data/novels/김유정-동백꽃-KG.json" -o graph_viz.html
+```
+
+### 5) Streamlit UI
+
+```bash
+uv run streamlit run streamlit_app.py
+```
+
+## 평가 워크플로우
+
+평가는 `main.py eval`로 수행하며, 출력 JSON에는 예제별 메트릭과 전체 요약(지연 시간/토큰/예상 비용)이 저장됩니다.
+
+### 기본(일반) 평가
+
+```bash
+uv run python main.py eval \
+  --dataset "data/novels/김유정-동백꽃-eval.jsonl" \
+  -g "data/novels/김유정-동백꽃-KG.json" \
+  -o "data/novels/김유정-동백꽃-eval-results.json"
+```
+
+### Hardset 평가 (alias/multi-hop)
+
+```bash
+uv run python main.py eval \
+  --dataset "data/novels/김유정-동백꽃-hardset.jsonl" \
+  -g "data/novels/김유정-동백꽃-KG.json" \
+  --hops 4 \
+  -o "data/novels/김유정-동백꽃-hardset-results.json"
+```
+
+옵션:
+- `--top-k`: top-k 기준 메트릭 계산 (기본 5)
+- `--hops`: BFS 깊이 (기본 2)
+- `--skip-generation`: 답변 생성 호출 생략(검색 품질만 측정)
+- `--price-per-1k-input`, `--price-per-1k-output`: 비용 추정 단가
+
+## 테스트
+
+```bash
+uv run pytest
+```
+
+## 데이터셋/결과 파일 규칙
+
+`data/novels` 하위 파일은 아래 패턴을 따릅니다.
+
+- 원문: `<작품명>.txt`
+- 그래프: `<작품명>-KG.json`
+- 일반 평가셋: `<작품명>-eval.jsonl`
+- 하드 평가셋: `<작품명>-hardset.jsonl`
+- 일반 평가 결과: `<작품명>-eval-results.json`
+- 하드 평가 결과: `<작품명>-hardset-results.json`
+
+예: `김유정-동백꽃-eval.jsonl`, `이상-날개-hardset-results.json`
+
+## 문서
+
+- 프로젝트/모듈 개요: `docs/README.md`
+- 평가 데이터셋/실행 가이드: `docs/evaluation.md`
+
+## 라이선스
+
+MIT
