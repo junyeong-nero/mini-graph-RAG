@@ -11,8 +11,17 @@ from .models import Entity, KnowledgeGraph
 
 ENTITY_RESOLUTION_SYSTEM_PROMPT = """You resolve whether extracted PERSON entities refer to the same real-world character.
 
-You will receive a list of PERSON entities from one story. Some entries are aliases, role names, or nicknames.
-Examples: full name vs title, role label, pronoun-like mention, or metaphorical nickname.
+You will receive a list of PERSON entities from one story. Each entity may have:
+- name: the canonical name
+- aliases: known alternative names already identified during extraction
+- description: context about the entity
+- neighbors: relationship signals (type, other entity name/type, and description)
+
+Some entries are aliases, role names, or nicknames with NO lexical overlap with the canonical name.
+Examples: full name vs title, role label (남편/husband, 인력거꾼/driver), metaphorical nickname (송아지/calf used for a person).
+
+Use neighbor overlap as strong evidence: if two entities share the same relationship partners with
+the same relationship types, they are likely the same person.
 
 Return strict JSON with this shape:
 {
@@ -28,7 +37,9 @@ Return strict JSON with this shape:
 
 Rules:
 - Merge only PERSON entities.
-- Be conservative: merge only when evidence is strong from descriptions/relations/context.
+- Prefer the entity with the most specific proper name as canonical.
+- Use descriptions, neighbor signals, and existing aliases as evidence.
+- Two names can be the same person even with zero string similarity.
 - Do not invent IDs; use only provided IDs.
 - Do not include canonical ID inside duplicate list.
 - If unsure, do not merge.
@@ -67,15 +78,16 @@ class LLMEntityResolver:
     ) -> list[dict]:
         payload = []
         for entity in entities:
-            payload.append(
-                {
-                    "entity_id": entity.entity_id,
-                    "name": entity.name,
-                    "description": entity.description,
-                    "source_chunks": entity.source_chunks,
-                    "neighbors": self._get_neighbor_signals(graph, entity.entity_id),
-                }
-            )
+            entry: dict = {
+                "entity_id": entity.entity_id,
+                "name": entity.name,
+                "description": entity.description,
+                "source_chunks": entity.source_chunks,
+                "neighbors": self._get_neighbor_signals(graph, entity.entity_id),
+            }
+            if entity.aliases:
+                entry["aliases"] = entity.aliases
+            payload.append(entry)
 
         user_prompt = (
             "Resolve duplicate PERSON entities from the following JSON array. "
@@ -111,13 +123,14 @@ class LLMEntityResolver:
             other = graph.get_entity(other_id)
             if not other:
                 continue
-            signals.append(
-                {
-                    "relation_type": rel.relationship_type,
-                    "other_name": other.name,
-                    "other_type": other.entity_type,
-                }
-            )
+            signal: dict = {
+                "relation_type": rel.relationship_type,
+                "other_name": other.name,
+                "other_type": other.entity_type,
+            }
+            if rel.description:
+                signal["relation_desc"] = rel.description
+            signals.append(signal)
 
         return signals[:12]
 
