@@ -7,7 +7,7 @@ Core code lives in `tiny_graph_rag/`, organized by pipeline stage:
 - Streamlit UI: `streamlit_app.py`
 - Utility scripts: `scripts/` (for example `scripts/apply_er.py`)
 
-Tests are under `tests/`. Documentation is in `docs/` (`docs/README.md`, `docs/evaluation.md`). Sample corpora and graph/eval artifacts are in `data/novels/`.
+Tests are under `tests/`. Documentation is in `docs/` (`docs/README.md`, `docs/evaluation.md`). Sample corpora are in `data/novels/`, with generated artifacts separated under `data/kg/`, `data/eval/`, and `data/results/`.
 
 ## Build, Test, and Development Commands
 - `uv sync`: install dependencies from `pyproject.toml`/`uv.lock`.
@@ -24,8 +24,12 @@ Target Python is 3.13+. Follow PEP 8 with 4-space indentation and clear type hin
 - Classes: `PascalCase`
 - Constants: `UPPER_SNAKE_CASE`
 
-Data and output naming in `data/novels/` should stay consistent:
-`<작품명>.txt`, `<작품명>-KG.json`, `<작품명>-eval.jsonl`, `<작품명>-hardset.jsonl`, and `*-results.json`.
+Data and output naming should stay consistent across separated directories:
+- `data/novels/<작품명>.txt`
+- `data/kg/<작품명>-KG.json`
+- `data/eval/<작품명>-eval.jsonl`
+- `data/eval/<작품명>-hardset.jsonl`
+- `data/results/<작품명>-eval-results.json`, `data/results/<작품명>-hardset-results.json`
 
 ## Testing Guidelines
 Use `pytest` with files named `test_*.py` and focused test methods describing behavior. Prefer deterministic tests with mocks for LLM calls (see `tests/test_integration.py` and `tests/test_extraction.py`).

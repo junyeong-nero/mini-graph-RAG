@@ -1,108 +1,48 @@
-# Entity Resolution 동작 방식
+# Entity Resolution (ER) 가이드
 
-이 문서는 `tiny_graph_rag/graph/entity_resolution.py`의 `LLMEntityResolver`가 그래프 엔티티를 어떻게 병합하는지 설명합니다.
+이 문서는 Tiny-Graph-RAG에서 동일한 대상을 가리키는 서로 다른 엔티티들을 식별하고 병합하는 **Entity Resolution(ER)** 프로세스를 설명합니다.
 
-## 1) 언제 실행되는가
+## 1. 개요 및 실행 시점
 
-- `GraphRAG` 초기화 시 `GraphBuilder(resolver=LLMEntityResolver(...))`가 주입됩니다.
-- 문서 처리 후 `GraphBuilder.build()`에서 `resolver.resolve(graph)`가 호출됩니다.
-- 결과적으로 entity resolution은 그래프 빌드 마지막 단계에서 **in-place**로 수행됩니다.
+Tiny-Graph-RAG는 문서 추출 단계에서 발생하는 엔티티 중복(별칭, 지시대명사, 오타 등)을 해결하기 위해 하이브리드(규칙 기반 + LLM 기반) ER 시스템을 사용합니다.
 
-## 2) 전체 처리 순서
+- **실행 시점**: `GraphBuilder.build()` 과정의 마지막 단계에서 수행됩니다.
+- **수행 방식**: 그래프 구조를 직접 수정하는 **In-place** 방식으로 동작합니다.
 
-`resolve()`는 아래 순서로 동작합니다.
+## 2. 처리 파이프라인
 
-1. `_merge_explicit_alias_relationships`
-2. `_merge_strong_contextual_aliases`
-3. `_merge_role_bucket_aliases`
-4. `_reassign_conflicting_aliases`
-5. person-like 엔티티만 추려 LLM 배치 병합 (`_resolve_batch` + `_apply_merge_groups`)
+`LLMEntityResolver.resolve()`는 다음의 5단계를 순차적으로 수행합니다.
 
-앞의 1~4는 규칙 기반(휴리스틱), 5는 LLM 기반입니다.
+1. **Explicit Alias Merge**: `ALIAS_OF`, `SAME_AS`와 같이 명시적인 관계를 가진 엔티티 병합
+2. **Contextual Alias Merge**: 강한 문맥적 연관성을 가진 엔티티 병합
+3. **Role Bucket Merge**: 미리 정의된 역할군(예: 아내, 환자 등) 기반의 병합
+4. **Alias Reassignment**: 잘못 할당된 별칭 관계의 재배치 및 정리
+5. **LLM Batch Resolution**: 복잡한 추론이 필요한 엔티티들에 대한 LLM 기반 최종 병합
 
-## 3) person-like 판단
+## 3. 핵심 로직 상세
 
-`_is_person_like_entity()` 기준:
+### 3.1 Person-like 판단
+ER은 주로 인물이나 등장인물에 집중합니다. `_is_person_like_entity()`는 다음과 같은 경우를 병합 후보로 판단합니다.
+- 엔티티 타입이 `PERSON`인 경우
+- 이름이나 설명에 인물을 나타내는 키워드(`아내`, `남편`, `주인`, `의사` 등)가 포함된 경우
 
-- `entity_type == "PERSON"` 이면 True
-- 아니어도(`OTHER` 포함) 이름/설명에 키워드(`아내`, `남편`, `환자`, `driver` 등)가 있으면 True
+### 3.2 휴리스틱 병합 규칙
+- **강한 문맥 병합**: 두 엔티티가 `RELATED_TO` 등의 관계를 맺고 있으면서, 공유하고 있는 이웃 노드가 존재할 때 병합을 검토합니다.
+- **Role Bucket**: 동일한 역할(예: '김첨지'와 '인력거꾼')을 공유하며 주변 인물 관계가 일치하는 경우 하나로 합칩니다.
 
-이 기준으로 role/alias 표현(예: `병인`, `인력거꾼`)도 병합 후보에 들어갑니다.
+### 3.3 LLM 기반 배치 병합
+규칙만으로 판단하기 어려운 경우, LLM에게 엔티티들의 메타데이터와 관계 정보를 전달하여 병합 여부를 결정합니다.
+- **입력 데이터**: 엔티티 이름, 타입, 설명, 주변 이웃(최대 12개), 소스 청크 텍스트
+- **신뢰도 필터링**: LLM이 제안한 병합 그룹 중 신뢰도(`confidence`)가 0.75 이상인 경우만 실제 그래프에 반영합니다.
 
-## 4) 휴리스틱 병합 규칙
+## 4. 병합 시 주의사항 (Conflict Prevention)
 
-### 4.1 명시적 alias 관계 병합
+잘못된 병합을 방지하기 위해 다음과 같은 경우에는 병합을 차단합니다.
+- 두 엔티티 사이에 명확한 반대 관계(`MARRIED_TO`, `PARENT_OF`, `SIBLING_OF` 등)가 존재하는 경우
+- 한 쪽은 인물인데 다른 한 쪽은 장소나 개념인 경우
 
-- 관계 타입이 `ALIAS_OF` 또는 `SAME_AS`인 엔티티 쌍을 즉시 병합합니다.
-- 양쪽 모두 person-like여야 합니다.
+## 5. 기대 효과
 
-### 4.2 강한 문맥 병합
-
-다음 조건을 모두 만족하면 병합합니다.
-
-- 두 엔티티 사이 직접 관계 타입이 `RELATED_TO|REFERS_TO|SAME_AS|ALIAS_OF` 중 하나
-- 공유 이웃이 1개 이상 (`_count_shared_neighbors`)
-- 둘 중 하나 이상이 reference-like (`OTHER` 타입, 일반 역할명, person-like 키워드 포함)
-
-병합이 발생하면 그래프가 바뀌므로 while-loop로 다시 탐색합니다.
-
-### 4.3 Role bucket 병합
-
-- 동일 버킷(기본값: `spouse_patient`)에 속하고 공유 이웃이 있으면 병합합니다.
-- 기본 버킷 용어 예: `아내`, `마누라`, `병인`, `환자`, `오라질년` 등
-
-### 4.4 alias 재배치
-
-- `reassign_aliases=True`인 버킷에 대해 canonical 엔티티를 먼저 선택합니다.
-- 다른 엔티티의 alias 중 버킷 용어를 canonical으로 이동해 오탐 alias를 정리합니다.
-- 변경 후 `_rebuild_entity_name_index()`를 호출해 이름/alias 인덱스를 재구성합니다.
-
-## 5) LLM 배치 병합
-
-### 5.1 입력 구성
-
-`max_entities_per_pass`(기본 80) 단위로 분할하여 LLM에 보냅니다.
-
-- `entity_id`, `name`, `entity_type`, `description`, `source_chunks`, `aliases`
-- `neighbors`(최대 12개): 관계 타입, 상대 엔티티명/타입, 관계 설명
-
-### 5.2 출력 형식
-
-LLM은 `merge_groups` JSON을 반환해야 합니다.
-
-```json
-{
-  "merge_groups": [
-    {
-      "canonical_entity_id": "id_to_keep",
-      "duplicate_entity_ids": ["id_to_merge"],
-      "confidence": 0.95,
-      "reason": "same character"
-    }
-  ]
-}
-```
-
-API 오류/파싱 이상 시 해당 배치는 빈 결과로 처리됩니다.
-
-## 6) merge_groups 적용 로직
-
-`_apply_merge_groups()`는 union-find로 전이적 병합을 처리합니다.
-
-- `confidence < min_confidence`(기본 0.75)는 무시
-- canonical/duplicate가 현재 그래프에 존재하고 person-like일 때만 반영
-- 직접 관계가 `MARRIED_TO`, `PARENT_OF`, `CHILD_OF`, `SIBLING_OF`, `FRIEND_OF`, `KNOWS`면 병합 금지
-
-클러스터별 canonical은 `_select_canonical_id()`로 선택합니다.
-
-- 점수: `(LLM canonical vote 수, PERSON 보너스, 일반 역할명 패널티, 관계 수)`
-- 최고 점수 엔티티를 남기고 나머지를 `graph.merge_entities()`로 병합
-
-## 7) 병합 후 보장되는 효과
-
-- 중복 엔티티 제거 및 관계 endpoint 재매핑
-- self-loop 제거
-- 중복 관계 제거
-- 병합된 이름은 alias로 보존되어 `get_entity_by_name()`에서 조회 가능
-
-관련 테스트는 `tests/test_graph.py`의 `TestEntityResolution` 섹션을 참고하면 됩니다.
+- **그래프 밀도 향상**: 중복 노드가 제거되어 엔티티 간의 연결성이 강화됩니다.
+- **검색 정확도 증대**: 다양한 별칭으로 질문하더라도 동일한 노드에 도달하여 정확한 정보를 추출할 수 있습니다.
+- **데이터 정제**: 불필요한 노드와 관계가 정리되어 지식 그래프의 품질이 높아집니다.

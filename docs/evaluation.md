@@ -1,101 +1,94 @@
 # Evaluation Guide
 
-이 문서는 현재 `data/novels` 구조 기준으로 일반 eval과 hardset 평가 실행 방법을 정리합니다.
+이 문서는 Tiny-Graph-RAG의 성능을 정량적으로 측정하기 위한 평가 시스템의 구성 요소와 메트릭, 그리고 실행 방법을 설명합니다.
 
-## 1) 평가 데이터셋 종류
+## 1. 평가 메트릭 (Metrics)
 
-작품별로 아래 2종 JSONL을 사용합니다.
+Retrieval 성능을 평가하기 위해 다음과 같은 4가지 핵심 지표를 사용합니다. 모든 지표는 0.0에서 1.0 사이의 값을 가지며, 1.0에 가까울수록 성능이 우수함을 의미합니다.
 
-- 일반 평가셋: `<작품명>-eval.jsonl`
-- 하드 평가셋: `<작품명>-hardset.jsonl`
+### 1.1 Precision@k (정밀도)
+검색된 상위 `k`개의 엔티티 중 실제 정답(Ground Truth)에 포함된 엔티티의 비율입니다.
+- **공식**: `|Retrieved@k ∩ Relevant| / k`
+- **의미**: 시스템이 추출한 결과물 중 얼마나 많은 것이 실제로 유용한 정보인가를 측정합니다.
 
-예시:
+### 1.2 Recall@k (재현율)
+전체 정답 엔티티 중 검색된 상위 `k`개의 결과에 포함된 엔티티의 비율입니다.
+- **공식**: `|Retrieved@k ∩ Relevant| / |Relevant|`
+- **의미**: 시스템이 전체 관련 정보 중에서 얼마나 많이 놓치지 않고 찾아냈는가를 측정합니다.
 
-- `data/novels/김유정-동백꽃-eval.jsonl`
-- `data/novels/김유정-동백꽃-hardset.jsonl`
+### 1.3 MRR (Mean Reciprocal Rank)
+사용자가 원하는 정답이 검색 결과의 몇 번째 순위에 처음으로 등장하는지를 측정합니다.
+- **공식**: `1 / rank_of_first_relevant_item`
+- **의미**: 시스템이 정답을 얼마나 상위권에 배치하는지 평가합니다.
 
-Hardset에는 `tags`로 `alias-noise`, `multi-hop`, `3-hop`/`4-hop` 등이 포함되어 있습니다.
+### 1.4 nDCG@k (Normalized Discounted Cumulative Gain)
+검색된 결과의 순위를 고려한 이득(Gain)의 합계를 측정합니다. 정답이 상위에 있을수록 높은 점수를 부여합니다.
+- **특징**: 이진 관련성(Binary Relevance)을 기반으로 계산하며, 검색 결과의 순서가 얼마나 최적인지를 종합적으로 평가합니다.
 
-## 2) 입력 스키마(JSONL)
+## 2. 데이터셋 구조 (Dataset Structure)
 
-각 줄은 1개 평가 예제(JSON object)입니다.
+평가 데이터셋은 JSONL(Line-delimited JSON) 형식으로 제공됩니다. 각 라인은 하나의 평가 예제(`EvalExample`)를 나타냅니다.
 
-필수 필드:
+### 2.1 스키마 상세
 
-- `query` (string)
-- `reference_entities` (list[string])
+| 필드명 | 타입 | 설명 |
+| :--- | :--- | :--- |
+| `query` | `string` | **(필수)** 평가를 위한 자연어 질의 |
+| `reference_entities` | `list[string]` | **(필수)** 해당 질의에 답하기 위해 반드시 찾아야 하는 엔티티 목록 |
+| `id` | `string` | 예제 식별자 (선택) |
+| `ground_truth` | `string` | 최종 답변 정답 (선택) |
+| `tags` | `list[string]` | 예제 성격 구분 태그 (예: `multi-hop`, `alias-noise`) |
 
-선택 필드:
+### 2.2 하드셋 (Hardset) 구성
+`data/eval/*-hardset.jsonl` 파일은 다음과 같은 고난도 시나리오를 포함합니다.
+- **Multi-hop**: 2단계 이상의 관계를 거쳐야 정보를 찾을 수 있는 질의 (`2-hop`, `3-hop` 태그)
+- **Alias-noise**: 지문에서 지칭하는 이름과 질문에서의 이름이 다른 경우
+- **Coreference**: '그', '그녀' 등 대명사 해결이 필요한 경우
 
-- `id`
-- `reference_relationships` (`source`, `target`, `type`)
-- `ground_truth`
-- `tags`
+## 3. 평가 실행 방법
 
-## 3) 실행 전 준비
-
-1. 그래프 생성
-
-```bash
-uv run python main.py process "data/novels/현진건-운수좋은날.txt" -o "data/novels/현진건-운수좋은날-KG.json"
-```
-
-2. 환경 변수
-
-```bash
-export OPENAI_API_KEY="your-api-key"
-```
-
-## 4) 실행 커맨드
-
-### 일반 평가
-
+### 3.1 기본 실행
 ```bash
 uv run python main.py eval \
-  --dataset "data/novels/현진건-운수좋은날-eval.jsonl" \
-  -g "data/novels/현진건-운수좋은날-KG.json" \
-  -o "data/novels/현진건-운수좋은날-eval-results.json"
+  --dataset "김유정-동백꽃-eval.jsonl" \
+  -g "김유정-동백꽃-KG.json" \
+  -o "김유정-동백꽃-eval-results.json"
 ```
 
-### Hardset 평가
+### 3.2 주요 옵션 설명
+- `--top-k`: 메트릭 계산 시 기준이 되는 상위 `k`값 (기본값: 5)
+- `--hops`: BFS 탐색 깊이 (기본값: 2). 하드셋 평가 시 3~4로 설정을 권장합니다.
+- `--skip-generation`: 답변 생성을 생략하고 검색(Retrieval) 품질만 측정하여 비용을 절감합니다.
+- `--kg-dir`: 상대 경로 그래프 파일의 기본 폴더 (기본값: `config.yaml`의 `storage.kg_dir`)
+- `--dataset-dir`: 상대 경로 평가셋 파일의 기본 폴더 (기본값: `config.yaml`의 `storage.dataset_dir`)
+- `--results-dir`: 상대 경로 결과 파일의 기본 폴더 (기본값: `config.yaml`의 `storage.results_dir`)
 
-```bash
-uv run python main.py eval \
-  --dataset "data/novels/현진건-운수좋은날-hardset.jsonl" \
-  -g "data/novels/현진건-운수좋은날-KG.json" \
-  --hops 4 \
-  -o "data/novels/현진건-운수좋은날-hardset-results.json"
+## 4. 출력 결과 해석
+
+평가 완료 후 생성되는 JSON 파일의 `summary` 섹션을 통해 전체적인 성능을 한눈에 확인할 수 있습니다.
+
+```json
+{
+  "summary": {
+    "mean_precision_at_k": 0.85,
+    "mean_recall_at_k": 0.72,
+    "mean_mrr": 0.9,
+    "mean_ndcg_at_k": 0.88,
+    "total_token_usage": 15400,
+    "estimated_cost_usd": 0.02
+  },
+  "results": [...]
+}
 ```
 
-추천:
+## 5. 데이터셋 파일 규칙
+권장 폴더 구조는 다음과 같습니다.
+- `data/eval`: 평가셋
+- `data/kg`: 생성된 KG
+- `data/results`: 평가 결과
 
-- 일반셋 baseline: `--hops 2`
-- hard multi-hop 포함 시: `--hops 3` 또는 `--hops 4`
-- retrieval만 보고 싶으면 `--skip-generation` 사용
-
-## 5) 출력 결과 파일
-
-평가 결과 JSON(`<작품명>-*-results.json`) 구조:
-
-- `summary`: 전체 평균 지표/지연/토큰/예상비용
-- `results`: 예제별 retrieved entities + 메트릭
-
-대표 메트릭:
-
-- `precision_at_k`
-- `recall_at_k`
-- `mrr`
-- `ndcg_at_k`
-
-## 6) `data/novels` 네이밍 규칙
-
-작품별 산출물은 아래 naming convention을 사용합니다.
-
-- 원문: `<작품명>.txt`
-- 그래프: `<작품명>-KG.json`
-- 일반 평가셋: `<작품명>-eval.jsonl`
-- 하드 평가셋: `<작품명>-hardset.jsonl`
-- 일반 평가 결과: `<작품명>-eval-results.json`
-- 하드 평가 결과: `<작품명>-hardset-results.json`
-
-이 규칙을 맞추면 여러 작품을 동일 스크립트/패턴으로 반복 실행하기 쉽습니다.
+파일 접미사 규칙:
+- `-eval.jsonl`: 일반적인 사실 확인형 질의응답 셋
+- `-hardset.jsonl`: 그래프 탐색 성능을 극한으로 테스트하는 고난도 셋
+- `-KG.json`: 생성된 지식 그래프
+- `-results.json`: 평가 실행 결과 기록

@@ -1,126 +1,124 @@
 # Tiny-Graph-RAG
 
-Tiny-Graph-RAG는 OpenAI API를 이용해 텍스트에서 엔티티/관계를 추출하고, JSON 기반 지식 그래프를 만든 뒤 그래프 탐색으로 답변 컨텍스트를 구성하는 실험용 Graph RAG 프로젝트입니다.
+Tiny-Graph-RAG는 OpenAI API를 사용하여 텍스트에서 엔티티와 관계를 추출하고, JSON 기반 지식 그래프를 구축한 뒤 그래프 탐색을 통해 질의응답 컨텍스트를 구성하는 경량형 Graph RAG 프레임워크입니다.
 
-벡터 DB 기반 검색 대신, 엔티티 연결 구조(BFS + 휴리스틱 랭킹)를 활용해 retrieval 과정을 투명하게 확인하는 데 초점을 둡니다.
+벡터 DB 기반의 시맨틱 검색 대신, 엔티티 간의 명시적인 연결 구조(BFS 탐색 + 휴리스틱 랭킹)를 활용하여 지식 추출부터 추론까지의 과정을 투명하게 관리하는 데 초점을 맞춥니다.
 
-## 프로젝트 범위
+## 주요 특징 (Key Features)
 
-- 교육/실험 목적의 naive Graph RAG 구현
-- 텍스트 문서 -> 지식 그래프(JSON) -> 질의/평가 파이프라인 제공
-- OpenAI 호환 API(`OPENAI_BASE_URL`) 지원
-- 노벨 데이터셋(`data/novels`) 기반 일반/하드셋 평가 지원
+- **Lightweight Graph Storage**: 복잡한 그래프 DB 없이 단순 JSON 파일로 지식 그래프를 관리하고 저장합니다.
+- **LLM-Powered Extraction**: LLM을 통해 비정형 텍스트에서 엔티티, 타입, 설명 및 관계 정보를 정밀하게 추출합니다.
+- **Advanced Retrieval**: BFS 기반의 서브그래프 확장과 휴리스틱 랭킹을 조합하여 질문과 관련된 맥락을 효과적으로 포착합니다.
+- **Entity Resolution**: LLM과 규칙 기반 병합 로직을 사용하여 중복 엔티티(별칭, 오타 등)를 정리합니다.
+- **Evaluation Pipeline**: Precision, Recall, MRR, nDCG 등 다양한 메트릭을 통한 검색 품질 평가 도구를 제공합니다.
+- **Visualization**: Pyvis를 활용하여 구축된 지식 그래프를 대화형 HTML로 시각화할 수 있습니다.
 
-## 아키텍처 요약
+## 아키텍처 요약 (Architecture)
 
 ```text
-Document
-  -> TextChunker
-  -> EntityRelationshipExtractor (LLM JSON)
-  -> ExtractionParser
-  -> GraphBuilder / KnowledgeGraph
-  -> GraphRetriever (query entity extraction -> BFS traversal -> ranking)
-  -> LLM answer generation
+[ Document ] 
+     |
+     v
+[ TextChunker ] -> Overlapping text segments
+     |
+     v
+[ EntityRelationshipExtractor ] -> LLM-based JSON extraction
+     |
+     v
+[ GraphBuilder ] -> Entity Resolution & Graph Construction
+     |
+     v
+[ KnowledgeGraph ] -> JSON storage (.json)
+     |
+     v
+[ GraphRetriever ] -> Query Entity Extraction -> BFS Traversal -> Ranking
+     |
+     v
+[ LLM Answer Generator ] -> Context-aware response
 ```
 
-핵심 모듈은 `tiny_graph_rag/` 아래에 있으며 상세 설명은 `docs/README.md`를 참고하세요.
+상세한 모듈별 설명은 [docs/README.md](docs/README.md)를 참고하세요.
 
-## 빠른 시작
+## 시작하기 (Getting Started)
 
-요구 사항: Python 3.13+, OpenAI API Key
+### 요구 사항
+- Python 3.13+
+- OpenAI API Key (또는 호환되는 API 엔드포인트)
 
+### 설치
 ```bash
 uv sync
 export OPENAI_API_KEY="your-api-key"
 ```
 
-`config.yaml`로 기본 모델/청킹 설정을 관리하고, 환경변수가 최종 우선순위를 가집니다.
+기본 모델 설정 및 청킹 파라미터는 `config.yaml`에서 관리할 수 있습니다.
 
-## 실행 방법 (CLI)
+## 주요 기능 실행 방법 (CLI)
 
-### 1) 문서에서 그래프 생성
-
+### 1. 그래프 생성
 ```bash
-uv run python main.py process "data/novels/김유정-동백꽃.txt" -o "data/novels/김유정-동백꽃-KG.json"
+uv run python main.py process "data/novels/김유정-동백꽃.txt" -o "김유정-동백꽃-KG.json"
 ```
 
-### 2) 그래프 질의
-
+### 2. 질의응답 (Query)
 ```bash
-uv run python main.py query "점순이와 우리 수탉의 관계를 설명해줘." -g "data/novels/김유정-동백꽃-KG.json"
+uv run python main.py query "점순이와 우리 수탉의 관계를 설명해줘." -g "김유정-동백꽃-KG.json"
 ```
 
-### 3) 그래프 통계 확인
-
+### 3. 통계 및 시각화
 ```bash
-uv run python main.py stats -g "data/novels/김유정-동백꽃-KG.json"
+# 통계 확인
+uv run python main.py stats -g "김유정-동백꽃-KG.json"
+
+# 시각화 HTML 생성
+uv run python main.py visualize -g "김유정-동백꽃-KG.json" -o graph_viz.html
 ```
 
-### 4) 시각화 HTML 생성
-
-```bash
-uv run python main.py visualize -g "data/novels/김유정-동백꽃-KG.json" -o graph_viz.html
-```
-
-### 5) Streamlit UI
-
+### 4. Streamlit Web UI
 ```bash
 uv run streamlit run streamlit_app.py
 ```
 
-## 평가 워크플로우
+## 평가 (Evaluation)
 
-평가는 `main.py eval`로 수행하며, 출력 JSON에는 예제별 메트릭과 전체 요약(지연 시간/토큰/예상 비용)이 저장됩니다.
+평가 모듈은 검색 품질을 정량적으로 측정합니다. 출력 JSON에는 예제별 메트릭과 전체 요약(지연 시간, 토큰 사용량, 예상 비용)이 포함됩니다.
 
-### 기본(일반) 평가
-
+### 실행 예시
 ```bash
 uv run python main.py eval \
-  --dataset "data/novels/김유정-동백꽃-eval.jsonl" \
-  -g "data/novels/김유정-동백꽃-KG.json" \
-  -o "data/novels/김유정-동백꽃-eval-results.json"
+  --dataset "김유정-동백꽃-eval.jsonl" \
+  -g "김유정-동백꽃-KG.json" \
+  -o "김유정-동백꽃-eval-results.json"
 ```
 
-### Hardset 평가 (alias/multi-hop)
+상세 옵션 및 데이터셋 형식은 [docs/evaluation.md](docs/evaluation.md)를 확인하세요.
 
-```bash
-uv run python main.py eval \
-  --dataset "data/novels/김유정-동백꽃-hardset.jsonl" \
-  -g "data/novels/김유정-동백꽃-KG.json" \
-  --hops 4 \
-  -o "data/novels/김유정-동백꽃-hardset-results.json"
-```
+### 벤치마크 결과 (Sample Results)
 
-옵션:
-- `--top-k`: top-k 기준 메트릭 계산 (기본 5)
-- `--hops`: BFS 깊이 (기본 2)
-- `--skip-generation`: 답변 생성 호출 생략(검색 품질만 측정)
-- `--price-per-1k-input`, `--price-per-1k-output`: 비용 추정 단가
+한국 근대 단편 소설 데이터셋(`data/novels`)에 대한 검색 성능 지표입니다. (Top-K=5, Hops=2~4 기준)
+
+| 데이터셋 (작품명) | 유형 | Recall@5 | MRR | nDCG@5 |
+| :--- | :--- | :--- | :--- | :--- |
+| **김유정-동백꽃** | 일반 | 1.00 | 0.95 | 0.96 |
+| **김유정-동백꽃** | Hardset | 0.87 | 0.79 | 0.81 |
+| **현진건-운수좋은날** | 일반 | 1.00 | 0.95 | 0.97 |
+| **이상-날개** | 일반 | 1.00 | 0.96 | 0.98 |
+
+*※ Hardset은 Multi-hop 질의와 인물 별칭(Alias) 노이즈를 포함하고 있어 일반셋보다 난이도가 높습니다.*
 
 ## 테스트
-
 ```bash
 uv run pytest
 ```
 
-## 데이터셋/결과 파일 규칙
+## 데이터 저장 구조
+기본 `config.yaml` 기준으로 입력/산출물을 폴더별로 분리합니다:
+- `data/novels/`: 원문 텍스트 (`<작품명>.txt`)
+- `data/eval/`: 평가셋 (`<작품명>-eval.jsonl`, `<작품명>-hardset.jsonl`)
+- `data/kg/`: 생성된 그래프 (`<작품명>-KG.json`)
+- `data/results/`: 평가 결과 (`<작품명>-eval-results.json`, `<작품명>-hardset-results.json`)
 
-`data/novels` 하위 파일은 아래 패턴을 따릅니다.
-
-- 원문: `<작품명>.txt`
-- 그래프: `<작품명>-KG.json`
-- 일반 평가셋: `<작품명>-eval.jsonl`
-- 하드 평가셋: `<작품명>-hardset.jsonl`
-- 일반 평가 결과: `<작품명>-eval-results.json`
-- 하드 평가 결과: `<작품명>-hardset-results.json`
-
-예: `김유정-동백꽃-eval.jsonl`, `이상-날개-hardset-results.json`
-
-## 문서
-
-- 프로젝트/모듈 개요: `docs/README.md`
-- 평가 데이터셋/실행 가이드: `docs/evaluation.md`
+CLI는 상대 경로를 각 기본 폴더로 자동 해석합니다. 필요하면 `--kg-dir`, `--dataset-dir`, `--results-dir` 또는 환경 변수 `KG_DIR`, `DATASET_DIR`, `RESULTS_DIR`로 덮어쓸 수 있습니다.
 
 ## 라이선스
-
 MIT
