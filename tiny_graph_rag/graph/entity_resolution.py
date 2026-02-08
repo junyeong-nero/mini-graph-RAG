@@ -37,6 +37,17 @@ Return strict JSON with this shape:
   ]
 }
 
+You may also receive a "Candidate merge pairs with supporting evidence" section.
+Each candidate pair contains computed signals such as:
+- shared_neighbors: entities both candidates are connected to (with relation details)
+- direct_relations: relation types directly between the two candidates
+- same_role_bucket: whether both names fall into the same semantic role category (e.g. both are spouse terms)
+- co_occurring_chunks: source chunk IDs where both entities appear
+
+These signals are HINTS, not mandates. Use them as additional evidence alongside descriptions,
+neighbor signals, and aliases to make your final merge decision. You may merge pairs not listed
+as candidates, and you may decline to merge listed candidates if the evidence is insufficient.
+
 Rules:
 - Merge only entities that refer to humans/characters.
 - Prefer the entity with the most specific proper name as canonical.
@@ -51,7 +62,7 @@ Rules:
 
 @dataclass(frozen=True)
 class RoleBucket:
-    """동일 인물로 병합할 수 있는 역할 용어 그룹."""
+    """A group of role terms that may refer to the same character."""
 
     name: str
     terms: frozenset[str]
@@ -60,7 +71,7 @@ class RoleBucket:
 
 @dataclass(frozen=True)
 class EntityResolutionConfig:
-    """Entity resolution에 사용되는 도메인/언어별 설정."""
+    """Domain and language-specific settings for entity resolution."""
 
     person_like_keywords: frozenset[str]
     generic_role_terms: frozenset[str]
@@ -69,55 +80,87 @@ class EntityResolutionConfig:
 
 
 def default_config() -> EntityResolutionConfig:
-    """기본 한국어 소설용 설정."""
-    spouse_patient_terms = frozenset({
-        "아내",
-        "마누라",
-        "그의 아내",
-        "병인",
-        "병자",
-        "환자",
-        "앓는 이",
-        "이 환자",
-        "오라질년",
-        "오라질 년",
+    """Default config for multilingual literature (Korean + English)."""
+    spouse_terms = frozenset({
+        "아내", "마누라", "그의 아내",
+        "남편", "부인",
+        "wife", "husband", "spouse",
+    })
+    patient_terms = frozenset({
+        "병인", "병자", "환자", "앓는 이", "이 환자",
+        "patient", "invalid",
+    })
+    parent_terms = frozenset({
+        "어머니", "엄마", "아버지", "아빠", "부모",
+        "mother", "father", "mom", "dad",
+    })
+    child_terms = frozenset({
+        "아들", "딸", "자식",
+        "son", "daughter", "child",
+    })
+    sibling_terms = frozenset({
+        "형", "오빠", "누나", "언니", "동생",
+        "brother", "sister", "sibling",
+    })
+    servant_worker_terms = frozenset({
+        "하인", "종", "인력거꾼", "차부",
+        "servant", "maid", "driver", "coachman",
     })
     return EntityResolutionConfig(
         person_like_keywords=frozenset({
-            "아내",
-            "마누라",
-            "남편",
-            "환자",
-            "병자",
-            "병인",
+            # Korean: family
+            "아내", "마누라", "남편", "부인",
+            # Korean: medical
+            "환자", "병자", "병인",
+            # Korean: insults / colloquial
             "오라질",
-            "주정꾼",
-            "주정뱅이",
-            "인력거꾼",
-            "차부",
-            "wife",
-            "husband",
-            "patient",
-            "driver",
-            "drunkard",
+            # Korean: occupational / social
+            "주정꾼", "주정뱅이", "인력거꾼", "차부",
+            "하인", "종",
+            # Korean: family (extended)
+            "어머니", "엄마", "아버지", "아빠",
+            "아들", "딸", "자식",
+            "형", "오빠", "누나", "언니", "동생",
+            # English: family
+            "wife", "husband", "spouse",
+            "mother", "father", "mom", "dad",
+            "son", "daughter",
+            "brother", "sister", "sibling",
+            # English: medical
+            "patient", "invalid",
+            # English: occupational / social
+            "driver", "drunkard", "servant", "maid", "coachman",
+            "narrator", "doctor", "nurse", "teacher", "priest",
         }),
         generic_role_terms=frozenset({
-            "아내",
-            "마누라",
-            "남편",
-            "환자",
-            "병자",
-            "병인",
-            "주정꾼",
-            "주정뱅이",
-            "인력거꾼",
-            "차부",
-            "그",
-            "그녀",
-            "이 사람",
+            # Korean: roles
+            "아내", "마누라", "남편", "부인",
+            "환자", "병자", "병인",
+            "주정꾼", "주정뱅이", "인력거꾼", "차부",
+            "어머니", "엄마", "아버지", "아빠",
+            "아들", "딸", "자식",
+            "형", "오빠", "누나", "언니", "동생",
+            "하인", "종",
+            # Korean: pronouns / generic references
+            "그", "그녀", "이 사람", "저 사람", "그 사람",
+            # English: pronouns
+            "he", "she", "they", "him", "her", "them",
+            # English: role labels
+            "wife", "husband", "spouse",
+            "mother", "father", "mom", "dad",
+            "son", "daughter",
+            "brother", "sister",
+            "patient", "doctor", "nurse",
+            "narrator", "servant", "maid", "driver",
+            "teacher", "priest",
         }),
         role_buckets=(
-            RoleBucket("spouse_patient", spouse_patient_terms, reassign_aliases=True),
+            RoleBucket("spouse", spouse_terms, reassign_aliases=True),
+            RoleBucket("patient", patient_terms),
+            RoleBucket("parent", parent_terms),
+            RoleBucket("child", child_terms),
+            RoleBucket("sibling", sibling_terms),
+            RoleBucket("servant_worker", servant_worker_terms),
         ),
         non_merge_relation_types=frozenset({
             "MARRIED_TO",
@@ -151,9 +194,6 @@ class LLMEntityResolver:
     def resolve(self, graph: KnowledgeGraph) -> None:
         """Resolve duplicate person-like entities in-place."""
         self._merge_explicit_alias_relationships(graph)
-        self._merge_strong_contextual_aliases(graph)
-        self._merge_role_bucket_aliases(graph)
-        self._reassign_conflicting_aliases(graph)
 
         person_like_entities = [
             entity
@@ -189,11 +229,19 @@ class LLMEntityResolver:
                 entry["aliases"] = entity.aliases
             payload.append(entry)
 
+        candidate_signals = self._collect_merge_signals(graph, entities)
+
         user_prompt = (
             "Resolve duplicate person-like entities from the following JSON array. "
             "Two names can still be the same person even with no lexical overlap if context/relations match.\n\n"
             f"{json.dumps(payload, ensure_ascii=False)}"
         )
+
+        if candidate_signals:
+            user_prompt += (
+                "\n\nCandidate merge pairs with supporting evidence:\n"
+                f"{json.dumps(candidate_signals, ensure_ascii=False)}"
+            )
 
         try:
             response = self.llm_client.chat_json(
@@ -233,6 +281,89 @@ class LLMEntityResolver:
             signals.append(signal)
 
         return signals[:12]
+
+    def _collect_merge_signals(
+        self,
+        graph: KnowledgeGraph,
+        entities: list[Entity],
+    ) -> list[dict]:
+        """Collect evidence signals for all candidate entity pairs in a batch."""
+        signals: list[dict] = []
+        for i, left in enumerate(entities):
+            for right in entities[i + 1:]:
+                pair_signal = self._build_pair_signal(graph, left, right)
+                if pair_signal is not None:
+                    signals.append(pair_signal)
+        return signals
+
+    def _build_pair_signal(
+        self,
+        graph: KnowledgeGraph,
+        left: Entity,
+        right: Entity,
+    ) -> dict | None:
+        """Build evidence signals for a candidate entity pair.
+
+        Returns None if no signals exist between the pair.
+        """
+        signal: dict = {
+            "left_name": left.name,
+            "left_id": left.entity_id,
+            "right_name": right.name,
+            "right_id": right.entity_id,
+        }
+        has_signal = False
+
+        # Shared 1-hop neighbors with relation details per side
+        left_neighbor_ids = graph.get_neighbors(left.entity_id, hops=1) - {right.entity_id}
+        right_neighbor_ids = graph.get_neighbors(right.entity_id, hops=1) - {left.entity_id}
+        shared_ids = left_neighbor_ids & right_neighbor_ids
+        if shared_ids:
+            shared_neighbors: list[dict] = []
+            for neighbor_id in shared_ids:
+                neighbor = graph.get_entity(neighbor_id)
+                if not neighbor:
+                    continue
+                left_rels = [
+                    rel.relationship_type
+                    for rel in graph.get_relationships_for_entity(left.entity_id)
+                    if rel.source_entity_id == neighbor_id or rel.target_entity_id == neighbor_id
+                ]
+                right_rels = [
+                    rel.relationship_type
+                    for rel in graph.get_relationships_for_entity(right.entity_id)
+                    if rel.source_entity_id == neighbor_id or rel.target_entity_id == neighbor_id
+                ]
+                shared_neighbors.append({
+                    "neighbor_name": neighbor.name,
+                    "left_relations": left_rels,
+                    "right_relations": right_rels,
+                })
+            if shared_neighbors:
+                signal["shared_neighbors"] = shared_neighbors
+                has_signal = True
+
+        # Direct relations between the pair
+        direct_types = self._get_direct_relation_types(graph, left.entity_id, right.entity_id)
+        if direct_types:
+            signal["direct_relations"] = sorted(direct_types)
+            has_signal = True
+
+        # Same role bucket
+        left_bucket = self._role_bucket(left)
+        right_bucket = self._role_bucket(right)
+        if left_bucket and left_bucket == right_bucket:
+            signal["same_role_bucket"] = left_bucket
+            has_signal = True
+
+        # Co-occurring source chunks
+        if left.source_chunks and right.source_chunks:
+            co_occurring = sorted(set(left.source_chunks) & set(right.source_chunks))
+            if co_occurring:
+                signal["co_occurring_chunks"] = co_occurring
+                has_signal = True
+
+        return signal if has_signal else None
 
     def _apply_merge_groups(self, graph: KnowledgeGraph, merge_groups: list[dict]) -> None:
         parent: dict[str, str] = {}
@@ -336,48 +467,6 @@ class LLMEntityResolver:
             duplicate_id = right_id if canonical_id == left_id else left_id
             graph.merge_entities(canonical_id, duplicate_id)
 
-    def _merge_strong_contextual_aliases(self, graph: KnowledgeGraph) -> None:
-        """Merge person-like aliases using strong contextual signals.
-
-        This catches cases like 아내 == 병인 when extraction produced vague RELATED_TO links
-        and shared third-party context, but no explicit ALIAS_OF relation.
-        """
-        changed = True
-        while changed:
-            changed = False
-            entity_ids = list(graph.entities.keys())
-            for i, left_id in enumerate(entity_ids):
-                left = graph.get_entity(left_id)
-                if not left or not self._is_person_like_entity(left):
-                    continue
-
-                for right_id in entity_ids[i + 1:]:
-                    right = graph.get_entity(right_id)
-                    if not right or not self._is_person_like_entity(right):
-                        continue
-
-                    direct_types = self._get_direct_relation_types(graph, left_id, right_id)
-                    if not direct_types.intersection({"RELATED_TO", "REFERS_TO", "SAME_AS", "ALIAS_OF"}):
-                        continue
-
-                    if self._count_shared_neighbors(graph, left_id, right_id) < 1:
-                        continue
-
-                    if not (self._looks_reference_like(left) or self._looks_reference_like(right)):
-                        continue
-
-                    canonical_id = self._select_canonical_id(graph, [left_id, right_id])
-                    if not canonical_id:
-                        continue
-
-                    duplicate_id = right_id if canonical_id == left_id else left_id
-                    if graph.merge_entities(canonical_id, duplicate_id):
-                        changed = True
-                        break
-
-                if changed:
-                    break
-
     def _is_person_like_entity(self, entity: Entity) -> bool:
         if entity.entity_type == "PERSON":
             return True
@@ -391,108 +480,6 @@ class LLMEntityResolver:
             if any(term in text for term in bucket.terms):
                 return bucket.name
         return None
-
-    def _is_bucket_term(self, value: str, bucket: RoleBucket) -> bool:
-        normalized = value.lower().strip()
-        return any(term in normalized for term in bucket.terms)
-
-    def _merge_role_bucket_aliases(self, graph: KnowledgeGraph) -> None:
-        """Merge role labels in the same semantic bucket with shared context."""
-        changed = True
-        while changed:
-            changed = False
-            entity_ids = list(graph.entities.keys())
-            for i, left_id in enumerate(entity_ids):
-                left = graph.get_entity(left_id)
-                if not left or not self._is_person_like_entity(left):
-                    continue
-
-                left_bucket = self._role_bucket(left)
-                if not left_bucket:
-                    continue
-
-                for right_id in entity_ids[i + 1:]:
-                    right = graph.get_entity(right_id)
-                    if not right or not self._is_person_like_entity(right):
-                        continue
-
-                    right_bucket = self._role_bucket(right)
-                    if left_bucket != right_bucket:
-                        continue
-                    if self._count_shared_neighbors(graph, left_id, right_id) < 1:
-                        continue
-
-                    canonical_id = self._select_canonical_id(graph, [left_id, right_id])
-                    if not canonical_id:
-                        continue
-
-                    duplicate_id = right_id if canonical_id == left_id else left_id
-                    if graph.merge_entities(canonical_id, duplicate_id):
-                        changed = True
-                        break
-
-                if changed:
-                    break
-
-    def _reassign_conflicting_aliases(self, graph: KnowledgeGraph) -> None:
-        reassign_buckets = [b for b in self.config.role_buckets if b.reassign_aliases]
-        if not reassign_buckets:
-            return
-
-        changed = False
-        for bucket in reassign_buckets:
-            bucket_entity_ids = [
-                entity_id
-                for entity_id, entity in graph.entities.items()
-                if self._role_bucket(entity) == bucket.name
-            ]
-            if not bucket_entity_ids:
-                continue
-
-            canonical_id = self._select_canonical_id(graph, bucket_entity_ids)
-            if not canonical_id:
-                continue
-
-            canonical_entity = graph.get_entity(canonical_id)
-            if not canonical_entity:
-                continue
-
-            for entity_id, entity in graph.entities.items():
-                if entity_id == canonical_id:
-                    continue
-                if not entity.aliases:
-                    continue
-                if self._role_bucket(entity) == bucket.name:
-                    continue
-
-                moved_aliases = [
-                    alias
-                    for alias in entity.aliases
-                    if self._is_bucket_term(alias, bucket)
-                ]
-                if not moved_aliases:
-                    continue
-
-                entity.aliases = [
-                    alias for alias in entity.aliases if alias not in moved_aliases
-                ]
-                for alias in moved_aliases:
-                    if alias == canonical_entity.name:
-                        continue
-                    if alias not in canonical_entity.aliases:
-                        canonical_entity.aliases.append(alias)
-                changed = True
-
-        if changed:
-            graph._rebuild_entity_name_index()
-
-    def _looks_reference_like(self, entity: Entity) -> bool:
-        if entity.entity_type == "OTHER":
-            return True
-        if self._generic_role_pattern.match(entity.name):
-            return True
-        text = f"{entity.name} {entity.description}".lower()
-        return any(keyword in text for keyword in self.config.person_like_keywords)
 
     def _get_direct_relation_types(
         self,
@@ -510,16 +497,6 @@ class LLMEntityResolver:
             if is_direct:
                 relation_types.add(rel.relationship_type.upper())
         return relation_types
-
-    def _count_shared_neighbors(
-        self,
-        graph: KnowledgeGraph,
-        left_id: str,
-        right_id: str,
-    ) -> int:
-        left_neighbors = graph.get_neighbors(left_id, hops=1) - {right_id}
-        right_neighbors = graph.get_neighbors(right_id, hops=1) - {left_id}
-        return len(left_neighbors.intersection(right_neighbors))
 
     def _is_non_mergeable_pair(
         self,

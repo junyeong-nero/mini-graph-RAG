@@ -575,8 +575,8 @@ class TestEntityResolution:
         assert wife_found.entity_id == patient_found.entity_id
         assert wife_found.entity_id == insult_found.entity_id
 
-    def test_resolver_contextual_merge_without_llm_group(self):
-        """Contextual heuristic should merge wife/patient aliases even without LLM merge group."""
+    def test_resolver_contextual_merge_via_llm_signals(self):
+        """LLM receives shared-neighbor signals and returns merge group for wife/patient."""
         graph = KnowledgeGraph()
 
         kim = Entity(name="김첨지", entity_type="PERSON")
@@ -610,7 +610,16 @@ class TestEntityResolution:
         )
 
         mock_llm = MagicMock()
-        mock_llm.chat_json.return_value = {"merge_groups": []}
+        mock_llm.chat_json.return_value = {
+            "merge_groups": [
+                {
+                    "canonical_entity_id": wife_id,
+                    "duplicate_entity_ids": [patient_id],
+                    "confidence": 0.90,
+                    "reason": "shared neighbor 김첨지 + patient role",
+                }
+            ]
+        }
 
         resolver = LLMEntityResolver(llm_client=mock_llm)
         resolver.resolve(graph)
@@ -621,17 +630,24 @@ class TestEntityResolution:
         assert patient_found is not None
         assert wife_found.entity_id == patient_found.entity_id
 
-    def test_resolver_role_bucket_merge_without_direct_link(self):
-        """Role-bucket heuristic should merge spouse/patient aliases sharing a neighbor."""
+        # Verify LLM prompt included candidate signals
+        call_args = mock_llm.chat_json.call_args
+        user_prompt = call_args.kwargs.get("user_prompt", call_args[1].get("user_prompt", "")) if call_args.kwargs else ""
+        if not user_prompt and call_args.args:
+            user_prompt = call_args.kwargs.get("user_prompt", "")
+        assert "Candidate merge pairs" in user_prompt
+
+    def test_resolver_role_bucket_merge_via_llm_signals(self):
+        """LLM receives shared-neighbor signals for spouse-bucket pair and returns merge group."""
         graph = KnowledgeGraph()
 
         kim = Entity(name="김첨지", entity_type="PERSON")
         wife = Entity(name="아내", entity_type="PERSON")
-        insult = Entity(name="오라질년", entity_type="PERSON")
+        patient = Entity(name="병인", entity_type="PERSON", description="김첨지의 아내")
 
         kim_id = graph.add_entity(kim)
         wife_id = graph.add_entity(wife)
-        insult_id = graph.add_entity(insult)
+        patient_id = graph.add_entity(patient)
 
         graph.add_relationship(
             Relationship(
@@ -643,42 +659,73 @@ class TestEntityResolution:
         graph.add_relationship(
             Relationship(
                 source_entity_id=kim_id,
-                target_entity_id=insult_id,
-                relationship_type="RELATED_TO",
+                target_entity_id=patient_id,
+                relationship_type="CARES_FOR",
             )
         )
 
         mock_llm = MagicMock()
-        mock_llm.chat_json.return_value = {"merge_groups": []}
+        mock_llm.chat_json.return_value = {
+            "merge_groups": [
+                {
+                    "canonical_entity_id": wife_id,
+                    "duplicate_entity_ids": [patient_id],
+                    "confidence": 0.90,
+                    "reason": "same role bucket spouse + shared neighbor",
+                }
+            ]
+        }
 
         resolver = LLMEntityResolver(llm_client=mock_llm)
         resolver.resolve(graph)
 
         wife_found = graph.get_entity_by_name("아내")
-        insult_found = graph.get_entity_by_name("오라질년")
+        patient_found = graph.get_entity_by_name("병인")
         assert wife_found is not None
-        assert insult_found is not None
-        assert wife_found.entity_id == insult_found.entity_id
+        assert patient_found is not None
+        assert wife_found.entity_id == patient_found.entity_id
 
-    def test_resolver_reassigns_conflicting_spouse_aliases(self):
-        """Spouse alias accidentally attached to child should be reassigned to spouse entity."""
+    def test_collect_merge_signals_includes_role_bucket(self):
+        """_collect_merge_signals returns shared_neighbors signal for entities sharing a neighbor."""
         graph = KnowledgeGraph()
 
-        child = Entity(name="개똥이", entity_type="PERSON", aliases=["오라질 년"])
-        spouse = Entity(name="병인", entity_type="PERSON", description="김첨지의 아내")
+        kim = Entity(name="김첨지", entity_type="PERSON")
+        wife = Entity(name="아내", entity_type="PERSON")
+        patient = Entity(name="병인", entity_type="PERSON", description="김첨지의 아내")
 
-        graph.add_entity(child)
-        spouse_id = graph.add_entity(spouse)
+        kim_id = graph.add_entity(kim)
+        wife_id = graph.add_entity(wife)
+        patient_id = graph.add_entity(patient)
+
+        graph.add_relationship(
+            Relationship(
+                source_entity_id=kim_id,
+                target_entity_id=wife_id,
+                relationship_type="MARRIED_TO",
+            )
+        )
+        graph.add_relationship(
+            Relationship(
+                source_entity_id=kim_id,
+                target_entity_id=patient_id,
+                relationship_type="CARES_FOR",
+            )
+        )
 
         mock_llm = MagicMock()
-        mock_llm.chat_json.return_value = {"merge_groups": []}
-
         resolver = LLMEntityResolver(llm_client=mock_llm)
-        resolver.resolve(graph)
 
-        found = graph.get_entity_by_name("오라질 년")
-        assert found is not None
-        assert found.entity_id == spouse_id
+        entities = [
+            graph.entities[wife_id],
+            graph.entities[patient_id],
+        ]
+        signals = resolver._collect_merge_signals(graph, entities)
+
+        assert len(signals) >= 1
+        pair = signals[0]
+        assert "shared_neighbors" in pair
+        neighbor_names = [n["neighbor_name"] for n in pair["shared_neighbors"]]
+        assert "김첨지" in neighbor_names
 
     def test_resolver_does_not_merge_married_pair_even_if_llm_suggests(self):
         """Direct MARRIED_TO relation must block erroneous LLM merge."""
@@ -717,3 +764,70 @@ class TestEntityResolution:
         assert kim_found is not None
         assert wife_found is not None
         assert kim_found.entity_id != wife_found.entity_id
+
+    def test_collect_merge_signals_co_occurring_chunks(self):
+        """co_occurring_chunks signal is present when entities share source chunks."""
+        graph = KnowledgeGraph()
+
+        e1 = Entity(
+            name="A",
+            entity_type="PERSON",
+            source_chunks=["chunk1", "chunk2", "chunk3"],
+        )
+        e2 = Entity(
+            name="B",
+            entity_type="PERSON",
+            source_chunks=["chunk2", "chunk3", "chunk4"],
+        )
+
+        graph.add_entity(e1)
+        graph.add_entity(e2)
+
+        mock_llm = MagicMock()
+        resolver = LLMEntityResolver(llm_client=mock_llm)
+
+        signals = resolver._collect_merge_signals(graph, [e1, e2])
+
+        assert len(signals) == 1
+        pair = signals[0]
+        assert "co_occurring_chunks" in pair
+        assert pair["co_occurring_chunks"] == ["chunk2", "chunk3"]
+
+    def test_resolve_batch_includes_candidate_signals_in_prompt(self):
+        """LLM prompt includes 'Candidate merge pairs' section when signals exist."""
+        graph = KnowledgeGraph()
+
+        kim = Entity(name="김첨지", entity_type="PERSON")
+        wife = Entity(name="아내", entity_type="PERSON")
+        patient = Entity(name="병인", entity_type="PERSON")
+
+        kim_id = graph.add_entity(kim)
+        wife_id = graph.add_entity(wife)
+        patient_id = graph.add_entity(patient)
+
+        graph.add_relationship(
+            Relationship(
+                source_entity_id=kim_id,
+                target_entity_id=wife_id,
+                relationship_type="MARRIED_TO",
+            )
+        )
+        graph.add_relationship(
+            Relationship(
+                source_entity_id=kim_id,
+                target_entity_id=patient_id,
+                relationship_type="CARES_FOR",
+            )
+        )
+
+        mock_llm = MagicMock()
+        mock_llm.chat_json.return_value = {"merge_groups": []}
+
+        resolver = LLMEntityResolver(llm_client=mock_llm)
+        batch = [graph.entities[wife_id], graph.entities[patient_id]]
+        resolver._resolve_batch(graph, batch)
+
+        call_args = mock_llm.chat_json.call_args
+        user_prompt = call_args.kwargs.get("user_prompt", "")
+        assert "Candidate merge pairs with supporting evidence" in user_prompt
+        assert "shared_neighbors" in user_prompt
