@@ -21,3 +21,12 @@ openai:
 chunking:
     chunk_size: 1024
     chunk_overlap: 64
+
+# Storage Layout
+storage:
+    # Generated knowledge graphs
+    kg_dir: "data/kg"
+    # Evaluation datasets (eval/hardset JSONL)
+    dataset_dir: "data/eval"
+    # Evaluation outputs (results JSON)
+    results_dir: "data/results"
