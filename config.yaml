@@ -25,8 +25,10 @@ chunking:
 # Storage Layout
 storage:
     # Generated knowledge graphs
-    kg_dir: "data/kg"
-    # Evaluation datasets (eval/hardset JSONL)
+    kg_dir: "data/KG"
+    # Evaluation datasets (eval JSONL + results)
     dataset_dir: "data/eval"
+    # Hardset datasets (hardset JSONL + results)
+    hardset_dir: "data/eval-hardset"
     # Evaluation outputs (results JSON)
-    results_dir: "data/results"
+    results_dir: "data/eval"

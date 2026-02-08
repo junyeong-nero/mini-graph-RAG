@@ -1,0 +1,637 @@
+{
+  "entities": {
+    "4c552db5-50a7-42c9-96fd-771db864643f": {
+      "entity_id": "4c552db5-50a7-42c9-96fd-771db864643f",
+      "name": "김유정",
+      "entity_type": "PERSON",
+      "description": "Author of the work '동백꽃'",
+      "attributes": {},
+      "source_chunks": [
+        "4ee71bb5-b43d-4f76-8871-1eb15f2a16e4"
+      ]
+    },
+    "dc3964a4-9621-4495-8e7f-4353d08be3e4": {
+      "entity_id": "dc3964a4-9621-4495-8e7f-4353d08be3e4",
+      "name": "동백꽃",
+      "entity_type": "CONCEPT",
+      "description": "Title of the work by 김유정",
+      "attributes": {},
+      "source_chunks": [
+        "4ee71bb5-b43d-4f76-8871-1eb15f2a16e4"
+      ]
+    },
+    "014fefe2-e85c-4f87-95fa-4dc5feb31404": {
+      "entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "name": "점순",
+      "entity_type": "PERSON",
+      "description": "Character mentioned in the text A girl in the village, characterized by her shyness and emotional reactions. A character involved in a conflict over a chicken A character involved in a conflict over chickens A character who observes the rooster fight A character who reacts to the situation with surprise and amusement A character who plays the 호드기 A character in the text, likely a young girl Character mentioned in the text, possibly a girl A derogatory term used for a girl or woman",
+      "attributes": {},
+      "source_chunks": [
+        "263aa397-2787-48a7-bbbe-5c5bec800b46",
+        "3152418c-2899-4570-82ca-c7d099695ece",
+        "1e850f9c-9b7e-4962-85b7-95be07019fa7",
+        "f7ce11f3-47ba-47aa-a117-fcd188c1c4b5",
+        "06351e16-8282-4de1-9bb1-b6f575550c8a",
+        "aa0a4edd-9232-43ce-9187-fd9fe21f1dad",
+        "4ee71bb5-b43d-4f76-8871-1eb15f2a16e4",
+        "61a093b6-82b9-470e-b9f7-fa949402b7b0"
+      ],
+      "aliases": [
+        "점순이",
+        "계집애"
+      ]
+    },
+    "7fe13ecd-a6d5-410b-9d79-e6e705bea1b2": {
+      "entity_id": "7fe13ecd-a6d5-410b-9d79-e6e705bea1b2",
+      "name": "대강이",
+      "entity_type": "OTHER",
+      "description": "Character mentioned in the text, likely a rooster",
+      "attributes": {},
+      "source_chunks": [
+        "4ee71bb5-b43d-4f76-8871-1eb15f2a16e4"
+      ]
+    },
+    "f9f61ee7-b6f9-4719-80b3-b269cb6aa839": {
+      "entity_id": "f9f61ee7-b6f9-4719-80b3-b269cb6aa839",
+      "name": "수탉",
+      "entity_type": "OTHER",
+      "description": "Rooster mentioned in the text Rooster involved in the conflict A rooster that is involved in the events described A rooster that is injured",
+      "attributes": {},
+      "source_chunks": [
+        "aa0a4edd-9232-43ce-9187-fd9fe21f1dad",
+        "f7ce11f3-47ba-47aa-a117-fcd188c1c4b5",
+        "4ee71bb5-b43d-4f76-8871-1eb15f2a16e4",
+        "3152418c-2899-4570-82ca-c7d099695ece"
+      ]
+    },
+    "7234a452-2991-4380-aa5d-6dbee23705ba": {
+      "entity_id": "7234a452-2991-4380-aa5d-6dbee23705ba",
+      "name": "나",
+      "entity_type": "PERSON",
+      "description": "The narrator of the story, who interacts with 점순. The narrator who is observing the situation",
+      "attributes": {},
+      "source_chunks": [
+        "aa0a4edd-9232-43ce-9187-fd9fe21f1dad",
+        "61a093b6-82b9-470e-b9f7-fa949402b7b0",
+        "1e850f9c-9b7e-4962-85b7-95be07019fa7"
+      ],
+      "aliases": [
+        "내"
+      ]
+    },
+    "2b3f0dec-abfa-46ab-b930-9b537a21f5c4": {
+      "entity_id": "2b3f0dec-abfa-46ab-b930-9b537a21f5c4",
+      "name": "동리",
+      "entity_type": "PLACE",
+      "description": "The village where the events take place.",
+      "attributes": {},
+      "source_chunks": [
+        "61a093b6-82b9-470e-b9f7-fa949402b7b0",
+        "1e850f9c-9b7e-4962-85b7-95be07019fa7"
+      ]
+    },
+    "94e218b8-e6c5-41d1-8944-2914efdbdf2f": {
+      "entity_id": "94e218b8-e6c5-41d1-8944-2914efdbdf2f",
+      "name": "감자",
+      "entity_type": "CONCEPT",
+      "description": "Potatoes, which are a significant part of the interaction between the characters.",
+      "attributes": {},
+      "source_chunks": [
+        "61a093b6-82b9-470e-b9f7-fa949402b7b0"
+      ]
+    },
+    "53d0f25f-da94-4c48-82c1-4f8ded049e90": {
+      "entity_id": "53d0f25f-da94-4c48-82c1-4f8ded049e90",
+      "name": "우리 어머니",
+      "entity_type": "PERSON",
+      "description": "The narrator's mother The mother of 점순이",
+      "attributes": {},
+      "source_chunks": [
+        "263aa397-2787-48a7-bbbe-5c5bec800b46",
+        "1e850f9c-9b7e-4962-85b7-95be07019fa7"
+      ],
+      "aliases": [
+        "어머니"
+      ]
+    },
+    "c5fb4323-69a5-4bad-918d-97e78d9a1973": {
+      "entity_id": "c5fb4323-69a5-4bad-918d-97e78d9a1973",
+      "name": "우리 아버지",
+      "entity_type": "PERSON",
+      "description": "The narrator's father The father figure mentioned in the text",
+      "attributes": {},
+      "source_chunks": [
+        "3152418c-2899-4570-82ca-c7d099695ece",
+        "1e850f9c-9b7e-4962-85b7-95be07019fa7"
+      ],
+      "aliases": [
+        "아버지"
+      ]
+    },
+    "ba5b321e-fb03-4ec7-95ff-7faea355f80e": {
+      "entity_id": "ba5b321e-fb03-4ec7-95ff-7faea355f80e",
+      "name": "우리 씨암탉",
+      "entity_type": "OTHER",
+      "description": "The narrator's hen that is being harmed",
+      "attributes": {},
+      "source_chunks": [
+        "1e850f9c-9b7e-4962-85b7-95be07019fa7"
+      ]
+    },
+    "e6ac4bc8-0604-439f-9649-15e5299444c7": {
+      "entity_id": "e6ac4bc8-0604-439f-9649-15e5299444c7",
+      "name": "닭",
+      "entity_type": "OTHER",
+      "description": "Chickens that are central to the conflict",
+      "attributes": {},
+      "source_chunks": [
+        "aa0a4edd-9232-43ce-9187-fd9fe21f1dad"
+      ]
+    },
+    "5b6da1d4-0bee-474d-b7fb-1767f99d2c9d": {
+      "entity_id": "5b6da1d4-0bee-474d-b7fb-1767f99d2c9d",
+      "name": "순이",
+      "entity_type": "PERSON",
+      "description": "A character involved in the conflict with the roosters",
+      "attributes": {},
+      "source_chunks": [
+        "06351e16-8282-4de1-9bb1-b6f575550c8a"
+      ]
+    },
+    "f51a7f4f-5029-4d6e-a435-937b3b835044": {
+      "entity_id": "f51a7f4f-5029-4d6e-a435-937b3b835044",
+      "name": "우리 수탉",
+      "entity_type": "OTHER",
+      "description": "The narrator's rooster",
+      "attributes": {},
+      "source_chunks": [
+        "06351e16-8282-4de1-9bb1-b6f575550c8a"
+      ]
+    },
+    "4e123b73-1c59-4777-a4de-9e1a06cb31fe": {
+      "entity_id": "4e123b73-1c59-4777-a4de-9e1a06cb31fe",
+      "name": "제 집 수탉",
+      "entity_type": "OTHER",
+      "description": "The rooster from another household",
+      "attributes": {},
+      "source_chunks": [
+        "06351e16-8282-4de1-9bb1-b6f575550c8a"
+      ]
+    },
+    "71ce14aa-4bda-4604-b9f2-28fdf459dbbe": {
+      "entity_id": "71ce14aa-4bda-4604-b9f2-28fdf459dbbe",
+      "name": "고추장",
+      "entity_type": "CONCEPT",
+      "description": "A spicy red pepper paste used in Korean cuisine A spicy Korean condiment used in the preparation",
+      "attributes": {},
+      "source_chunks": [
+        "3152418c-2899-4570-82ca-c7d099695ece",
+        "06351e16-8282-4de1-9bb1-b6f575550c8a"
+      ]
+    },
+    "a505597f-066a-4fc4-8b92-bd27ea6cd99d": {
+      "entity_id": "a505597f-066a-4fc4-8b92-bd27ea6cd99d",
+      "name": "장독",
+      "entity_type": "PLACE",
+      "description": "A traditional Korean jar used for storing fermented foods",
+      "attributes": {},
+      "source_chunks": [
+        "06351e16-8282-4de1-9bb1-b6f575550c8a"
+      ]
+    },
+    "366c1883-d5a2-4a4a-90c8-7ebdacb27c6e": {
+      "entity_id": "366c1883-d5a2-4a4a-90c8-7ebdacb27c6e",
+      "name": "밭",
+      "entity_type": "PLACE",
+      "description": "Field where the roosters are fighting",
+      "attributes": {},
+      "source_chunks": [
+        "06351e16-8282-4de1-9bb1-b6f575550c8a"
+      ]
+    },
+    "78cdb5b6-79bd-4ba0-97f3-4bf8fba84bcf": {
+      "entity_id": "78cdb5b6-79bd-4ba0-97f3-4bf8fba84bcf",
+      "name": "소나무",
+      "entity_type": "PLACE",
+      "description": "Refers to pine trees, possibly in a forest setting",
+      "attributes": {},
+      "source_chunks": [
+        "3152418c-2899-4570-82ca-c7d099695ece"
+      ]
+    },
+    "fa34a8f9-9a11-4166-b56a-de771e901984": {
+      "entity_id": "fa34a8f9-9a11-4166-b56a-de771e901984",
+      "name": "망할년",
+      "entity_type": "PERSON",
+      "description": "A character mentioned with negative connotation",
+      "attributes": {},
+      "source_chunks": [
+        "3152418c-2899-4570-82ca-c7d099695ece"
+      ]
+    },
+    "fad02d4d-cbba-4bf2-9a1c-c1a898878977": {
+      "entity_id": "fad02d4d-cbba-4bf2-9a1c-c1a898878977",
+      "name": "나무",
+      "entity_type": "CONCEPT",
+      "description": "Refers to the tree being carried",
+      "attributes": {},
+      "source_chunks": [
+        "f7ce11f3-47ba-47aa-a117-fcd188c1c4b5"
+      ]
+    },
+    "a199077f-f3e7-4945-a589-5712c753e9dd": {
+      "entity_id": "a199077f-f3e7-4945-a589-5712c753e9dd",
+      "name": "호드기",
+      "entity_type": "CONCEPT",
+      "description": "A musical instrument being played",
+      "attributes": {},
+      "source_chunks": [
+        "f7ce11f3-47ba-47aa-a117-fcd188c1c4b5"
+      ]
+    },
+    "236781e6-50b1-40d8-a6d1-ebd58cfe4f55": {
+      "entity_id": "236781e6-50b1-40d8-a6d1-ebd58cfe4f55",
+      "name": "노란 동백꽃",
+      "entity_type": "OTHER",
+      "description": "A type of flower mentioned in the text",
+      "attributes": {},
+      "source_chunks": [
+        "263aa397-2787-48a7-bbbe-5c5bec800b46"
+      ]
+    },
+    "1ce5395c-63ac-46b8-a3a6-da9a9e414c04": {
+      "entity_id": "1ce5395c-63ac-46b8-a3a6-da9a9e414c04",
+      "name": "산",
+      "entity_type": "PLACE",
+      "description": "A mountain referenced in the text",
+      "attributes": {},
+      "source_chunks": [
+        "263aa397-2787-48a7-bbbe-5c5bec800b46"
+      ]
+    },
+    "7dd47a25-f7eb-4377-a014-b042b0ef863d": {
+      "entity_id": "7dd47a25-f7eb-4377-a014-b042b0ef863d",
+      "name": "조광7",
+      "entity_type": "EVENT",
+      "description": "The source of the text, possibly a publication",
+      "attributes": {},
+      "source_chunks": [
+        "263aa397-2787-48a7-bbbe-5c5bec800b46"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "relationship_id": "7075c11d-3a4a-40fd-9390-f6ab26cdd58c",
+      "source_entity_id": "4c552db5-50a7-42c9-96fd-771db864643f",
+      "target_entity_id": "dc3964a4-9621-4495-8e7f-4353d08be3e4",
+      "relationship_type": "CREATED_BY",
+      "description": "김유정 is the author of the work '동백꽃'",
+      "weight": 1.0,
+      "source_chunks": [
+        "4ee71bb5-b43d-4f76-8871-1eb15f2a16e4"
+      ]
+    },
+    {
+      "relationship_id": "524f6275-f79a-4efa-9b44-d3ef2b76cdfe",
+      "source_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "target_entity_id": "7fe13ecd-a6d5-410b-9d79-e6e705bea1b2",
+      "relationship_type": "RELATED_TO",
+      "description": "점순 is related to 대강이 in the context of the narrative",
+      "weight": 1.0,
+      "source_chunks": [
+        "4ee71bb5-b43d-4f76-8871-1eb15f2a16e4"
+      ]
+    },
+    {
+      "relationship_id": "aa6c5d6e-cd00-4ce6-aa83-2502203a9aa3",
+      "source_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "target_entity_id": "7234a452-2991-4380-aa5d-6dbee23705ba",
+      "relationship_type": "KNOWS",
+      "description": "점순 interacts with the narrator, showing a mix of emotions.",
+      "weight": 1.0,
+      "source_chunks": [
+        "61a093b6-82b9-470e-b9f7-fa949402b7b0"
+      ]
+    },
+    {
+      "relationship_id": "fc0830ef-813d-4d7d-b3b2-1837928dc629",
+      "source_entity_id": "7234a452-2991-4380-aa5d-6dbee23705ba",
+      "target_entity_id": "2b3f0dec-abfa-46ab-b930-9b537a21f5c4",
+      "relationship_type": "LOCATED_IN",
+      "description": "The narrator lives in the village.",
+      "weight": 1.0,
+      "source_chunks": [
+        "61a093b6-82b9-470e-b9f7-fa949402b7b0"
+      ]
+    },
+    {
+      "relationship_id": "83330eaa-a05c-476c-9e17-3a836e0e7a6e",
+      "source_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "target_entity_id": "94e218b8-e6c5-41d1-8944-2914efdbdf2f",
+      "relationship_type": "RELATED_TO",
+      "description": "점순 offers potatoes to the narrator.",
+      "weight": 1.0,
+      "source_chunks": [
+        "61a093b6-82b9-470e-b9f7-fa949402b7b0"
+      ]
+    },
+    {
+      "relationship_id": "078ea112-6a40-4e93-b5d5-b66eadbf3d9a",
+      "source_entity_id": "7234a452-2991-4380-aa5d-6dbee23705ba",
+      "target_entity_id": "94e218b8-e6c5-41d1-8944-2914efdbdf2f",
+      "relationship_type": "RELATED_TO",
+      "description": "The narrator refuses the potatoes offered by 점순.",
+      "weight": 1.0,
+      "source_chunks": [
+        "61a093b6-82b9-470e-b9f7-fa949402b7b0"
+      ]
+    },
+    {
+      "relationship_id": "9fc7b47d-d657-4d98-96f5-5e0f98ff93f0",
+      "source_entity_id": "53d0f25f-da94-4c48-82c1-4f8ded049e90",
+      "target_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "relationship_type": "KNOWS",
+      "description": "The narrator's mother knows 점순이 and has interactions with her.",
+      "weight": 1.0,
+      "source_chunks": [
+        "1e850f9c-9b7e-4962-85b7-95be07019fa7"
+      ]
+    },
+    {
+      "relationship_id": "23698073-4af1-4f99-880f-e39fd5cb87b4",
+      "source_entity_id": "c5fb4323-69a5-4bad-918d-97e78d9a1973",
+      "target_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "relationship_type": "KNOWS",
+      "description": "The narrator's father knows 점순이 and has interactions with her.",
+      "weight": 1.0,
+      "source_chunks": [
+        "1e850f9c-9b7e-4962-85b7-95be07019fa7"
+      ]
+    },
+    {
+      "relationship_id": "a0d0a126-7dac-4c65-96a1-50cfc445710e",
+      "source_entity_id": "7234a452-2991-4380-aa5d-6dbee23705ba",
+      "target_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "relationship_type": "RELATED_TO",
+      "description": "The narrator has a conflict with 점순이.",
+      "weight": 1.0,
+      "source_chunks": [
+        "1e850f9c-9b7e-4962-85b7-95be07019fa7"
+      ]
+    },
+    {
+      "relationship_id": "a7be7b98-3a3d-4c1e-b4f7-413a6b50496b",
+      "source_entity_id": "ba5b321e-fb03-4ec7-95ff-7faea355f80e",
+      "target_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "relationship_type": "RELATED_TO",
+      "description": "The hen is involved in the conflict with 점순이.",
+      "weight": 1.0,
+      "source_chunks": [
+        "1e850f9c-9b7e-4962-85b7-95be07019fa7"
+      ]
+    },
+    {
+      "relationship_id": "c59e7e62-909f-4375-91ee-90fdc0c6ab1f",
+      "source_entity_id": "7234a452-2991-4380-aa5d-6dbee23705ba",
+      "target_entity_id": "2b3f0dec-abfa-46ab-b930-9b537a21f5c4",
+      "relationship_type": "LOCATED_IN",
+      "description": "The narrator is located in the 동리.",
+      "weight": 1.0,
+      "source_chunks": [
+        "1e850f9c-9b7e-4962-85b7-95be07019fa7"
+      ]
+    },
+    {
+      "relationship_id": "7c575c33-a5c2-4025-8a1e-7cdfa439c7b4",
+      "source_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "target_entity_id": "7234a452-2991-4380-aa5d-6dbee23705ba",
+      "relationship_type": "RELATED_TO",
+      "description": "Point of conflict between 점순이 and the narrator over chickens",
+      "weight": 1.0,
+      "source_chunks": [
+        "aa0a4edd-9232-43ce-9187-fd9fe21f1dad"
+      ]
+    },
+    {
+      "relationship_id": "8807772d-66b6-4697-8591-af55426d4a91",
+      "source_entity_id": "7234a452-2991-4380-aa5d-6dbee23705ba",
+      "target_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "relationship_type": "RELATED_TO",
+      "description": "The narrator expresses anger towards the girl",
+      "weight": 1.0,
+      "source_chunks": [
+        "aa0a4edd-9232-43ce-9187-fd9fe21f1dad"
+      ]
+    },
+    {
+      "relationship_id": "138edec8-e9c6-4ae3-8287-657266b6c197",
+      "source_entity_id": "7234a452-2991-4380-aa5d-6dbee23705ba",
+      "target_entity_id": "f9f61ee7-b6f9-4719-80b3-b269cb6aa839",
+      "relationship_type": "RELATED_TO",
+      "description": "The narrator's rooster involved in fights",
+      "weight": 1.0,
+      "source_chunks": [
+        "aa0a4edd-9232-43ce-9187-fd9fe21f1dad"
+      ]
+    },
+    {
+      "relationship_id": "9c7474cc-bd33-4a4d-be25-e2a809116095",
+      "source_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "target_entity_id": "f9f61ee7-b6f9-4719-80b3-b269cb6aa839",
+      "relationship_type": "RELATED_TO",
+      "description": "점순이 brings her rooster to fight with the narrator's rooster",
+      "weight": 1.0,
+      "source_chunks": [
+        "aa0a4edd-9232-43ce-9187-fd9fe21f1dad"
+      ]
+    },
+    {
+      "relationship_id": "1ac0e605-633b-45d9-8a04-9846a6422efb",
+      "source_entity_id": "e6ac4bc8-0604-439f-9649-15e5299444c7",
+      "target_entity_id": "f9f61ee7-b6f9-4719-80b3-b269cb6aa839",
+      "relationship_type": "RELATED_TO",
+      "description": "Chickens are involved in the fights between the roosters",
+      "weight": 1.0,
+      "source_chunks": [
+        "aa0a4edd-9232-43ce-9187-fd9fe21f1dad"
+      ]
+    },
+    {
+      "relationship_id": "4a446fbb-2857-4ea4-860c-7681dbae2512",
+      "source_entity_id": "5b6da1d4-0bee-474d-b7fb-1767f99d2c9d",
+      "target_entity_id": "f51a7f4f-5029-4d6e-a435-937b3b835044",
+      "relationship_type": "RELATED_TO",
+      "description": "순이 is involved in the conflict with 우리 수탉",
+      "weight": 1.0,
+      "source_chunks": [
+        "06351e16-8282-4de1-9bb1-b6f575550c8a"
+      ]
+    },
+    {
+      "relationship_id": "acfa8609-39fb-47cc-9fd7-3cb8a8f39ccc",
+      "source_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "target_entity_id": "f51a7f4f-5029-4d6e-a435-937b3b835044",
+      "relationship_type": "RELATED_TO",
+      "description": "점순이 observes the fight involving 우리 수탉",
+      "weight": 1.0,
+      "source_chunks": [
+        "06351e16-8282-4de1-9bb1-b6f575550c8a"
+      ]
+    },
+    {
+      "relationship_id": "feb2694d-0fa4-4e04-9b69-8582d4c49a92",
+      "source_entity_id": "f51a7f4f-5029-4d6e-a435-937b3b835044",
+      "target_entity_id": "4e123b73-1c59-4777-a4de-9e1a06cb31fe",
+      "relationship_type": "RELATED_TO",
+      "description": "우리 수탉 fights against 제 집 수탉",
+      "weight": 1.0,
+      "source_chunks": [
+        "06351e16-8282-4de1-9bb1-b6f575550c8a"
+      ]
+    },
+    {
+      "relationship_id": "db2ff254-b59e-4e4c-9aae-4ea7548c4444",
+      "source_entity_id": "f51a7f4f-5029-4d6e-a435-937b3b835044",
+      "target_entity_id": "71ce14aa-4bda-4604-b9f2-28fdf459dbbe",
+      "relationship_type": "RELATED_TO",
+      "description": "고추장 is used to enhance the strength of 우리 수탉",
+      "weight": 1.0,
+      "source_chunks": [
+        "06351e16-8282-4de1-9bb1-b6f575550c8a"
+      ]
+    },
+    {
+      "relationship_id": "6dce97f8-7275-4d1f-95b6-0f5894ab1d25",
+      "source_entity_id": "a505597f-066a-4fc4-8b92-bd27ea6cd99d",
+      "target_entity_id": "71ce14aa-4bda-4604-b9f2-28fdf459dbbe",
+      "relationship_type": "LOCATED_IN",
+      "description": "고추장 is stored in 장독",
+      "weight": 1.0,
+      "source_chunks": [
+        "06351e16-8282-4de1-9bb1-b6f575550c8a"
+      ]
+    },
+    {
+      "relationship_id": "6f376ddf-b0f8-4865-9e99-3e6eb39ad764",
+      "source_entity_id": "366c1883-d5a2-4a4a-90c8-7ebdacb27c6e",
+      "target_entity_id": "f51a7f4f-5029-4d6e-a435-937b3b835044",
+      "relationship_type": "LOCATED_IN",
+      "description": "우리 수탉 fights in the 밭",
+      "weight": 1.0,
+      "source_chunks": [
+        "06351e16-8282-4de1-9bb1-b6f575550c8a"
+      ]
+    },
+    {
+      "relationship_id": "e9532866-bf39-4763-bc5d-d929edf8f30c",
+      "source_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "target_entity_id": "f9f61ee7-b6f9-4719-80b3-b269cb6aa839",
+      "relationship_type": "RELATED_TO",
+      "description": "점순이 reacts to the actions of the 수탉",
+      "weight": 1.0,
+      "source_chunks": [
+        "3152418c-2899-4570-82ca-c7d099695ece"
+      ]
+    },
+    {
+      "relationship_id": "336d810d-4dff-4d05-879c-3b59a7b3329b",
+      "source_entity_id": "c5fb4323-69a5-4bad-918d-97e78d9a1973",
+      "target_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "relationship_type": "KNOWS",
+      "description": "점순이 is aware of 아버지's presence",
+      "weight": 1.0,
+      "source_chunks": [
+        "3152418c-2899-4570-82ca-c7d099695ece"
+      ]
+    },
+    {
+      "relationship_id": "aa271890-1aff-4446-87ce-077f6fe1e522",
+      "source_entity_id": "71ce14aa-4bda-4604-b9f2-28fdf459dbbe",
+      "target_entity_id": "f9f61ee7-b6f9-4719-80b3-b269cb6aa839",
+      "relationship_type": "USED_IN",
+      "description": "고추장 is used in the preparation involving 수탉",
+      "weight": 1.0,
+      "source_chunks": [
+        "3152418c-2899-4570-82ca-c7d099695ece"
+      ]
+    },
+    {
+      "relationship_id": "cd7a8dc8-e6d0-4703-a97b-292246228570",
+      "source_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "target_entity_id": "a199077f-f3e7-4945-a589-5712c753e9dd",
+      "relationship_type": "PLAYS",
+      "description": "점순이 is playing the 호드기",
+      "weight": 1.0,
+      "source_chunks": [
+        "f7ce11f3-47ba-47aa-a117-fcd188c1c4b5"
+      ]
+    },
+    {
+      "relationship_id": "365538f5-3a3f-49cb-a1c3-e8d2debe81d0",
+      "source_entity_id": "f9f61ee7-b6f9-4719-80b3-b269cb6aa839",
+      "target_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "relationship_type": "RELATED_TO",
+      "description": "The injured 수탉 is related to 점순이 as it is part of the scene",
+      "weight": 1.0,
+      "source_chunks": [
+        "f7ce11f3-47ba-47aa-a117-fcd188c1c4b5"
+      ]
+    },
+    {
+      "relationship_id": "3f5cab26-46cc-4b71-a53d-204f5a726c79",
+      "source_entity_id": "fad02d4d-cbba-4bf2-9a1c-c1a898878977",
+      "target_entity_id": "a199077f-f3e7-4945-a589-5712c753e9dd",
+      "relationship_type": "CARRIED_BY",
+      "description": "The 나무 is being carried by the character",
+      "weight": 1.0,
+      "source_chunks": [
+        "f7ce11f3-47ba-47aa-a117-fcd188c1c4b5"
+      ]
+    },
+    {
+      "relationship_id": "d93c2a38-9946-4207-841f-24f54d3d0a39",
+      "source_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "target_entity_id": "53d0f25f-da94-4c48-82c1-4f8ded049e90",
+      "relationship_type": "PART_OF",
+      "description": "점순이 is the daughter of 어머니",
+      "weight": 1.0,
+      "source_chunks": [
+        "263aa397-2787-48a7-bbbe-5c5bec800b46"
+      ]
+    },
+    {
+      "relationship_id": "6442c3eb-68ed-4dd2-9fbf-261764f002c1",
+      "source_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "target_entity_id": "236781e6-50b1-40d8-a6d1-ebd58cfe4f55",
+      "relationship_type": "RELATED_TO",
+      "description": "점순이 is associated with the 노란 동백꽃 in the context of the scene",
+      "weight": 1.0,
+      "source_chunks": [
+        "263aa397-2787-48a7-bbbe-5c5bec800b46"
+      ]
+    },
+    {
+      "relationship_id": "61453f66-83f6-4137-9d94-83a9d934649f",
+      "source_entity_id": "1ce5395c-63ac-46b8-a3a6-da9a9e414c04",
+      "target_entity_id": "236781e6-50b1-40d8-a6d1-ebd58cfe4f55",
+      "relationship_type": "LOCATED_IN",
+      "description": "노란 동백꽃 is located in the vicinity of the 산",
+      "weight": 1.0,
+      "source_chunks": [
+        "263aa397-2787-48a7-bbbe-5c5bec800b46"
+      ]
+    },
+    {
+      "relationship_id": "6d36e935-2b02-45fc-bf9c-b0112c0b2c32",
+      "source_entity_id": "7dd47a25-f7eb-4377-a014-b042b0ef863d",
+      "target_entity_id": "014fefe2-e85c-4f87-95fa-4dc5feb31404",
+      "relationship_type": "MENTIONS",
+      "description": "The text 조광7 mentions the character 점순이",
+      "weight": 1.0,
+      "source_chunks": [
+        "263aa397-2787-48a7-bbbe-5c5bec800b46"
+      ]
+    }
+  ]
+}

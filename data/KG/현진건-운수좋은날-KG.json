@@ -1,0 +1,945 @@
+{
+  "entities": {
+    "d558dabf-af8b-4281-98f4-3121b6eef874": {
+      "entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "name": "김첨지",
+      "entity_type": "PERSON",
+      "description": "인력거꾼으로 일하는 주인공 A character who is depicted as a husband and caretaker A character in the text, likely a rickshaw puller A character who is pulling a rickshaw 인력거꾼, 주인공 A character with a distinct appearance and personality A character who is drinking and appears to be intoxicated. A character who is drinking and sharing stories. A character who is emotional and reacts strongly to situations. A character in the text, possibly a husband. A character expressing grief and confusion",
+      "attributes": {},
+      "source_chunks": [
+        "4586788d-b10c-4fca-b727-ee503bfdb59b",
+        "2d174a88-139e-424a-87f3-08483f6d96df",
+        "f0031f4f-d799-4219-99fc-5a14a948da52",
+        "ca0b40c5-aa32-488f-b9ce-8785ee80bcf0",
+        "b126d521-2662-4305-8e82-46d2bd244f06",
+        "d3f4178e-34e6-490d-bd3e-192a4454df53",
+        "8a55643b-7918-4c81-aaac-03de6e6a82ff",
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7",
+        "05d4bdb7-4425-4058-ab9f-2863015f3e0f",
+        "40a932be-794c-479f-ab06-7f3011c69bb9",
+        "5eb35aa7-1c58-45ca-9ccc-4ddfbbe1fc37",
+        "a68d41da-7f28-4256-9c8d-3904b9ad1375"
+      ],
+      "aliases": [
+        "남편",
+        "인력거꾼",
+        "주정꾼",
+        "이놈아",
+        "주정뱅이",
+        "죽일 놈",
+        "이 사람"
+      ]
+    },
+    "b8d1a8da-1002-4ade-99e1-cc2e5c57a392": {
+      "entity_id": "b8d1a8da-1002-4ade-99e1-cc2e5c57a392",
+      "name": "동광학교",
+      "entity_type": "PLACE",
+      "description": "김첨지가 손님을 태워다 준 학교",
+      "attributes": {},
+      "source_chunks": [
+        "ca0b40c5-aa32-488f-b9ce-8785ee80bcf0"
+      ],
+      "aliases": [
+        "東光學校"
+      ]
+    },
+    "5fc5f7c2-a18a-46a7-bcb6-f249f8e205a2": {
+      "entity_id": "5fc5f7c2-a18a-46a7-bcb6-f249f8e205a2",
+      "name": "아내",
+      "entity_type": "PERSON",
+      "description": "김첨지의 아내로 병을 앓고 있음 The wife of 김첨지",
+      "attributes": {},
+      "source_chunks": [
+        "2d174a88-139e-424a-87f3-08483f6d96df",
+        "ca0b40c5-aa32-488f-b9ce-8785ee80bcf0"
+      ]
+    },
+    "0aa0a2d2-b86e-470b-b960-3266f63f835b": {
+      "entity_id": "0aa0a2d2-b86e-470b-b960-3266f63f835b",
+      "name": "현진건",
+      "entity_type": "PERSON",
+      "description": "작품 '운수 좋은 날'의 저자",
+      "attributes": {},
+      "source_chunks": [
+        "ca0b40c5-aa32-488f-b9ce-8785ee80bcf0"
+      ]
+    },
+    "cd9d8abc-bb9a-4923-ac16-7c424a844022": {
+      "entity_id": "cd9d8abc-bb9a-4923-ac16-7c424a844022",
+      "name": "설렁탕",
+      "entity_type": "CONCEPT",
+      "description": "김첨지가 아내에게 사주고 싶어하는 음식 A type of Korean soup that the character desires A type of Korean soup mentioned in the context.",
+      "attributes": {},
+      "source_chunks": [
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7",
+        "b126d521-2662-4305-8e82-46d2bd244f06",
+        "a68d41da-7f28-4256-9c8d-3904b9ad1375",
+        "ca0b40c5-aa32-488f-b9ce-8785ee80bcf0"
+      ]
+    },
+    "1c62011e-5870-4ef8-a847-540a98434a2d": {
+      "entity_id": "1c62011e-5870-4ef8-a847-540a98434a2d",
+      "name": "조밥",
+      "entity_type": "CONCEPT",
+      "description": "김첨지가 아내에게 주는 음식",
+      "attributes": {},
+      "source_chunks": [
+        "ca0b40c5-aa32-488f-b9ce-8785ee80bcf0"
+      ]
+    },
+    "88c23b1e-6a01-4555-8345-05a1a09c5357": {
+      "entity_id": "88c23b1e-6a01-4555-8345-05a1a09c5357",
+      "name": "오라질년",
+      "entity_type": "PERSON",
+      "description": "A character referred to in a derogatory manner A character referred to in a derogatory manner, possibly the wife of 김첨지.",
+      "attributes": {},
+      "source_chunks": [
+        "a68d41da-7f28-4256-9c8d-3904b9ad1375",
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7"
+      ],
+      "aliases": [
+        "오라질 년"
+      ]
+    },
+    "9717bfd9-52aa-4fe0-ac89-154ca513e44c": {
+      "entity_id": "9717bfd9-52aa-4fe0-ac89-154ca513e44c",
+      "name": "조랑복",
+      "entity_type": "CONCEPT",
+      "description": "A term used in the context of food or eating",
+      "attributes": {},
+      "source_chunks": [
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7"
+      ]
+    },
+    "65a3d86a-1c06-4d80-9c68-007ee8bc76d7": {
+      "entity_id": "65a3d86a-1c06-4d80-9c68-007ee8bc76d7",
+      "name": "개똥이",
+      "entity_type": "PERSON",
+      "description": "A three-year-old child mentioned in the context of hunger A character mentioned in relation to the act of crying. A character mentioned in the context of crying",
+      "attributes": {},
+      "source_chunks": [
+        "5eb35aa7-1c58-45ca-9ccc-4ddfbbe1fc37",
+        "a68d41da-7f28-4256-9c8d-3904b9ad1375",
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7"
+      ],
+      "aliases": [
+        "개 똥이"
+      ]
+    },
+    "56b46d5d-f9ef-41eb-b56e-6f31b1fc9294": {
+      "entity_id": "56b46d5d-f9ef-41eb-b56e-6f31b1fc9294",
+      "name": "남대문 정거장",
+      "entity_type": "PLACE",
+      "description": "A bus station mentioned in the text A train station mentioned in the text",
+      "attributes": {},
+      "source_chunks": [
+        "2d174a88-139e-424a-87f3-08483f6d96df",
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7"
+      ]
+    },
+    "0bedf392-fab5-4fb3-bba0-d97744872121": {
+      "entity_id": "0bedf392-fab5-4fb3-bba0-d97744872121",
+      "name": "학교",
+      "entity_type": "PLACE",
+      "description": "A school where a student is mentioned",
+      "attributes": {},
+      "source_chunks": [
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7"
+      ]
+    },
+    "4783cc82-8cf4-4f01-8fe8-fd9c7504f819": {
+      "entity_id": "4783cc82-8cf4-4f01-8fe8-fd9c7504f819",
+      "name": "비",
+      "entity_type": "CONCEPT",
+      "description": "Rain, which affects the characters' actions",
+      "attributes": {},
+      "source_chunks": [
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7"
+      ]
+    },
+    "b7e6b53f-1085-4ffa-af9d-307a913a3bc2": {
+      "entity_id": "b7e6b53f-1085-4ffa-af9d-307a913a3bc2",
+      "name": "고구라 양복",
+      "entity_type": "CONCEPT",
+      "description": "A type of clothing mentioned in the context of the character's appearance",
+      "attributes": {},
+      "source_chunks": [
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7"
+      ]
+    },
+    "5b5eb269-19b6-4eef-aa2d-52b6072b8bb9": {
+      "entity_id": "5b5eb269-19b6-4eef-aa2d-52b6072b8bb9",
+      "name": "병인",
+      "entity_type": "PERSON",
+      "description": "A sick person mentioned in the text",
+      "attributes": {},
+      "source_chunks": [
+        "2d174a88-139e-424a-87f3-08483f6d96df"
+      ]
+    },
+    "045ea74c-83aa-4d63-9f3a-f6d312dc9712": {
+      "entity_id": "045ea74c-83aa-4d63-9f3a-f6d312dc9712",
+      "name": "인천",
+      "entity_type": "PLACE",
+      "description": "A city mentioned in the text",
+      "attributes": {},
+      "source_chunks": [
+        "2d174a88-139e-424a-87f3-08483f6d96df"
+      ]
+    },
+    "57bbad92-f914-4fdd-9bca-12c2180422a3": {
+      "entity_id": "57bbad92-f914-4fdd-9bca-12c2180422a3",
+      "name": "일 원 오십 전",
+      "entity_type": "CONCEPT",
+      "description": "A monetary amount mentioned in the text",
+      "attributes": {},
+      "source_chunks": [
+        "2d174a88-139e-424a-87f3-08483f6d96df"
+      ]
+    },
+    "0d1e7492-bcf1-4c8b-9f65-2ff139e3d710": {
+      "entity_id": "0d1e7492-bcf1-4c8b-9f65-2ff139e3d710",
+      "name": "어린 손님",
+      "entity_type": "PERSON",
+      "description": "A young guest who is being transported",
+      "attributes": {},
+      "source_chunks": [
+        "5eb35aa7-1c58-45ca-9ccc-4ddfbbe1fc37"
+      ]
+    },
+    "86c96455-3924-4adf-a6c6-77aa32ace19f": {
+      "entity_id": "86c96455-3924-4adf-a6c6-77aa32ace19f",
+      "name": "정거장",
+      "entity_type": "PLACE",
+      "description": "The station where the rickshaw is headed 기차가 도착하는 장소",
+      "attributes": {},
+      "source_chunks": [
+        "5eb35aa7-1c58-45ca-9ccc-4ddfbbe1fc37",
+        "8a55643b-7918-4c81-aaac-03de6e6a82ff"
+      ]
+    },
+    "cd0991b3-c3f5-4ae7-9713-67a2e8a1ae8c": {
+      "entity_id": "cd0991b3-c3f5-4ae7-9713-67a2e8a1ae8c",
+      "name": "여학생",
+      "entity_type": "PERSON",
+      "description": "김첨지가 손님으로 생각하는 여성 A female student mentioned in the story.",
+      "attributes": {},
+      "source_chunks": [
+        "d3f4178e-34e6-490d-bd3e-192a4454df53",
+        "8a55643b-7918-4c81-aaac-03de6e6a82ff"
+      ],
+      "aliases": [
+        "기생 퇴물",
+        "난봉 여학생"
+      ]
+    },
+    "7d2056c4-dead-4ff9-8b4b-fa241c3e38c8": {
+      "entity_id": "7d2056c4-dead-4ff9-8b4b-fa241c3e38c8",
+      "name": "전차 정류장",
+      "entity_type": "PLACE",
+      "description": "전차가 정차하는 장소 The tram station mentioned in the story.",
+      "attributes": {},
+      "source_chunks": [
+        "d3f4178e-34e6-490d-bd3e-192a4454df53",
+        "8a55643b-7918-4c81-aaac-03de6e6a82ff"
+      ]
+    },
+    "ec354061-b1ea-4a67-aa8e-4c07c86958b9": {
+      "entity_id": "ec354061-b1ea-4a67-aa8e-4c07c86958b9",
+      "name": "일본식 버들고리짝",
+      "entity_type": "CONCEPT",
+      "description": "여학생이 들고 있는 물건",
+      "attributes": {},
+      "source_chunks": [
+        "8a55643b-7918-4c81-aaac-03de6e6a82ff"
+      ]
+    },
+    "7d7d345a-e175-41cd-8e61-e3e09a9a022d": {
+      "entity_id": "7d7d345a-e175-41cd-8e61-e3e09a9a022d",
+      "name": "치삼이",
+      "entity_type": "PERSON",
+      "description": "A friend of 김첨지",
+      "attributes": {},
+      "source_chunks": [
+        "f0031f4f-d799-4219-99fc-5a14a948da52",
+        "4586788d-b10c-4fca-b727-ee503bfdb59b"
+      ]
+    },
+    "c5e18a9f-4e56-41a2-8edc-dc788ce63889": {
+      "entity_id": "c5e18a9f-4e56-41a2-8edc-dc788ce63889",
+      "name": "인사동",
+      "entity_type": "PLACE",
+      "description": "A location in Seoul, South Korea",
+      "attributes": {},
+      "source_chunks": [
+        "4586788d-b10c-4fca-b727-ee503bfdb59b"
+      ]
+    },
+    "819b292e-f4b1-40c1-8f8d-bc9f624a8d81": {
+      "entity_id": "819b292e-f4b1-40c1-8f8d-bc9f624a8d81",
+      "name": "전차",
+      "entity_type": "CONCEPT",
+      "description": "A tram or streetcar",
+      "attributes": {},
+      "source_chunks": [
+        "4586788d-b10c-4fca-b727-ee503bfdb59b"
+      ]
+    },
+    "05d2e2cc-f14d-4c8c-9ab0-af827341b0ad": {
+      "entity_id": "05d2e2cc-f14d-4c8c-9ab0-af827341b0ad",
+      "name": "기적",
+      "entity_type": "CONCEPT",
+      "description": "A concept of miracle or extraordinary event",
+      "attributes": {},
+      "source_chunks": [
+        "4586788d-b10c-4fca-b727-ee503bfdb59b"
+      ]
+    },
+    "0f73377c-cd69-47bd-bfce-724cbbab9f83": {
+      "entity_id": "0f73377c-cd69-47bd-bfce-724cbbab9f83",
+      "name": "창경원",
+      "entity_type": "PLACE",
+      "description": "A historical site in Seoul, South Korea",
+      "attributes": {},
+      "source_chunks": [
+        "4586788d-b10c-4fca-b727-ee503bfdb59b"
+      ]
+    },
+    "8caf5987-d34c-4801-a1e3-5c1bd3167058": {
+      "entity_id": "8caf5987-d34c-4801-a1e3-5c1bd3167058",
+      "name": "선술집",
+      "entity_type": "PLACE",
+      "description": "A type of bar or tavern A tavern where the characters meet",
+      "attributes": {},
+      "source_chunks": [
+        "f0031f4f-d799-4219-99fc-5a14a948da52",
+        "4586788d-b10c-4fca-b727-ee503bfdb59b"
+      ]
+    },
+    "b7355bdb-6c70-4be1-849e-21153b795abb": {
+      "entity_id": "b7355bdb-6c70-4be1-849e-21153b795abb",
+      "name": "추어탕",
+      "entity_type": "CONCEPT",
+      "description": "A type of soup mentioned in the text",
+      "attributes": {},
+      "source_chunks": [
+        "f0031f4f-d799-4219-99fc-5a14a948da52"
+      ]
+    },
+    "7ba79efa-b914-465d-a482-75a22590be05": {
+      "entity_id": "7ba79efa-b914-465d-a482-75a22590be05",
+      "name": "막걸리",
+      "entity_type": "CONCEPT",
+      "description": "A type of traditional Korean rice wine",
+      "attributes": {},
+      "source_chunks": [
+        "f0031f4f-d799-4219-99fc-5a14a948da52"
+      ]
+    },
+    "0203beef-3dd7-446f-b94a-55e889e36562": {
+      "entity_id": "0203beef-3dd7-446f-b94a-55e889e36562",
+      "name": "빈대떡",
+      "entity_type": "CONCEPT",
+      "description": "A type of Korean pancake mentioned in the text",
+      "attributes": {},
+      "source_chunks": [
+        "f0031f4f-d799-4219-99fc-5a14a948da52"
+      ]
+    },
+    "11817107-f5bf-4ab2-af8b-a8ae2cc9825c": {
+      "entity_id": "11817107-f5bf-4ab2-af8b-a8ae2cc9825c",
+      "name": "치삼",
+      "entity_type": "PERSON",
+      "description": "A character who is observing 김첨지 and expressing concern about his drinking. A character who interacts with 김첨지. A character who interacts with 김첨지 and expresses concern.",
+      "attributes": {},
+      "source_chunks": [
+        "d3f4178e-34e6-490d-bd3e-192a4454df53",
+        "40a932be-794c-479f-ab06-7f3011c69bb9",
+        "05d4bdb7-4425-4058-ab9f-2863015f3e0f"
+      ],
+      "aliases": [
+        "여보게"
+      ]
+    },
+    "86c89d8e-ee67-4447-b48b-b6cb5a33d012": {
+      "entity_id": "86c89d8e-ee67-4447-b48b-b6cb5a33d012",
+      "name": "중대가리",
+      "entity_type": "PERSON",
+      "description": "A young bartender who is serving drinks.",
+      "attributes": {},
+      "source_chunks": [
+        "05d4bdb7-4425-4058-ab9f-2863015f3e0f"
+      ],
+      "aliases": [
+        "열다섯 살 됨직한 중대가리"
+      ]
+    },
+    "83395c70-66e0-4f48-ac18-1877e5381d0a": {
+      "entity_id": "83395c70-66e0-4f48-ac18-1877e5381d0a",
+      "name": "돈",
+      "entity_type": "CONCEPT",
+      "description": "Currency that 김첨지 is discussing and handling.",
+      "attributes": {},
+      "source_chunks": [
+        "05d4bdb7-4425-4058-ab9f-2863015f3e0f"
+      ]
+    },
+    "e33d3f15-ffb9-4583-a59b-6b8dccf8e7e3": {
+      "entity_id": "e33d3f15-ffb9-4583-a59b-6b8dccf8e7e3",
+      "name": "마누라",
+      "entity_type": "PERSON",
+      "description": "김첨지's wife who has passed away.",
+      "attributes": {},
+      "source_chunks": [
+        "d3f4178e-34e6-490d-bd3e-192a4454df53"
+      ]
+    },
+    "2e09b645-5b30-4cd4-ae65-da9463f031f4": {
+      "entity_id": "2e09b645-5b30-4cd4-ae65-da9463f031f4",
+      "name": "술집",
+      "entity_type": "PLACE",
+      "description": "The bar where the characters are drinking.",
+      "attributes": {},
+      "source_chunks": [
+        "d3f4178e-34e6-490d-bd3e-192a4454df53"
+      ]
+    },
+    "92f104c5-5f92-4ecb-839e-718cd83d7427": {
+      "entity_id": "92f104c5-5f92-4ecb-839e-718cd83d7427",
+      "name": "셋집",
+      "entity_type": "PLACE",
+      "description": "A rented house where 김첨지 lives.",
+      "attributes": {},
+      "source_chunks": [
+        "40a932be-794c-479f-ab06-7f3011c69bb9"
+      ]
+    },
+    "b8ad5d56-1139-491e-9429-feb75ae56ccf": {
+      "entity_id": "b8ad5d56-1139-491e-9429-feb75ae56ccf",
+      "name": "행랑방",
+      "entity_type": "PLACE",
+      "description": "A specific room that 김첨지 rents.",
+      "attributes": {},
+      "source_chunks": [
+        "40a932be-794c-479f-ab06-7f3011c69bb9"
+      ]
+    },
+    "672c7eed-e7f4-43f7-b42d-141f8c5e27af": {
+      "entity_id": "672c7eed-e7f4-43f7-b42d-141f8c5e27af",
+      "name": "정적",
+      "entity_type": "CONCEPT",
+      "description": "The eerie silence that envelops 김첨지's surroundings.",
+      "attributes": {},
+      "source_chunks": [
+        "40a932be-794c-479f-ab06-7f3011c69bb9"
+      ]
+    },
+    "b230d96e-f9c0-4648-a1c2-851fc08f1250": {
+      "entity_id": "b230d96e-f9c0-4648-a1c2-851fc08f1250",
+      "name": "폭풍우",
+      "entity_type": "CONCEPT",
+      "description": "A metaphorical reference to a storm, used to describe the silence.",
+      "attributes": {},
+      "source_chunks": [
+        "40a932be-794c-479f-ab06-7f3011c69bb9"
+      ]
+    }
+  },
+  "relationships": [
+    {
+      "relationship_id": "7c2c9ed6-bde8-45c3-9bc8-9698df701a19",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "5fc5f7c2-a18a-46a7-bcb6-f249f8e205a2",
+      "relationship_type": "RELATED_TO",
+      "description": "김첨지의 아내",
+      "weight": 1.0,
+      "source_chunks": [
+        "ca0b40c5-aa32-488f-b9ce-8785ee80bcf0"
+      ]
+    },
+    {
+      "relationship_id": "67524798-e69b-440c-bdc9-2bd30703bda1",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "b8d1a8da-1002-4ade-99e1-cc2e5c57a392",
+      "relationship_type": "WORKS_FOR",
+      "description": "김첨지가 손님을 태워다 준 학교",
+      "weight": 1.0,
+      "source_chunks": [
+        "ca0b40c5-aa32-488f-b9ce-8785ee80bcf0"
+      ]
+    },
+    {
+      "relationship_id": "9bd2688c-85e1-473f-81e2-eaf9c2197bb2",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "88c23b1e-6a01-4555-8345-05a1a09c5357",
+      "relationship_type": "RELATED_TO",
+      "description": "김첨지 expresses frustration towards 오라질년",
+      "weight": 1.0,
+      "source_chunks": [
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7"
+      ]
+    },
+    {
+      "relationship_id": "b72027ed-f80a-4fe1-8122-62beabaea1e7",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "cd9d8abc-bb9a-4923-ac16-7c424a844022",
+      "relationship_type": "DESIRES",
+      "description": "김첨지 wants to buy 설렁탕 for the sick character",
+      "weight": 1.0,
+      "source_chunks": [
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7"
+      ]
+    },
+    {
+      "relationship_id": "81542a80-583c-4e1a-9211-f7d578138ed6",
+      "source_entity_id": "65a3d86a-1c06-4d80-9c68-007ee8bc76d7",
+      "target_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "relationship_type": "KNOWS",
+      "description": "개똥이 is the child of 김첨지",
+      "weight": 1.0,
+      "source_chunks": [
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7"
+      ]
+    },
+    {
+      "relationship_id": "14c7d2f8-ecf7-4f68-aac4-84116783ea6a",
+      "source_entity_id": "4783cc82-8cf4-4f01-8fe8-fd9c7504f819",
+      "target_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "relationship_type": "AFFECTS",
+      "description": "비 affects 김첨지's decision to travel",
+      "weight": 1.0,
+      "source_chunks": [
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7"
+      ]
+    },
+    {
+      "relationship_id": "38df5431-fb5e-4d00-b4e6-70e92eed9817",
+      "source_entity_id": "b7e6b53f-1085-4ffa-af9d-307a913a3bc2",
+      "target_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "relationship_type": "WORN_BY",
+      "description": "김첨지 is wearing 고구라 양복",
+      "weight": 1.0,
+      "source_chunks": [
+        "744c8751-3e85-40e4-b36e-1f4f641a06d7"
+      ]
+    },
+    {
+      "relationship_id": "73e2851d-6c73-4ed9-8726-0ab05c85da47",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "5fc5f7c2-a18a-46a7-bcb6-f249f8e205a2",
+      "relationship_type": "MARRIED_TO",
+      "description": "김첨지 is married to 아내",
+      "weight": 1.0,
+      "source_chunks": [
+        "2d174a88-139e-424a-87f3-08483f6d96df"
+      ]
+    },
+    {
+      "relationship_id": "09662d9e-294c-44db-b5a9-59a8220d3c11",
+      "source_entity_id": "5b5eb269-19b6-4eef-aa2d-52b6072b8bb9",
+      "target_entity_id": "5fc5f7c2-a18a-46a7-bcb6-f249f8e205a2",
+      "relationship_type": "RELATED_TO",
+      "description": "병인 is related to 아내 as a sick person she is concerned about",
+      "weight": 1.0,
+      "source_chunks": [
+        "2d174a88-139e-424a-87f3-08483f6d96df"
+      ]
+    },
+    {
+      "relationship_id": "d5491f06-ff8f-4363-9fc9-e49c285dda7c",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "5b5eb269-19b6-4eef-aa2d-52b6072b8bb9",
+      "relationship_type": "CARES_FOR",
+      "description": "김첨지 shows concern for 병인",
+      "weight": 1.0,
+      "source_chunks": [
+        "2d174a88-139e-424a-87f3-08483f6d96df"
+      ]
+    },
+    {
+      "relationship_id": "34ba1296-7c3c-4db0-976b-a1d66fe07012",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "56b46d5d-f9ef-41eb-b56e-6f31b1fc9294",
+      "relationship_type": "LOCATED_IN",
+      "description": "김첨지 is going to 남대문 정거장",
+      "weight": 1.0,
+      "source_chunks": [
+        "2d174a88-139e-424a-87f3-08483f6d96df"
+      ]
+    },
+    {
+      "relationship_id": "77e10221-3559-4f5a-9765-64bb41131f00",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "57bbad92-f914-4fdd-9bca-12c2180422a3",
+      "relationship_type": "MENTIONS",
+      "description": "김첨지 mentions the amount of 일 원 오십 전",
+      "weight": 1.0,
+      "source_chunks": [
+        "2d174a88-139e-424a-87f3-08483f6d96df"
+      ]
+    },
+    {
+      "relationship_id": "3f16fce4-c8bc-414d-9eef-92b97f70a68f",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "0d1e7492-bcf1-4c8b-9f65-2ff139e3d710",
+      "relationship_type": "TRANSPORTS",
+      "description": "김첨지 is transporting the 어린 손님 in a rickshaw",
+      "weight": 1.0,
+      "source_chunks": [
+        "5eb35aa7-1c58-45ca-9ccc-4ddfbbe1fc37"
+      ]
+    },
+    {
+      "relationship_id": "75e99ee4-8b3a-4340-b504-ffd0b0e5bc86",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "86c96455-3924-4adf-a6c6-77aa32ace19f",
+      "relationship_type": "DESTINED_FOR",
+      "description": "김첨지 is headed to the 정거장",
+      "weight": 1.0,
+      "source_chunks": [
+        "5eb35aa7-1c58-45ca-9ccc-4ddfbbe1fc37"
+      ]
+    },
+    {
+      "relationship_id": "92b2fe7d-ee2a-4a73-a1c7-ddb477d34684",
+      "source_entity_id": "65a3d86a-1c06-4d80-9c68-007ee8bc76d7",
+      "target_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "relationship_type": "KNOWS",
+      "description": "개 똥이 is aware of 김첨지's presence",
+      "weight": 1.0,
+      "source_chunks": [
+        "5eb35aa7-1c58-45ca-9ccc-4ddfbbe1fc37"
+      ]
+    },
+    {
+      "relationship_id": "c90b7607-dafc-42d7-ac46-3253676dbd6a",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "cd0991b3-c3f5-4ae7-9713-67a2e8a1ae8c",
+      "relationship_type": "KNOWS",
+      "description": "김첨지가 여학생에게 접근함",
+      "weight": 1.0,
+      "source_chunks": [
+        "8a55643b-7918-4c81-aaac-03de6e6a82ff"
+      ]
+    },
+    {
+      "relationship_id": "4cbaaabe-dc8b-467a-be27-8fc9fa90f958",
+      "source_entity_id": "cd0991b3-c3f5-4ae7-9713-67a2e8a1ae8c",
+      "target_entity_id": "86c96455-3924-4adf-a6c6-77aa32ace19f",
+      "relationship_type": "LOCATED_IN",
+      "description": "여학생이 정거장 근처에 있음",
+      "weight": 1.0,
+      "source_chunks": [
+        "8a55643b-7918-4c81-aaac-03de6e6a82ff"
+      ]
+    },
+    {
+      "relationship_id": "2907a8bf-2f5b-4a89-ac0c-45c6f3b15f95",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "7d2056c4-dead-4ff9-8b4b-fa241c3e38c8",
+      "relationship_type": "LOCATED_IN",
+      "description": "김첨지가 전차 정류장 근처에 있음",
+      "weight": 1.0,
+      "source_chunks": [
+        "8a55643b-7918-4c81-aaac-03de6e6a82ff"
+      ]
+    },
+    {
+      "relationship_id": "c4a598e8-bc6e-4043-801f-a38915aadcf5",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "c5e18a9f-4e56-41a2-8edc-dc788ce63889",
+      "relationship_type": "PART_OF",
+      "description": "김첨지 is taking a rickshaw to 인사동",
+      "weight": 1.0,
+      "source_chunks": [
+        "4586788d-b10c-4fca-b727-ee503bfdb59b"
+      ]
+    },
+    {
+      "relationship_id": "ea26613c-88d9-4257-a6e2-9043c2880c5a",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "7d7d345a-e175-41cd-8e61-e3e09a9a022d",
+      "relationship_type": "KNOWS",
+      "description": "김첨지 is friends with 치삼이",
+      "weight": 1.0,
+      "source_chunks": [
+        "4586788d-b10c-4fca-b727-ee503bfdb59b"
+      ]
+    },
+    {
+      "relationship_id": "ae180920-9521-41ca-8a95-c5d748b36e26",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "819b292e-f4b1-40c1-8f8d-bc9f624a8d81",
+      "relationship_type": "RELATED_TO",
+      "description": "김첨지 observes the 전차",
+      "weight": 1.0,
+      "source_chunks": [
+        "4586788d-b10c-4fca-b727-ee503bfdb59b"
+      ]
+    },
+    {
+      "relationship_id": "53d7dd7d-6600-407e-a212-b53a8102ace7",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "0f73377c-cd69-47bd-bfce-724cbbab9f83",
+      "relationship_type": "LOCATED_IN",
+      "description": "김첨지 reaches 창경원",
+      "weight": 1.0,
+      "source_chunks": [
+        "4586788d-b10c-4fca-b727-ee503bfdb59b"
+      ]
+    },
+    {
+      "relationship_id": "434ae8eb-8451-4db5-8376-f129266d5e46",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "8caf5987-d34c-4801-a1e3-5c1bd3167058",
+      "relationship_type": "LOCATED_NEAR",
+      "description": "The 선술집 is near where 김첨지 encounters 치삼이",
+      "weight": 1.0,
+      "source_chunks": [
+        "4586788d-b10c-4fca-b727-ee503bfdb59b"
+      ]
+    },
+    {
+      "relationship_id": "572a2d49-a7b5-4f53-a15a-f35361030885",
+      "source_entity_id": "7d7d345a-e175-41cd-8e61-e3e09a9a022d",
+      "target_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "relationship_type": "KNOWS",
+      "description": "치삼이 is a friend of 김첨지",
+      "weight": 1.0,
+      "source_chunks": [
+        "f0031f4f-d799-4219-99fc-5a14a948da52"
+      ]
+    },
+    {
+      "relationship_id": "77f17099-78a1-4e30-9dec-8d42873490b6",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "8caf5987-d34c-4801-a1e3-5c1bd3167058",
+      "relationship_type": "LOCATED_IN",
+      "description": "김첨지 is at the 선술집",
+      "weight": 1.0,
+      "source_chunks": [
+        "f0031f4f-d799-4219-99fc-5a14a948da52"
+      ]
+    },
+    {
+      "relationship_id": "a9ed7454-fcb2-411a-8892-c247afc1cb2a",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "b7355bdb-6c70-4be1-849e-21153b795abb",
+      "relationship_type": "ORDERED",
+      "description": "김첨지 ordered a bowl of 추어탕",
+      "weight": 1.0,
+      "source_chunks": [
+        "f0031f4f-d799-4219-99fc-5a14a948da52"
+      ]
+    },
+    {
+      "relationship_id": "831657c4-5633-41e7-b7be-c08aeb47be0f",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "7ba79efa-b914-465d-a482-75a22590be05",
+      "relationship_type": "ORDERED",
+      "description": "김첨지 ordered a double serving of 막걸리",
+      "weight": 1.0,
+      "source_chunks": [
+        "f0031f4f-d799-4219-99fc-5a14a948da52"
+      ]
+    },
+    {
+      "relationship_id": "8605444f-ac2d-4df6-9895-7f4c0cffc758",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "0203beef-3dd7-446f-b94a-55e889e36562",
+      "relationship_type": "ORDERED",
+      "description": "김첨지 ordered two 빈대떡",
+      "weight": 1.0,
+      "source_chunks": [
+        "f0031f4f-d799-4219-99fc-5a14a948da52"
+      ]
+    },
+    {
+      "relationship_id": "a62891a1-642b-4329-9e35-f7148782248c",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "11817107-f5bf-4ab2-af8b-a8ae2cc9825c",
+      "relationship_type": "KNOWS",
+      "description": "김첨지 and 치삼 are interacting with each other.",
+      "weight": 1.0,
+      "source_chunks": [
+        "05d4bdb7-4425-4058-ab9f-2863015f3e0f"
+      ]
+    },
+    {
+      "relationship_id": "9e6bb322-b07b-485c-b492-1f683d42193d",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "86c89d8e-ee67-4447-b48b-b6cb5a33d012",
+      "relationship_type": "INTERACTS_WITH",
+      "description": "김첨지 is demanding drinks from 중대가리.",
+      "weight": 1.0,
+      "source_chunks": [
+        "05d4bdb7-4425-4058-ab9f-2863015f3e0f"
+      ]
+    },
+    {
+      "relationship_id": "8e0264fa-75f7-432c-9fb6-bdc1f648b4f3",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "83395c70-66e0-4f48-ac18-1877e5381d0a",
+      "relationship_type": "HANDLES",
+      "description": "김첨지 is handling money during the drinking.",
+      "weight": 1.0,
+      "source_chunks": [
+        "05d4bdb7-4425-4058-ab9f-2863015f3e0f"
+      ]
+    },
+    {
+      "relationship_id": "b613b31e-ba0b-402b-b80b-447bee2e769a",
+      "source_entity_id": "11817107-f5bf-4ab2-af8b-a8ae2cc9825c",
+      "target_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "relationship_type": "CARES_FOR",
+      "description": "치삼 is expressing concern for 김첨지's drinking.",
+      "weight": 1.0,
+      "source_chunks": [
+        "05d4bdb7-4425-4058-ab9f-2863015f3e0f"
+      ]
+    },
+    {
+      "relationship_id": "d6d30f70-7956-426b-af34-eff1d00fb3d6",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "e33d3f15-ffb9-4583-a59b-6b8dccf8e7e3",
+      "relationship_type": "RELATED_TO",
+      "description": "김첨지 is related to his wife, who has passed away.",
+      "weight": 1.0,
+      "source_chunks": [
+        "d3f4178e-34e6-490d-bd3e-192a4454df53"
+      ]
+    },
+    {
+      "relationship_id": "d8096372-2d74-49cc-b107-bc4204421382",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "11817107-f5bf-4ab2-af8b-a8ae2cc9825c",
+      "relationship_type": "KNOWS",
+      "description": "김첨지 knows 치삼 and interacts with him.",
+      "weight": 1.0,
+      "source_chunks": [
+        "d3f4178e-34e6-490d-bd3e-192a4454df53"
+      ]
+    },
+    {
+      "relationship_id": "b058f803-219c-4228-bfb4-7a89590fc52e",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "2e09b645-5b30-4cd4-ae65-da9463f031f4",
+      "relationship_type": "LOCATED_IN",
+      "description": "김첨지 is located in the 술집.",
+      "weight": 1.0,
+      "source_chunks": [
+        "d3f4178e-34e6-490d-bd3e-192a4454df53"
+      ]
+    },
+    {
+      "relationship_id": "6069f87e-2af3-4c4b-9715-3c610d491b80",
+      "source_entity_id": "11817107-f5bf-4ab2-af8b-a8ae2cc9825c",
+      "target_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "relationship_type": "KNOWS",
+      "description": "치삼 knows 김첨지.",
+      "weight": 1.0,
+      "source_chunks": [
+        "d3f4178e-34e6-490d-bd3e-192a4454df53"
+      ]
+    },
+    {
+      "relationship_id": "8039c015-9fb6-4967-ac21-d35bd5eff349",
+      "source_entity_id": "cd0991b3-c3f5-4ae7-9713-67a2e8a1ae8c",
+      "target_entity_id": "7d2056c4-dead-4ff9-8b4b-fa241c3e38c8",
+      "relationship_type": "LOCATED_IN",
+      "description": "The 여학생 is located at the 전차 정류장.",
+      "weight": 1.0,
+      "source_chunks": [
+        "d3f4178e-34e6-490d-bd3e-192a4454df53"
+      ]
+    },
+    {
+      "relationship_id": "1eb4d882-b331-4375-97d3-211ffa5c4a2b",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "11817107-f5bf-4ab2-af8b-a8ae2cc9825c",
+      "relationship_type": "KNOWS",
+      "description": "김첨지 and 치삼 are acquainted and interact with each other.",
+      "weight": 1.0,
+      "source_chunks": [
+        "40a932be-794c-479f-ab06-7f3011c69bb9"
+      ]
+    },
+    {
+      "relationship_id": "39080375-228c-4c45-849e-7bc2058d1b57",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "92f104c5-5f92-4ecb-839e-718cd83d7427",
+      "relationship_type": "LOCATED_IN",
+      "description": "김첨지 lives in a rented house.",
+      "weight": 1.0,
+      "source_chunks": [
+        "40a932be-794c-479f-ab06-7f3011c69bb9"
+      ]
+    },
+    {
+      "relationship_id": "25bbd068-e366-45fb-9a39-f8622bc22dff",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "b8ad5d56-1139-491e-9429-feb75ae56ccf",
+      "relationship_type": "LOCATED_IN",
+      "description": "김첨지 rents a specific room in the house.",
+      "weight": 1.0,
+      "source_chunks": [
+        "40a932be-794c-479f-ab06-7f3011c69bb9"
+      ]
+    },
+    {
+      "relationship_id": "32301d4a-bd5e-4b0b-a764-f37e622a5386",
+      "source_entity_id": "672c7eed-e7f4-43f7-b42d-141f8c5e27af",
+      "target_entity_id": "b230d96e-f9c0-4648-a1c2-851fc08f1250",
+      "relationship_type": "RELATED_TO",
+      "description": "The silence is metaphorically related to the aftermath of a storm.",
+      "weight": 1.0,
+      "source_chunks": [
+        "40a932be-794c-479f-ab06-7f3011c69bb9"
+      ]
+    },
+    {
+      "relationship_id": "ae8fe4fb-17c3-4c61-92e7-636a56cbf474",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "88c23b1e-6a01-4555-8345-05a1a09c5357",
+      "relationship_type": "MARRIED_TO",
+      "description": "김첨지 is referred to as the husband of 오라질 년.",
+      "weight": 1.0,
+      "source_chunks": [
+        "a68d41da-7f28-4256-9c8d-3904b9ad1375"
+      ]
+    },
+    {
+      "relationship_id": "28fcbd70-4f02-4d85-80fc-2c38d8fea3a7",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "cd9d8abc-bb9a-4923-ac16-7c424a844022",
+      "relationship_type": "INTERACTS_WITH",
+      "description": "김첨지 places 설렁탕 in the room.",
+      "weight": 1.0,
+      "source_chunks": [
+        "a68d41da-7f28-4256-9c8d-3904b9ad1375"
+      ]
+    },
+    {
+      "relationship_id": "af3a7ea0-f044-4d9b-97ac-e98def5aa682",
+      "source_entity_id": "65a3d86a-1c06-4d80-9c68-007ee8bc76d7",
+      "target_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "relationship_type": "RELATED_TO",
+      "description": "개똥이 is mentioned in relation to the crying and the situation involving 김첨지.",
+      "weight": 1.0,
+      "source_chunks": [
+        "a68d41da-7f28-4256-9c8d-3904b9ad1375"
+      ]
+    },
+    {
+      "relationship_id": "625f4bb1-4389-4b9c-a317-1b21709d1139",
+      "source_entity_id": "d558dabf-af8b-4281-98f4-3121b6eef874",
+      "target_entity_id": "cd9d8abc-bb9a-4923-ac16-7c424a844022",
+      "relationship_type": "RELATED_TO",
+      "description": "김첨지 mentions 설렁탕 in a context of grief and confusion",
+      "weight": 1.0,
+      "source_chunks": [
+        "b126d521-2662-4305-8e82-46d2bd244f06"
+      ]
+    }
+  ]
+}

@@ -13,7 +13,7 @@ def main() -> None:
     resolver = LLMEntityResolver(llm_client=llm_client)
     storage = GraphStorage()
 
-    kg_dir = Path(config.kg_dir or "data/kg")
+    kg_dir = Path(config.kg_dir or "data/KG")
     kg_files = sorted(kg_dir.glob("*-KG.json"))
 
     if not kg_files:
