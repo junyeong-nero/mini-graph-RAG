@@ -2,7 +2,7 @@
 
 from .models import Entity, Relationship, KnowledgeGraph
 from .builder import GraphBuilder
-from .entity_resolution import LLMEntityResolver
+from .entity_resolution import EntityResolutionConfig, LLMEntityResolver, RoleBucket
 from .storage import GraphStorage
 
 __all__ = [
@@ -11,5 +11,7 @@ __all__ = [
     "KnowledgeGraph",
     "GraphBuilder",
     "LLMEntityResolver",
+    "EntityResolutionConfig",
+    "RoleBucket",
     "GraphStorage",
 ]

@@ -66,12 +66,19 @@
       "entity_id": "a4ceb9b6-645b-4c2a-b10d-8c1e01ccfda9",
       "name": "점순",
       "entity_type": "PERSON",
-      "description": "A girl in the village who is described as having a flushed face. A character involved in a conflict over a chicken. A character who is being called by her mother.",
+      "description": "A girl in the village who is described as having a flushed face. A character involved in a conflict over a chicken. A character who is being called by her mother. A character involved in a conflict over chickens. A character who observes the rooster fight. A character who reacts to the situation with surprise and humor. A character who plays the 호드기 and is involved in the conflict.",
       "attributes": {},
       "source_chunks": [
         "67ee9194-c811-4ec4-96af-089a6adf78ab",
+        "cf061c1b-3976-44e1-a734-f55690879e11",
+        "6df1fa06-66bf-49c5-af3e-7dbcdcb179f9",
+        "d1c2d2d6-553d-4d4a-9246-cbba3e4b8188",
+        "ca1ea696-0375-4329-9cad-ae0a0b8b4bcf",
         "15945e6e-641c-4f06-8211-31336bd0610b",
         "d0d516af-22c2-4627-aba3-53a241712dca"
+      ],
+      "aliases": [
+        "점순이"
       ]
     },
     "6a9b0d6e-3ffd-434e-b1a0-ffdc1e21f5b3": {
@@ -99,20 +106,29 @@
       "entity_id": "953743ac-3592-495d-8e91-33c07a48f2e6",
       "name": "우리 어머니",
       "entity_type": "PERSON",
-      "description": "The narrator's mother.",
+      "description": "The narrator's mother. The mother of 점순 who is looking for her.",
       "attributes": {},
       "source_chunks": [
-        "15945e6e-641c-4f06-8211-31336bd0610b"
+        "15945e6e-641c-4f06-8211-31336bd0610b",
+        "d0d516af-22c2-4627-aba3-53a241712dca"
+      ],
+      "aliases": [
+        "어머니"
       ]
     },
     "ed05f5b2-291e-48aa-b543-af2e7a5429c3": {
       "entity_id": "ed05f5b2-291e-48aa-b543-af2e7a5429c3",
       "name": "우리 아버지",
       "entity_type": "PERSON",
-      "description": "The narrator's father.",
+      "description": "The narrator's father. The narrator's father, mentioned in a derogatory context. The narrator's father, who is mentioned in relation to the rooster.",
       "attributes": {},
       "source_chunks": [
+        "d1c2d2d6-553d-4d4a-9246-cbba3e4b8188",
+        "6df1fa06-66bf-49c5-af3e-7dbcdcb179f9",
         "15945e6e-641c-4f06-8211-31336bd0610b"
+      ],
+      "aliases": [
+        "아버지"
       ]
     },
     "256e9b74-29e8-4e68-a111-e852932e2d0f": {
@@ -157,19 +173,6 @@
         "15945e6e-641c-4f06-8211-31336bd0610b"
       ]
     },
-    "b5c332ef-8f61-47af-a984-885e2e56b90d": {
-      "entity_id": "b5c332ef-8f61-47af-a984-885e2e56b90d",
-      "name": "점순이",
-      "entity_type": "PERSON",
-      "description": "A character involved in a conflict over chickens. A character who observes the rooster fight. A character who reacts to the situation with surprise and humor. A character who plays the 호드기 and is involved in the conflict.",
-      "attributes": {},
-      "source_chunks": [
-        "cf061c1b-3976-44e1-a734-f55690879e11",
-        "ca1ea696-0375-4329-9cad-ae0a0b8b4bcf",
-        "d1c2d2d6-553d-4d4a-9246-cbba3e4b8188",
-        "6df1fa06-66bf-49c5-af3e-7dbcdcb179f9"
-      ]
-    },
     "1f2df2d9-3cf5-48f6-aa91-9bd9a44c9ad1": {
       "entity_id": "1f2df2d9-3cf5-48f6-aa91-9bd9a44c9ad1",
       "name": "수탉",
@@ -178,17 +181,6 @@
       "attributes": {},
       "source_chunks": [
         "ca1ea696-0375-4329-9cad-ae0a0b8b4bcf",
-        "d1c2d2d6-553d-4d4a-9246-cbba3e4b8188",
-        "6df1fa06-66bf-49c5-af3e-7dbcdcb179f9"
-      ]
-    },
-    "36653e8f-5749-427a-b132-ea7b1c55b909": {
-      "entity_id": "36653e8f-5749-427a-b132-ea7b1c55b909",
-      "name": "아버지",
-      "entity_type": "PERSON",
-      "description": "The narrator's father, mentioned in a derogatory context. The narrator's father, who is mentioned in relation to the rooster.",
-      "attributes": {},
-      "source_chunks": [
         "d1c2d2d6-553d-4d4a-9246-cbba3e4b8188",
         "6df1fa06-66bf-49c5-af3e-7dbcdcb179f9"
       ]
@@ -294,16 +286,6 @@
         "ca1ea696-0375-4329-9cad-ae0a0b8b4bcf"
       ]
     },
-    "a4fdaebc-9741-4e6e-a826-004053f1f350": {
-      "entity_id": "a4fdaebc-9741-4e6e-a826-004053f1f350",
-      "name": "어머니",
-      "entity_type": "PERSON",
-      "description": "The mother of 점순 who is looking for her.",
-      "attributes": {},
-      "source_chunks": [
-        "d0d516af-22c2-4627-aba3-53a241712dca"
-      ]
-    },
     "d0e38de8-d0fb-436c-96b5-04525625c5a9": {
       "entity_id": "d0e38de8-d0fb-436c-96b5-04525625c5a9",
       "name": "노란 동백꽃",
@@ -337,7 +319,7 @@
   },
   "relationships": [
     {
-      "relationship_id": "6a29a3ad-96dd-49f2-8a6a-559afe061781",
+      "relationship_id": "31edaf11-4664-4978-8b15-9c49d075c00d",
       "source_entity_id": "df147eaa-d0d8-4ae8-a772-de98fc9347e0",
       "target_entity_id": "e6ce98fd-ddb8-479a-ad88-e60f3bc1cffe",
       "relationship_type": "KNOWS",
@@ -348,7 +330,7 @@
       ]
     },
     {
-      "relationship_id": "27d98390-bcc5-4b07-be3e-ee3248c6e1d8",
+      "relationship_id": "48b83325-0580-4707-a688-0bcff08530ba",
       "source_entity_id": "e5a70cbe-a4ce-41d5-a3eb-ef84f9c8a7cc",
       "target_entity_id": "e6ce98fd-ddb8-479a-ad88-e60f3bc1cffe",
       "relationship_type": "ATTACKS",
@@ -359,7 +341,7 @@
       ]
     },
     {
-      "relationship_id": "2c8cd882-9a23-45c3-8609-8905905ee731",
+      "relationship_id": "7007fbbc-1cf9-4e7e-9252-63af104ee396",
       "source_entity_id": "be1ea568-877c-4ab0-83bd-c87a0ec53e49",
       "target_entity_id": "df147eaa-d0d8-4ae8-a772-de98fc9347e0",
       "relationship_type": "RELATED_TO",
@@ -370,7 +352,7 @@
       ]
     },
     {
-      "relationship_id": "9ed33972-ea68-49f3-a2fb-55080f67624e",
+      "relationship_id": "eb999120-fa0f-4dd7-bab6-76ea907a67a8",
       "source_entity_id": "be1ea568-877c-4ab0-83bd-c87a0ec53e49",
       "target_entity_id": "52dfc2d1-0c6f-4570-bc6e-b711e1c1b466",
       "relationship_type": "INTERACTS_WITH",
@@ -381,7 +363,7 @@
       ]
     },
     {
-      "relationship_id": "39cdc312-4b98-43e0-a62e-542f09472a2a",
+      "relationship_id": "9b38bb45-f9e6-4147-a9af-b25a595ca358",
       "source_entity_id": "a4ceb9b6-645b-4c2a-b10d-8c1e01ccfda9",
       "target_entity_id": "6a9b0d6e-3ffd-434e-b1a0-ffdc1e21f5b3",
       "relationship_type": "LOCATED_IN",
@@ -392,7 +374,7 @@
       ]
     },
     {
-      "relationship_id": "ae7853dd-14da-4596-8451-7a2a9eb9dffe",
+      "relationship_id": "c0cf1097-2fde-4c3e-98e5-d5544358b3bd",
       "source_entity_id": "5f448521-cc33-4b35-b142-a2ce0cf0d356",
       "target_entity_id": "a4ceb9b6-645b-4c2a-b10d-8c1e01ccfda9",
       "relationship_type": "RELATED_TO",
@@ -403,7 +385,7 @@
       ]
     },
     {
-      "relationship_id": "89d7c8c4-f846-4d48-a399-8120ab306b67",
+      "relationship_id": "190d6190-634e-4855-9db1-d8e6ca8446c3",
       "source_entity_id": "9f3cf474-0181-4c57-a6df-2e5f4404dc4a",
       "target_entity_id": "a4ceb9b6-645b-4c2a-b10d-8c1e01ccfda9",
       "relationship_type": "RELATED_TO",
@@ -414,7 +396,7 @@
       ]
     },
     {
-      "relationship_id": "b2855e12-de4f-42b3-8850-143b02a8cf7a",
+      "relationship_id": "8ddcc8fc-94ba-456e-8213-1a0fcb6887c5",
       "source_entity_id": "953743ac-3592-495d-8e91-33c07a48f2e6",
       "target_entity_id": "a4ceb9b6-645b-4c2a-b10d-8c1e01ccfda9",
       "relationship_type": "KNOWS",
@@ -425,7 +407,7 @@
       ]
     },
     {
-      "relationship_id": "0fb5f66b-deeb-405f-895a-d4c1760eabeb",
+      "relationship_id": "e4c675d0-e48e-4f64-bf13-ba8a484da47a",
       "source_entity_id": "9f3cf474-0181-4c57-a6df-2e5f4404dc4a",
       "target_entity_id": "72cd3b92-6a6e-4186-bf94-fd36f089289d",
       "relationship_type": "LOCATED_IN",
@@ -436,7 +418,7 @@
       ]
     },
     {
-      "relationship_id": "24c04357-d171-470d-b933-5a157d90dae1",
+      "relationship_id": "ebb4a476-5ad3-4493-9769-ae1379e772f9",
       "source_entity_id": "a4ceb9b6-645b-4c2a-b10d-8c1e01ccfda9",
       "target_entity_id": "2bd0f7d1-8d8f-42be-a9d4-15e9260351c3",
       "relationship_type": "RELATED_TO",
@@ -447,7 +429,7 @@
       ]
     },
     {
-      "relationship_id": "24867553-78bb-4407-aacb-7c0553474dc0",
+      "relationship_id": "01a46475-2539-45f3-8eec-ba3732651706",
       "source_entity_id": "9f3cf474-0181-4c57-a6df-2e5f4404dc4a",
       "target_entity_id": "6a9b0d6e-3ffd-434e-b1a0-ffdc1e21f5b3",
       "relationship_type": "LOCATED_IN",
@@ -458,8 +440,8 @@
       ]
     },
     {
-      "relationship_id": "0b23bfe6-ddfd-43db-8e06-9ba4643f1bc6",
-      "source_entity_id": "b5c332ef-8f61-47af-a984-885e2e56b90d",
+      "relationship_id": "e40f63e9-098c-4446-9358-4f484b1041a2",
+      "source_entity_id": "a4ceb9b6-645b-4c2a-b10d-8c1e01ccfda9",
       "target_entity_id": "1f2df2d9-3cf5-48f6-aa91-9bd9a44c9ad1",
       "relationship_type": "RELATED_TO",
       "description": "점순이 brings her rooster to fight with the narrator's rooster.",
@@ -469,9 +451,9 @@
       ]
     },
     {
-      "relationship_id": "94125af4-ce2b-4cea-89b4-eeb090842eb4",
+      "relationship_id": "71cf16fa-ae09-451e-99f0-2940795034b4",
       "source_entity_id": "be1ea568-877c-4ab0-83bd-c87a0ec53e49",
-      "target_entity_id": "b5c332ef-8f61-47af-a984-885e2e56b90d",
+      "target_entity_id": "a4ceb9b6-645b-4c2a-b10d-8c1e01ccfda9",
       "relationship_type": "RELATED_TO",
       "description": "The narrator refers to 점순이 using a derogatory term.",
       "weight": 1.0,
@@ -480,8 +462,8 @@
       ]
     },
     {
-      "relationship_id": "784ddb7b-dc1b-4111-b581-e55c72404a51",
-      "source_entity_id": "36653e8f-5749-427a-b132-ea7b1c55b909",
+      "relationship_id": "d3437e60-878f-4b5f-b065-e5b7833c49b3",
+      "source_entity_id": "ed05f5b2-291e-48aa-b543-af2e7a5429c3",
       "target_entity_id": "be1ea568-877c-4ab0-83bd-c87a0ec53e49",
       "relationship_type": "RELATED_TO",
       "description": "The narrator insults 점순이 by mentioning her father.",
@@ -491,7 +473,7 @@
       ]
     },
     {
-      "relationship_id": "3b27eeae-231d-42c2-825d-62800afebb71",
+      "relationship_id": "e8872678-dcd3-4994-ac26-48c34a74ddf8",
       "source_entity_id": "3f020790-5554-4e16-8954-a3e6bf125504",
       "target_entity_id": "e01655ba-bd3d-4ec7-8b71-b435c2f3f1fa",
       "relationship_type": "CARES_FOR",
@@ -502,8 +484,8 @@
       ]
     },
     {
-      "relationship_id": "dc43853a-112d-42d6-8d71-96469da016b4",
-      "source_entity_id": "b5c332ef-8f61-47af-a984-885e2e56b90d",
+      "relationship_id": "31cc2562-bea9-476e-8475-c23d8e118416",
+      "source_entity_id": "a4ceb9b6-645b-4c2a-b10d-8c1e01ccfda9",
       "target_entity_id": "e01655ba-bd3d-4ec7-8b71-b435c2f3f1fa",
       "relationship_type": "OBSERVES",
       "description": "점순이 observes the fight between the roosters.",
@@ -513,7 +495,7 @@
       ]
     },
     {
-      "relationship_id": "157caba6-a76d-464b-8420-1e0ce4d37c4e",
+      "relationship_id": "ac99a6d1-7764-4e20-b400-4a23a7a7394c",
       "source_entity_id": "e01655ba-bd3d-4ec7-8b71-b435c2f3f1fa",
       "target_entity_id": "3e3a92d1-21fa-4f73-85a3-3d1c421b310d",
       "relationship_type": "COMPETES_WITH",
@@ -524,7 +506,7 @@
       ]
     },
     {
-      "relationship_id": "90c1375b-2ca2-4e44-a8ff-a406d67ca1f0",
+      "relationship_id": "ff36bc1f-b62b-4d64-8421-f97065dd90c9",
       "source_entity_id": "ba065f42-f197-4a74-9087-0d91484ea923",
       "target_entity_id": "adab3bb4-cc77-4a24-9ff4-455fc0a6fdd9",
       "relationship_type": "STORES",
@@ -535,7 +517,7 @@
       ]
     },
     {
-      "relationship_id": "64b6851f-19bf-4beb-a836-e07251b844e1",
+      "relationship_id": "932260d2-5a05-45ba-9f46-57e3a57ccf61",
       "source_entity_id": "adab3bb4-cc77-4a24-9ff4-455fc0a6fdd9",
       "target_entity_id": "e01655ba-bd3d-4ec7-8b71-b435c2f3f1fa",
       "relationship_type": "ENHANCES",
@@ -546,7 +528,7 @@
       ]
     },
     {
-      "relationship_id": "85b78fde-8073-4216-9f55-83bb2a8fe7bb",
+      "relationship_id": "fada3c45-1504-47dd-bf3d-e0697e92ba27",
       "source_entity_id": "e63bfd07-4cbe-4306-8e43-10e64a8b8ff4",
       "target_entity_id": "e01655ba-bd3d-4ec7-8b71-b435c2f3f1fa",
       "relationship_type": "LOCATED_IN",
@@ -557,7 +539,7 @@
       ]
     },
     {
-      "relationship_id": "b931ddb9-0d9e-42d8-aaa3-e66b74c383c0",
+      "relationship_id": "1efb74e5-b64c-41f6-8af4-3ccd4dbf9763",
       "source_entity_id": "e63bfd07-4cbe-4306-8e43-10e64a8b8ff4",
       "target_entity_id": "3e3a92d1-21fa-4f73-85a3-3d1c421b310d",
       "relationship_type": "LOCATED_IN",
@@ -568,8 +550,8 @@
       ]
     },
     {
-      "relationship_id": "cf5ca702-ccb3-4d94-866f-5ece22d22ffe",
-      "source_entity_id": "b5c332ef-8f61-47af-a984-885e2e56b90d",
+      "relationship_id": "f2c75364-3b56-40f1-a9d4-f6c10d2bae97",
+      "source_entity_id": "a4ceb9b6-645b-4c2a-b10d-8c1e01ccfda9",
       "target_entity_id": "1f2df2d9-3cf5-48f6-aa91-9bd9a44c9ad1",
       "relationship_type": "RELATED_TO",
       "description": "점순이 reacts to the actions of the 수탉.",
@@ -579,8 +561,8 @@
       ]
     },
     {
-      "relationship_id": "3471d10b-3539-43c9-8fcf-0d1072932143",
-      "source_entity_id": "36653e8f-5749-427a-b132-ea7b1c55b909",
+      "relationship_id": "c6973e4b-5bdb-478b-bd7f-6c136b94ef14",
+      "source_entity_id": "ed05f5b2-291e-48aa-b543-af2e7a5429c3",
       "target_entity_id": "1f2df2d9-3cf5-48f6-aa91-9bd9a44c9ad1",
       "relationship_type": "KNOWS",
       "description": "The narrator is concerned about what 아버지 will think of the 수탉.",
@@ -590,7 +572,7 @@
       ]
     },
     {
-      "relationship_id": "a7cf3cf5-b953-418e-a4ea-bf0959b530bb",
+      "relationship_id": "1ee33711-8880-46e1-8535-d7207c98dcee",
       "source_entity_id": "adab3bb4-cc77-4a24-9ff4-455fc0a6fdd9",
       "target_entity_id": "1f2df2d9-3cf5-48f6-aa91-9bd9a44c9ad1",
       "relationship_type": "USED_IN",
@@ -601,8 +583,8 @@
       ]
     },
     {
-      "relationship_id": "45a654ce-3940-40a7-8eb8-360ea5634bf6",
-      "source_entity_id": "b5c332ef-8f61-47af-a984-885e2e56b90d",
+      "relationship_id": "283e2a8f-73a1-4b5c-90ac-df298a1c7c73",
+      "source_entity_id": "a4ceb9b6-645b-4c2a-b10d-8c1e01ccfda9",
       "target_entity_id": "ec3e9841-36e4-4113-afa5-7afed967a8ff",
       "relationship_type": "PLAYS",
       "description": "점순이 is playing the 호드기.",
@@ -612,7 +594,7 @@
       ]
     },
     {
-      "relationship_id": "259d6d41-31cc-4d26-a0e6-a404118e3b08",
+      "relationship_id": "94475f11-2d5b-4f2e-8e4a-a17aa75b6898",
       "source_entity_id": "1f2df2d9-3cf5-48f6-aa91-9bd9a44c9ad1",
       "target_entity_id": "2bd0f7d1-8d8f-42be-a9d4-15e9260351c3",
       "relationship_type": "RELATED_TO",
@@ -623,8 +605,8 @@
       ]
     },
     {
-      "relationship_id": "06f8fb77-0435-49f5-b5e4-4348825244c6",
-      "source_entity_id": "a4fdaebc-9741-4e6e-a826-004053f1f350",
+      "relationship_id": "52aebb69-c04e-45a2-8904-0f7420dd439f",
+      "source_entity_id": "953743ac-3592-495d-8e91-33c07a48f2e6",
       "target_entity_id": "a4ceb9b6-645b-4c2a-b10d-8c1e01ccfda9",
       "relationship_type": "KNOWS",
       "description": "어머니 is the mother of 점순.",
@@ -634,7 +616,7 @@
       ]
     },
     {
-      "relationship_id": "a4ab588b-8930-4763-a295-9bc58a3a2677",
+      "relationship_id": "01acdb34-fb42-4427-aff5-55e8fd83f10d",
       "source_entity_id": "a4ceb9b6-645b-4c2a-b10d-8c1e01ccfda9",
       "target_entity_id": "d0e38de8-d0fb-436c-96b5-04525625c5a9",
       "relationship_type": "RELATED_TO",
@@ -645,7 +627,7 @@
       ]
     },
     {
-      "relationship_id": "8de24b8f-400c-4e38-8133-17f7a8ba5c18",
+      "relationship_id": "59804a80-7e25-4bf7-b012-08870ea79e8e",
       "source_entity_id": "f3b14710-6a1b-4071-a05d-9c1865ddb738",
       "target_entity_id": "d0e38de8-d0fb-436c-96b5-04525625c5a9",
       "relationship_type": "LOCATED_IN",
@@ -656,7 +638,7 @@
       ]
     },
     {
-      "relationship_id": "76dfd9f8-5b20-4d46-bc03-683808d21c76",
+      "relationship_id": "5efd7009-2d00-485f-900c-adebdc075d26",
       "source_entity_id": "9188e044-9bfe-4712-a5d8-6c89cfb3a044",
       "target_entity_id": "d0e38de8-d0fb-436c-96b5-04525625c5a9",
       "relationship_type": "MENTIONED_IN",

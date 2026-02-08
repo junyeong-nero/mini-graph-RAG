@@ -142,16 +142,6 @@
         "665d757e-5014-4182-a1a2-43659a56fc76"
       ]
     },
-    "765aa0a3-93b5-4cbe-b8b6-beecb3f9911e": {
-      "entity_id": "765aa0a3-93b5-4cbe-b8b6-beecb3f9911e",
-      "name": "내 아내",
-      "entity_type": "PERSON",
-      "description": "The narrator's wife, described as beautiful and precious.",
-      "attributes": {},
-      "source_chunks": [
-        "d7bf4d2d-2cb0-402e-addf-b2859a1bee6c"
-      ]
-    },
     "828b6e57-f871-4031-b590-b1bb30eaa2e3": {
       "entity_id": "828b6e57-f871-4031-b590-b1bb30eaa2e3",
       "name": "33번 지 18 가구",
@@ -182,36 +172,6 @@
       "attributes": {},
       "source_chunks": [
         "d7bf4d2d-2cb0-402e-addf-b2859a1bee6c"
-      ]
-    },
-    "93da7c62-27b9-490b-85ea-f3be24d4e276": {
-      "entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
-      "name": "아내",
-      "entity_type": "PERSON",
-      "description": "The narrator's wife, mentioned in relation to the living space. The narrator's wife, associated with various cosmetics and scents. The narrator's wife, who is mentioned as being out. The narrator's wife, who has a routine and social interactions. The narrator's wife, who prepares meals and has guests. The narrator's wife, who is involved in a mysterious situation regarding money. The narrator's wife, who is mentioned in relation to money and the narrator's feelings. The narrator's wife, who has a significant presence in the text. The narrator's wife. The narrator's wife, who exhibits a mysterious demeanor. The narrator's wife who understands his feelings. The narrator's wife who cares for him during his illness. The narrator's wife, involved in a questionable act regarding medication. The narrator's wife, involved in a conflict with the narrator.",
-      "attributes": {},
-      "source_chunks": [
-        "f77df291-bbfe-42f3-adb5-461dff321850",
-        "8c8de878-3d27-49d6-9bdd-e22f3edf3e3d",
-        "323b2b4e-8821-4dc3-94f5-cdf3d5948f76",
-        "002aeec1-9097-40a5-bb2d-a90b837eea3b",
-        "2b82d1b8-162b-49fb-a8c6-d36ade5cb0ea",
-        "e4901f7a-c6a5-4423-85bc-7104193c9ca9",
-        "182270ba-c6db-49a8-b40b-b29de4fc6d40",
-        "086bd89b-3d2f-4f2d-9cd5-6f98a2b5973e",
-        "11a84ce7-b308-477f-8c48-8b9abd7c62c8",
-        "33c9d99a-46e5-4b91-b2da-3227d703ff45",
-        "28db10e7-bb55-403e-be21-220d7dff18d0",
-        "1c59ed7f-e597-45e4-a6b0-77b1ba97744a",
-        "4c4d4256-6aa9-4158-a75e-ea28cb500f6c",
-        "a5bfdcea-cb45-4bba-a6f8-0deda8490791",
-        "bb6c0972-b95b-4a25-8a6c-7b9fdcd33726",
-        "7154c46c-66fd-423e-9331-614ef35ef80c",
-        "32017cae-682c-4be8-a2b5-3439f022ff84",
-        "bc61c03b-410e-4190-8f56-30ec50769530",
-        "efb2ad18-9631-4fce-86f1-e15cce27c15a",
-        "7c133a09-d601-41ba-a0f8-23e61e339be4",
-        "2e07d1c4-8469-40b6-a57a-873b564ef24a"
       ]
     },
     "fc7e3d49-ee3d-4f2f-b40a-5d59493dd0e7": {
@@ -396,12 +356,37 @@
       "entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "name": "내객",
       "entity_type": "PERSON",
-      "description": "Guests visiting the narrator's home. Unidentified guests who leave money behind. A guest of the narrator's wife, involved in the exchange of money.",
+      "description": "Guests visiting the narrator's home. Unidentified guests who leave money behind. A guest of the narrator's wife, involved in the exchange of money. The narrator's wife, mentioned in relation to the living space. The narrator's wife, associated with various cosmetics and scents. The narrator's wife, who is mentioned as being out. The narrator's wife, who has a routine and social interactions. The narrator's wife, who prepares meals and has guests. The narrator's wife, who is involved in a mysterious situation regarding money. The narrator's wife, who is mentioned in relation to money and the narrator's feelings. The narrator's wife, who has a significant presence in the text. The narrator's wife. The narrator's wife, who exhibits a mysterious demeanor. The narrator's wife who understands his feelings. The narrator's wife who cares for him during his illness. The narrator's wife, involved in a questionable act regarding medication. The narrator's wife, involved in a conflict with the narrator. A strange man appearing behind the narrator's wife A man who appears later in the narrative, interacting with the narrator's wife. The narrator's wife, described as beautiful and precious. The name of the narrator's wife, mentioned in thought",
       "attributes": {},
       "source_chunks": [
-        "bb6c0972-b95b-4a25-8a6c-7b9fdcd33726",
+        "1c59ed7f-e597-45e4-a6b0-77b1ba97744a",
+        "11a84ce7-b308-477f-8c48-8b9abd7c62c8",
+        "32017cae-682c-4be8-a2b5-3439f022ff84",
+        "28db10e7-bb55-403e-be21-220d7dff18d0",
         "e4901f7a-c6a5-4423-85bc-7104193c9ca9",
-        "002aeec1-9097-40a5-bb2d-a90b837eea3b"
+        "efb2ad18-9631-4fce-86f1-e15cce27c15a",
+        "2e07d1c4-8469-40b6-a57a-873b564ef24a",
+        "4c4d4256-6aa9-4158-a75e-ea28cb500f6c",
+        "323b2b4e-8821-4dc3-94f5-cdf3d5948f76",
+        "a5bfdcea-cb45-4bba-a6f8-0deda8490791",
+        "d7bf4d2d-2cb0-402e-addf-b2859a1bee6c",
+        "f77df291-bbfe-42f3-adb5-461dff321850",
+        "7154c46c-66fd-423e-9331-614ef35ef80c",
+        "086bd89b-3d2f-4f2d-9cd5-6f98a2b5973e",
+        "182270ba-c6db-49a8-b40b-b29de4fc6d40",
+        "2b82d1b8-162b-49fb-a8c6-d36ade5cb0ea",
+        "bb6c0972-b95b-4a25-8a6c-7b9fdcd33726",
+        "002aeec1-9097-40a5-bb2d-a90b837eea3b",
+        "bc61c03b-410e-4190-8f56-30ec50769530",
+        "7c133a09-d601-41ba-a0f8-23e61e339be4",
+        "8c8de878-3d27-49d6-9bdd-e22f3edf3e3d",
+        "33c9d99a-46e5-4b91-b2da-3227d703ff45"
+      ],
+      "aliases": [
+        "남자",
+        "내 아내",
+        "아내",
+        "연심"
       ]
     },
     "3a9c6b55-426a-4e2c-a067-dde2410ab505": {
@@ -455,17 +440,6 @@
         "bb6c0972-b95b-4a25-8a6c-7b9fdcd33726"
       ]
     },
-    "6992671f-e000-4c63-aba0-d534235c5b91": {
-      "entity_id": "6992671f-e000-4c63-aba0-d534235c5b91",
-      "name": "남자",
-      "entity_type": "PERSON",
-      "description": "A strange man appearing behind the narrator's wife A man who appears later in the narrative, interacting with the narrator's wife.",
-      "attributes": {},
-      "source_chunks": [
-        "086bd89b-3d2f-4f2d-9cd5-6f98a2b5973e",
-        "2b82d1b8-162b-49fb-a8c6-d36ade5cb0ea"
-      ]
-    },
     "daa415a2-8033-4a6b-9ad6-f779719444be": {
       "entity_id": "daa415a2-8033-4a6b-9ad6-f779719444be",
       "name": "이불",
@@ -490,10 +464,14 @@
       "entity_id": "3cddaf56-c4d9-4916-9bae-60757aa46b86",
       "name": "내",
       "entity_type": "PERSON",
-      "description": "The narrator, who reflects on his feelings and experiences.",
+      "description": "The narrator, who reflects on his feelings and experiences. The narrator, who is experiencing hunger and anxiety.",
       "attributes": {},
       "source_chunks": [
+        "1c59ed7f-e597-45e4-a6b0-77b1ba97744a",
         "4c4d4256-6aa9-4158-a75e-ea28cb500f6c"
+      ],
+      "aliases": [
+        "나"
       ]
     },
     "f1587d89-a5a0-4a12-af51-595cbd4bef39": {
@@ -547,16 +525,6 @@
       "attributes": {},
       "source_chunks": [
         "28db10e7-bb55-403e-be21-220d7dff18d0"
-      ]
-    },
-    "b3c581ef-22a3-4242-9dba-db2bd18869aa": {
-      "entity_id": "b3c581ef-22a3-4242-9dba-db2bd18869aa",
-      "name": "나",
-      "entity_type": "PERSON",
-      "description": "The narrator, who is experiencing hunger and anxiety.",
-      "attributes": {},
-      "source_chunks": [
-        "1c59ed7f-e597-45e4-a6b0-77b1ba97744a"
       ]
     },
     "a7fe4e51-be46-498c-a512-4d68387feb39": {
@@ -671,16 +639,6 @@
         "33c9d99a-46e5-4b91-b2da-3227d703ff45",
         "bc61c03b-410e-4190-8f56-30ec50769530",
         "efb2ad18-9631-4fce-86f1-e15cce27c15a"
-      ]
-    },
-    "a55b20d7-dc4a-40ca-ab0b-653a813b0869": {
-      "entity_id": "a55b20d7-dc4a-40ca-ab0b-653a813b0869",
-      "name": "연심",
-      "entity_type": "PERSON",
-      "description": "The name of the narrator's wife, mentioned in thought",
-      "attributes": {},
-      "source_chunks": [
-        "11a84ce7-b308-477f-8c48-8b9abd7c62c8"
       ]
     },
     "b9b7c608-3593-4e5f-814b-e1ebbdd460ed": {
@@ -817,7 +775,7 @@
   },
   "relationships": [
     {
-      "relationship_id": "80fa0d17-0623-439f-b366-3ef1c93ec193",
+      "relationship_id": "657c003b-4cf3-4d13-9456-a78de516372b",
       "source_entity_id": "1d878690-ba70-4b8a-9959-aff188cead26",
       "target_entity_id": "8f576021-b46e-457c-bce6-5eeab8e601a1",
       "relationship_type": "RELATED_TO",
@@ -828,7 +786,7 @@
       ]
     },
     {
-      "relationship_id": "11387f1f-0afe-4ec9-8f00-e07064cb92e8",
+      "relationship_id": "a2f777f8-0453-497d-a3a9-6fb583b30019",
       "source_entity_id": "c9421bbd-7dd3-442a-bae6-179d1c0835f0",
       "target_entity_id": "b504a3c0-8d41-44af-81e9-75c8179d1b96",
       "relationship_type": "LOCATED_IN",
@@ -839,7 +797,7 @@
       ]
     },
     {
-      "relationship_id": "798b7d8b-da1a-43e9-b6c3-0166249536e6",
+      "relationship_id": "e314cbe6-e7a5-44f7-aa2c-a4f47d643727",
       "source_entity_id": "e15f0034-c2bd-403f-998c-ed2fb2013ff5",
       "target_entity_id": "d7a46f8b-97bc-4cc9-b246-770fee8676e5",
       "relationship_type": "RELATED_TO",
@@ -850,7 +808,7 @@
       ]
     },
     {
-      "relationship_id": "b355d10b-dd50-4ff5-9638-e27775e5dfb8",
+      "relationship_id": "4dc428e8-d5ed-40b7-ab03-5bee7be6b772",
       "source_entity_id": "15fb78be-8971-4294-be2c-58605386eb20",
       "target_entity_id": "8d58bfa4-8383-4f5b-829f-1290d1baaa3c",
       "relationship_type": "LOCATED_IN",
@@ -861,7 +819,7 @@
       ]
     },
     {
-      "relationship_id": "9045c5fb-4201-4971-bc00-c44938d661b0",
+      "relationship_id": "3cfdc336-fe97-42d3-ae21-0418acb7e0e7",
       "source_entity_id": "e9cf3056-46f9-4810-980e-94e901ba777e",
       "target_entity_id": "8d58bfa4-8383-4f5b-829f-1290d1baaa3c",
       "relationship_type": "PART_OF",
@@ -872,7 +830,7 @@
       ]
     },
     {
-      "relationship_id": "516fcbe9-ad96-4884-b63e-cb436c33f1e5",
+      "relationship_id": "771a17fb-f7aa-4f2b-a216-ee7ad427975b",
       "source_entity_id": "cb3ce785-2216-42ce-98e3-af54079f1a59",
       "target_entity_id": "e9cf3056-46f9-4810-980e-94e901ba777e",
       "relationship_type": "WORKS_FOR",
@@ -883,8 +841,8 @@
       ]
     },
     {
-      "relationship_id": "1d65e32e-ef91-4774-ad1f-300874be2a3f",
-      "source_entity_id": "765aa0a3-93b5-4cbe-b8b6-beecb3f9911e",
+      "relationship_id": "2d181aae-40b7-42ad-8f44-79a205f6ab00",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "828b6e57-f871-4031-b590-b1bb30eaa2e3",
       "relationship_type": "LOCATED_IN",
       "description": "The narrator's wife lives in the location described.",
@@ -894,8 +852,8 @@
       ]
     },
     {
-      "relationship_id": "328def0a-34be-46c6-8103-4a2781957363",
-      "source_entity_id": "765aa0a3-93b5-4cbe-b8b6-beecb3f9911e",
+      "relationship_id": "67536968-e0a4-4956-ba03-0ae5c68e92f0",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "8419617b-05fe-4312-8133-1c647cc8deba",
       "relationship_type": "RELATED_TO",
       "description": "The narrator compares his wife to a beautiful flower.",
@@ -905,9 +863,9 @@
       ]
     },
     {
-      "relationship_id": "7e64f51f-f224-42d2-9138-68dd76f86afc",
+      "relationship_id": "de1b63eb-d0e1-4723-8839-3967f19c5ef8",
       "source_entity_id": "c7eb9f15-5032-4478-9756-d971920cc15b",
-      "target_entity_id": "765aa0a3-93b5-4cbe-b8b6-beecb3f9911e",
+      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "relationship_type": "PART_OF",
       "description": "The room is a space where the narrator's wife is present.",
       "weight": 1.0,
@@ -916,8 +874,8 @@
       ]
     },
     {
-      "relationship_id": "103b7eab-8a46-4187-ae90-6ae5407f71ec",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "3c798f7f-9078-44ae-90ac-4f54204cc924",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "fc7e3d49-ee3d-4f2f-b40a-5d59493dd0e7",
       "relationship_type": "LOCATED_IN",
       "description": "The narrator's wife is associated with the living space.",
@@ -927,7 +885,7 @@
       ]
     },
     {
-      "relationship_id": "9bad1559-97b5-4ad0-8127-decc7c1dbdf4",
+      "relationship_id": "b5f7cb78-a15f-4518-b088-13eb406073fc",
       "source_entity_id": "fc7e3d49-ee3d-4f2f-b40a-5d59493dd0e7",
       "target_entity_id": "75cea673-e971-4f14-b6e1-4026be99b76c",
       "relationship_type": "RELATED_TO",
@@ -938,7 +896,7 @@
       ]
     },
     {
-      "relationship_id": "57be8f75-bb68-4b87-b70f-ef788fd13199",
+      "relationship_id": "4ca5f5c8-423d-451b-871b-504d43a8c3b0",
       "source_entity_id": "fc7e3d49-ee3d-4f2f-b40a-5d59493dd0e7",
       "target_entity_id": "fb319477-22b7-4a7d-b54a-bfda1a2bad50",
       "relationship_type": "RELATED_TO",
@@ -949,7 +907,7 @@
       ]
     },
     {
-      "relationship_id": "647ff383-fc5f-4942-90b1-fc459c808448",
+      "relationship_id": "b7a96c29-e4cd-4afe-8e76-344833e33c29",
       "source_entity_id": "fc7e3d49-ee3d-4f2f-b40a-5d59493dd0e7",
       "target_entity_id": "b04518ac-cb47-41fb-96b0-236af0d3ca6f",
       "relationship_type": "HAS_FEATURE",
@@ -960,8 +918,8 @@
       ]
     },
     {
-      "relationship_id": "13c760a2-e5fb-4cc2-a721-c601c95c0fa5",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "5182adc7-adeb-405b-aaa2-80c23ba35150",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "f4e545c5-89c2-4373-a8d3-9b7bdf060ebd",
       "relationship_type": "USES",
       "description": "The narrator's wife uses the mirror for personal grooming.",
@@ -971,8 +929,8 @@
       ]
     },
     {
-      "relationship_id": "bb5e2bad-8022-4142-aa97-d416b8b3f42a",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "ac35bc9c-1cb2-48a6-b643-cf4aaf0e0271",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "68e2975d-a056-4e9d-ba73-7a6c69fbe734",
       "relationship_type": "USES",
       "description": "The narrator's wife uses the tool mentioned for playful activities.",
@@ -982,8 +940,8 @@
       ]
     },
     {
-      "relationship_id": "6b347502-47a7-474a-9df7-a833ead6e25c",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "848d37b5-b07a-4c5e-9c52-4df4fe684f4d",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "e41be569-aad0-4b59-8f5c-dbd7df2032f4",
       "relationship_type": "RELATED_TO",
       "description": "The narrator's wife is associated with various cosmetics.",
@@ -993,8 +951,8 @@
       ]
     },
     {
-      "relationship_id": "8d16a24a-9ddc-491d-8367-a8ad98aa5313",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "2373a7ae-71dd-4e18-9030-8ca6fe67f8aa",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "918ebd00-8734-4be0-8a63-4712b6c1ad08",
       "relationship_type": "RELATED_TO",
       "description": "The scent is a fragment of the narrator's wife's body scent.",
@@ -1004,8 +962,8 @@
       ]
     },
     {
-      "relationship_id": "9ccfee3c-99b9-4510-bd7f-adf16b993eac",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "17f37097-c70b-4723-b696-797d6b96aa08",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "c7eb9f15-5032-4478-9756-d971920cc15b",
       "relationship_type": "LOCATED_IN",
       "description": "The wife's room is described as luxurious.",
@@ -1015,7 +973,7 @@
       ]
     },
     {
-      "relationship_id": "c4a455c9-fa74-45b8-a934-98462508d68f",
+      "relationship_id": "fe37cf63-6571-47f6-b051-293d7d108398",
       "source_entity_id": "c7eb9f15-5032-4478-9756-d971920cc15b",
       "target_entity_id": "80cc7cc4-043e-4e76-a2c9-c6cb5d290d3a",
       "relationship_type": "PART_OF",
@@ -1026,9 +984,9 @@
       ]
     },
     {
-      "relationship_id": "60deefda-f0aa-4d58-b2e1-3b6e1c820c0a",
+      "relationship_id": "7ab10081-5e65-4f24-8659-4361903be067",
       "source_entity_id": "b4dc6c16-20ff-47ca-9bc1-71dc40981968",
-      "target_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "relationship_type": "WORKS_FOR",
       "description": "The narrator's corduroy suit is the only clothing he has, which contrasts with his wife's clothing.",
       "weight": 1.0,
@@ -1037,9 +995,9 @@
       ]
     },
     {
-      "relationship_id": "35008877-fd5d-4536-8ffd-158e1ff9e62b",
+      "relationship_id": "6f71f5c7-30b6-4bf0-aefd-204a6bf79074",
       "source_entity_id": "b8f9ac52-7e23-45f1-ab6a-78a458660fa8",
-      "target_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "relationship_type": "WORKS_FOR",
       "description": "The narrator's high-neck sweater is part of his limited clothing.",
       "weight": 1.0,
@@ -1048,9 +1006,9 @@
       ]
     },
     {
-      "relationship_id": "75e4762d-6e81-49de-a39e-817acac672e4",
+      "relationship_id": "4fe7edd1-b7dd-4f45-b01c-67f65603ccc3",
       "source_entity_id": "b59e3774-aff5-4629-a2df-d8cd43fdc052",
-      "target_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "relationship_type": "RELATED_TO",
       "description": "The sunlight is mentioned in the context of the wife's absence.",
       "weight": 1.0,
@@ -1059,8 +1017,8 @@
       ]
     },
     {
-      "relationship_id": "4e3616b9-7952-46f9-936f-535f42f42177",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "8cc27d76-6577-4164-b692-e00215071424",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "fc7e3d49-ee3d-4f2f-b40a-5d59493dd0e7",
       "relationship_type": "LOCATED_IN",
       "description": "The narrator's wife is expected to return to the narrator's room.",
@@ -1070,7 +1028,7 @@
       ]
     },
     {
-      "relationship_id": "8b406d96-1579-4116-ae5f-647db40a3ee8",
+      "relationship_id": "f9aa4cd3-c1ba-4cd3-abb7-01430fed1b77",
       "source_entity_id": "fc7e3d49-ee3d-4f2f-b40a-5d59493dd0e7",
       "target_entity_id": "92b6fb3d-3f03-44a6-b638-b84b04ccb67c",
       "relationship_type": "CONTAINS",
@@ -1081,9 +1039,9 @@
       ]
     },
     {
-      "relationship_id": "a40d77db-51bf-4ddd-839a-2970464e7963",
+      "relationship_id": "27ea382f-67d4-42a8-b0d5-e1c770d82ada",
       "source_entity_id": "92b6fb3d-3f03-44a6-b638-b84b04ccb67c",
-      "target_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "relationship_type": "RELATED_TO",
       "description": "The narrator's concern about bedbugs is related to his wife.",
       "weight": 1.0,
@@ -1092,7 +1050,7 @@
       ]
     },
     {
-      "relationship_id": "b6426ec7-7c26-4c12-b9ed-926a8e17655d",
+      "relationship_id": "88f536d4-c5ac-4166-8bd9-68eebe38d274",
       "source_entity_id": "fc7e3d49-ee3d-4f2f-b40a-5d59493dd0e7",
       "target_entity_id": "63363855-45cc-4140-9fe3-9cb8edafc780",
       "relationship_type": "RELATED_TO",
@@ -1103,8 +1061,8 @@
       ]
     },
     {
-      "relationship_id": "a3c258a1-105d-43be-b8d5-d3b5c7a10eec",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "02129b9c-0341-4f5e-8a65-826d0f203e06",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "3f075093-e94e-47fd-bb76-7c804736484c",
       "relationship_type": "RELATED_TO",
       "description": "The wife interacts with the community of 18 households.",
@@ -1114,8 +1072,8 @@
       ]
     },
     {
-      "relationship_id": "81b51e59-e02d-4414-9245-29dbb517c2b5",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "30e2f277-6af6-4117-a5b1-a564c96a79c8",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "731a6ef8-5c46-4b12-9d9b-4a0381077691",
       "relationship_type": "GIVES",
       "description": "The wife gives the narrator coins (은화) on certain occasions.",
@@ -1125,8 +1083,8 @@
       ]
     },
     {
-      "relationship_id": "13c1fc93-b98a-4bac-9344-93363277dae3",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "eace2c5e-29aa-4027-be36-73caf1f32922",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "7909f3a7-a56f-453d-ade5-768cf2e97673",
       "relationship_type": "CREATED_BY",
       "description": "The wife buys a safe-like object (벙어리) for the narrator.",
@@ -1136,7 +1094,7 @@
       ]
     },
     {
-      "relationship_id": "ad5722c2-5465-49e6-a794-9ca5d905c395",
+      "relationship_id": "2c7ae870-6d70-4131-bb77-25db7d00a0fd",
       "source_entity_id": "7909f3a7-a56f-453d-ade5-768cf2e97673",
       "target_entity_id": "731a6ef8-5c46-4b12-9d9b-4a0381077691",
       "relationship_type": "CONTAINS",
@@ -1147,19 +1105,8 @@
       ]
     },
     {
-      "relationship_id": "c2382987-1798-4f3d-afba-e3a177cb938f",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
-      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
-      "relationship_type": "KNOWS",
-      "description": "The wife has guests visiting.",
-      "weight": 1.0,
-      "source_chunks": [
-        "e4901f7a-c6a5-4423-85bc-7104193c9ca9"
-      ]
-    },
-    {
-      "relationship_id": "36ff0f28-91ed-48f0-94ad-1bf6db2f3526",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "d8f65ac9-0476-45b2-8db1-77ae0d2fad90",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "3a9c6b55-426a-4e2c-a067-dde2410ab505",
       "relationship_type": "CREATED_BY",
       "description": "The wife prepares the meals.",
@@ -1169,7 +1116,7 @@
       ]
     },
     {
-      "relationship_id": "22fdfe20-b11f-4a37-8ffc-b1b39e6dd03c",
+      "relationship_id": "69e4fa93-3150-4e32-8a26-c408bf7332dc",
       "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "b328c05a-f136-4582-8add-72cca2f18844",
       "relationship_type": "LOCATED_IN",
@@ -1180,9 +1127,9 @@
       ]
     },
     {
-      "relationship_id": "66aa360e-ac71-46c0-a5a6-a354ccb0bba5",
+      "relationship_id": "f3eb275e-44fe-4a94-a20b-aa89899a2066",
       "source_entity_id": "b328c05a-f136-4582-8add-72cca2f18844",
-      "target_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "relationship_type": "PART_OF",
       "description": "The wife is part of the narrator's home.",
       "weight": 1.0,
@@ -1191,7 +1138,7 @@
       ]
     },
     {
-      "relationship_id": "150620bb-6aec-4185-8b4a-e8bc264944db",
+      "relationship_id": "c9155ef2-0a89-433b-84bf-f341870aadd2",
       "source_entity_id": "b328c05a-f136-4582-8add-72cca2f18844",
       "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "relationship_type": "PART_OF",
@@ -1202,30 +1149,8 @@
       ]
     },
     {
-      "relationship_id": "d0a91f1a-b4f8-4312-b1b1-a1644267861c",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
-      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
-      "relationship_type": "RELATED_TO",
-      "description": "The wife is connected to the guests who leave money.",
-      "weight": 1.0,
-      "source_chunks": [
-        "002aeec1-9097-40a5-bb2d-a90b837eea3b"
-      ]
-    },
-    {
-      "relationship_id": "6cfe02f3-5e52-4543-8970-df12cacbdb08",
+      "relationship_id": "25732a5a-5c53-4d16-aab1-938dba86da48",
       "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
-      "target_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
-      "relationship_type": "GIVES",
-      "description": "The guests leave money for the wife.",
-      "weight": 1.0,
-      "source_chunks": [
-        "002aeec1-9097-40a5-bb2d-a90b837eea3b"
-      ]
-    },
-    {
-      "relationship_id": "f5e524cb-245a-4876-82e0-951f5e8d9691",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
       "target_entity_id": "731a6ef8-5c46-4b12-9d9b-4a0381077691",
       "relationship_type": "CREATED_BY",
       "description": "The wife leaves silver coins for the narrator",
@@ -1235,8 +1160,8 @@
       ]
     },
     {
-      "relationship_id": "8d3645dd-cd96-4253-aa18-58613a917b9e",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "a722d832-6a6b-484b-91cd-e1dafb67db3a",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "7909f3a7-a56f-453d-ade5-768cf2e97673",
       "relationship_type": "USES",
       "description": "The wife uses the container to keep the silver coins",
@@ -1246,7 +1171,7 @@
       ]
     },
     {
-      "relationship_id": "8915ec44-abab-4279-95b9-13e339ea289f",
+      "relationship_id": "a1e3cea6-7376-44d6-aa7e-0845788c9d92",
       "source_entity_id": "7909f3a7-a56f-453d-ade5-768cf2e97673",
       "target_entity_id": "731a6ef8-5c46-4b12-9d9b-4a0381077691",
       "relationship_type": "CONTAINS",
@@ -1257,9 +1182,9 @@
       ]
     },
     {
-      "relationship_id": "39a91c5f-c651-4409-b987-a8ee286df97e",
+      "relationship_id": "119a55a4-c9c5-46fc-90f5-566e7bbb38e2",
       "source_entity_id": "a2a3d951-b25f-4ce3-bdb7-eb4b0029e5da",
-      "target_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "relationship_type": "LOCATED_IN",
       "description": "The wife lives on Earth",
       "weight": 1.0,
@@ -1268,18 +1193,7 @@
       ]
     },
     {
-      "relationship_id": "47688276-e3f9-4df0-b6ab-d8278e1f829d",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
-      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
-      "relationship_type": "RELATED_TO",
-      "description": "The wife has a guest.",
-      "weight": 1.0,
-      "source_chunks": [
-        "bb6c0972-b95b-4a25-8a6c-7b9fdcd33726"
-      ]
-    },
-    {
-      "relationship_id": "fb98561d-57c2-4b69-944d-82f34f75238e",
+      "relationship_id": "27197fde-a1f6-4a12-921d-fdaad7977e60",
       "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "731a6ef8-5c46-4b12-9d9b-4a0381077691",
       "relationship_type": "GIVES",
@@ -1290,8 +1204,8 @@
       ]
     },
     {
-      "relationship_id": "5551525e-025b-470b-8410-b488600aa7f0",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "8f6feb39-22ff-4a90-a48a-335770a4c8d8",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "731a6ef8-5c46-4b12-9d9b-4a0381077691",
       "relationship_type": "RECEIVES",
       "description": "The wife receives money from the guest.",
@@ -1301,7 +1215,7 @@
       ]
     },
     {
-      "relationship_id": "daf02aaa-e8e2-45ac-ab5a-1ee95f63b6a2",
+      "relationship_id": "df7b944e-789d-459a-926e-1499b7f76f27",
       "source_entity_id": "fc7e3d49-ee3d-4f2f-b40a-5d59493dd0e7",
       "target_entity_id": "7a38f5d1-2a76-4b5c-b275-43889e2d20f8",
       "relationship_type": "PART_OF",
@@ -1312,7 +1226,7 @@
       ]
     },
     {
-      "relationship_id": "71072960-98e2-4a9b-8a82-fe59718e5f86",
+      "relationship_id": "da52506e-b553-4dfd-9270-22a7858dc725",
       "source_entity_id": "b6230ea4-f25d-4015-9b2f-f045666e620b",
       "target_entity_id": "fc7e3d49-ee3d-4f2f-b40a-5d59493dd0e7",
       "relationship_type": "LOCATED_IN",
@@ -1323,19 +1237,8 @@
       ]
     },
     {
-      "relationship_id": "cddecc76-0ff8-4fee-b0aa-ddb271e909bf",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
-      "target_entity_id": "6992671f-e000-4c63-aba0-d534235c5b91",
-      "relationship_type": "KNOWS",
-      "description": "The wife knows the strange man",
-      "weight": 1.0,
-      "source_chunks": [
-        "2b82d1b8-162b-49fb-a8c6-d36ade5cb0ea"
-      ]
-    },
-    {
-      "relationship_id": "74368981-db60-42e7-ba4c-27a0e654eb88",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "abb397e1-cbdb-4863-84ef-52a1bd3ea7d0",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "e9cf3056-46f9-4810-980e-94e901ba777e",
       "relationship_type": "LOCATED_IN",
       "description": "The wife walks towards the front gate",
@@ -1345,8 +1248,8 @@
       ]
     },
     {
-      "relationship_id": "17a90355-9d0f-492a-890b-62ba1ed184fb",
-      "source_entity_id": "6992671f-e000-4c63-aba0-d534235c5b91",
+      "relationship_id": "185b5f9a-dc70-4587-ba6d-eb00d37dbe07",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "e9cf3056-46f9-4810-980e-94e901ba777e",
       "relationship_type": "LOCATED_IN",
       "description": "The strange man walks towards the front gate",
@@ -1356,9 +1259,9 @@
       ]
     },
     {
-      "relationship_id": "8764200c-20b5-44ae-807a-8c375e5d2640",
+      "relationship_id": "99b872e2-5121-4ff9-99b0-97260a65f908",
       "source_entity_id": "daa415a2-8033-4a6b-9ad6-f779719444be",
-      "target_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "relationship_type": "USED_BY",
       "description": "The narrator uses the blanket while lying down",
       "weight": 1.0,
@@ -1367,9 +1270,9 @@
       ]
     },
     {
-      "relationship_id": "ef5f946d-672b-4eb2-a2d5-702abb2389e8",
+      "relationship_id": "5bed68b8-2cf7-4293-94a2-1846d16b5314",
       "source_entity_id": "c75d873e-8cd3-4470-9549-6bda3f6a9fd5",
-      "target_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "relationship_type": "WORN_BY",
       "description": "The rubber shoes are worn by the narrator's wife",
       "weight": 1.0,
@@ -1378,9 +1281,9 @@
       ]
     },
     {
-      "relationship_id": "03071d58-6174-4f7b-81c7-0bb73bcef525",
+      "relationship_id": "d493166b-bcf1-4581-a0be-52c5b9acf20b",
       "source_entity_id": "3cddaf56-c4d9-4916-9bae-60757aa46b86",
-      "target_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "relationship_type": "MARRIED_TO",
       "description": "The narrator is married to his wife.",
       "weight": 1.0,
@@ -1389,8 +1292,8 @@
       ]
     },
     {
-      "relationship_id": "fb061542-078d-488a-b4f5-fbd8d5b4e785",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "b2b05997-0d0c-4424-92de-c641f51f673f",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "3cddaf56-c4d9-4916-9bae-60757aa46b86",
       "relationship_type": "RELATED_TO",
       "description": "The wife has a relationship with the narrator.",
@@ -1400,8 +1303,8 @@
       ]
     },
     {
-      "relationship_id": "37ca6875-6d8a-41e9-b3a4-0e89f511f659",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "5b21af27-0155-4a29-b8c6-1a1ecb9058c9",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "15fb78be-8971-4294-be2c-58605386eb20",
       "relationship_type": "LOCATED_IN",
       "description": "The wife lives at 33번지",
@@ -1411,8 +1314,8 @@
       ]
     },
     {
-      "relationship_id": "5ed4bcd6-06dd-4d80-ad30-60b559d54328",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "643482ab-a3c9-4636-8ec2-861986180397",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "fc7e3d49-ee3d-4f2f-b40a-5d59493dd0e7",
       "relationship_type": "LOCATED_IN",
       "description": "The wife is associated with the narrator's room",
@@ -1422,7 +1325,7 @@
       ]
     },
     {
-      "relationship_id": "1ae63d0d-6d06-46fe-80c5-a1da2db0f895",
+      "relationship_id": "a6e998e1-b55a-4317-8094-8dab07cc147d",
       "source_entity_id": "fc7e3d49-ee3d-4f2f-b40a-5d59493dd0e7",
       "target_entity_id": "f1587d89-a5a0-4a12-af51-595cbd4bef39",
       "relationship_type": "CONTAINS",
@@ -1433,8 +1336,8 @@
       ]
     },
     {
-      "relationship_id": "1e3c324e-8ebc-4b02-9a2a-0a380064a159",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "37bbf210-0a1f-4acf-9e90-a9779a354897",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "9aedd75d-a648-4008-b545-3e5f8b3b266e",
       "relationship_type": "GIVES",
       "description": "The wife is given five won by the narrator",
@@ -1444,9 +1347,9 @@
       ]
     },
     {
-      "relationship_id": "afaedf5d-73b0-4a8b-b7ec-adee04f95837",
+      "relationship_id": "de5fcafc-0914-4129-8c74-1cb39bfe639a",
       "source_entity_id": "89e593f5-c8c5-4625-8e09-503c2868c15a",
-      "target_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "relationship_type": "RELATED_TO",
       "description": "The guests are related to the narrator's wife",
       "weight": 1.0,
@@ -1455,7 +1358,7 @@
       ]
     },
     {
-      "relationship_id": "a359ebc1-da83-438b-b68a-f28b633dd9e2",
+      "relationship_id": "4eefec11-9bd0-429e-97dd-67c12d3de781",
       "source_entity_id": "fc7e3d49-ee3d-4f2f-b40a-5d59493dd0e7",
       "target_entity_id": "9aedd75d-a648-4008-b545-3e5f8b3b266e",
       "relationship_type": "CONTAINS",
@@ -1466,8 +1369,8 @@
       ]
     },
     {
-      "relationship_id": "b8972b1f-99f8-445e-aa64-ac99db695347",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "39a4fbc6-febe-4e52-a0e8-95fa1c604ad9",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "9aedd75d-a648-4008-b545-3e5f8b3b266e",
       "relationship_type": "GIVES",
       "description": "The narrator gives the money to his wife.",
@@ -1477,8 +1380,8 @@
       ]
     },
     {
-      "relationship_id": "03ef4628-88b5-4404-b6da-8afd2ada298d",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "09492fa6-87fc-4530-936b-3be3f55e1d2b",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "ca316b3a-ca65-41b4-9afb-cc61842f441f",
       "relationship_type": "RELATED_TO",
       "description": "The narrator is concerned about returning home before midnight to avoid his wife's disapproval.",
@@ -1488,7 +1391,7 @@
       ]
     },
     {
-      "relationship_id": "507de094-74dc-4b86-bd49-bc813a7fc7be",
+      "relationship_id": "9b7e4c71-5fb5-4244-8e50-9b42e8ace995",
       "source_entity_id": "8ccb1093-4595-4397-bdab-cde3ae686a9f",
       "target_entity_id": "ca316b3a-ca65-41b4-9afb-cc61842f441f",
       "relationship_type": "INDICATES",
@@ -1499,20 +1402,9 @@
       ]
     },
     {
-      "relationship_id": "02b04fa2-9afe-40f8-ac58-8b6420cbbcd6",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
-      "target_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
-      "relationship_type": "KNOWS",
-      "description": "The narrator's wife is aware of the narrator's actions.",
-      "weight": 1.0,
-      "source_chunks": [
-        "28db10e7-bb55-403e-be21-220d7dff18d0"
-      ]
-    },
-    {
-      "relationship_id": "2e4feecd-563a-4871-a18b-2b5e0fc8f7c8",
-      "source_entity_id": "b3c581ef-22a3-4242-9dba-db2bd18869aa",
-      "target_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "2c9f9855-6ad9-4552-b92b-03f26b5e528b",
+      "source_entity_id": "3cddaf56-c4d9-4916-9bae-60757aa46b86",
+      "target_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "relationship_type": "MARRIED_TO",
       "description": "The narrator is married to the wife.",
       "weight": 1.0,
@@ -1521,8 +1413,8 @@
       ]
     },
     {
-      "relationship_id": "b5270308-cf11-443f-ac9a-7c1d333c1afc",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "f98b569c-f960-4b27-8e5d-07c8a38d4724",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "a7fe4e51-be46-498c-a512-4d68387feb39",
       "relationship_type": "PREPARED",
       "description": "The wife has prepared the dinner table.",
@@ -1532,8 +1424,8 @@
       ]
     },
     {
-      "relationship_id": "e3eb8ec6-9401-4681-b94e-a7ccdb2088e2",
-      "source_entity_id": "b3c581ef-22a3-4242-9dba-db2bd18869aa",
+      "relationship_id": "bc92f560-cb9c-40a3-9312-cb06fcb70a9a",
+      "source_entity_id": "3cddaf56-c4d9-4916-9bae-60757aa46b86",
       "target_entity_id": "b846a23b-7c1b-4cdf-980b-954e27689689",
       "relationship_type": "LACKS",
       "description": "The narrator lacks money.",
@@ -1543,8 +1435,8 @@
       ]
     },
     {
-      "relationship_id": "012490f8-7fe0-4deb-9c16-2af02049ef11",
-      "source_entity_id": "b3c581ef-22a3-4242-9dba-db2bd18869aa",
+      "relationship_id": "e3a6c923-19e1-451c-b4e3-c9d1b44144da",
+      "source_entity_id": "3cddaf56-c4d9-4916-9bae-60757aa46b86",
       "target_entity_id": "09b338e5-ad6a-46ee-8416-ae7f569485c9",
       "relationship_type": "WAITING_FOR",
       "description": "The narrator is waiting for lightning as a metaphor for disaster.",
@@ -1554,9 +1446,9 @@
       ]
     },
     {
-      "relationship_id": "47dc0be1-42bf-432d-96f9-8e376783a276",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
-      "target_entity_id": "b3c581ef-22a3-4242-9dba-db2bd18869aa",
+      "relationship_id": "feeb4b48-389e-42b2-b884-413b5be9c396",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
+      "target_entity_id": "3cddaf56-c4d9-4916-9bae-60757aa46b86",
       "relationship_type": "VISITS",
       "description": "The wife visits the narrator's room.",
       "weight": 1.0,
@@ -1565,7 +1457,7 @@
       ]
     },
     {
-      "relationship_id": "f25f6ac3-1229-4c96-aff3-12fa42f83a58",
+      "relationship_id": "705d09b9-bb15-441b-8e66-6389a4058bdf",
       "source_entity_id": "8ccb1093-4595-4397-bdab-cde3ae686a9f",
       "target_entity_id": "e4c1ac14-b049-45b2-9f4e-4553f0419820",
       "relationship_type": "PART_OF",
@@ -1576,8 +1468,8 @@
       ]
     },
     {
-      "relationship_id": "a1c4ba9c-1679-408f-8b5e-7d68db337040",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "7ba41c83-f450-4412-8381-742a5d683dbc",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "568442d6-d536-4a9a-970f-c319bb7ac2e9",
       "relationship_type": "LOCATED_IN",
       "description": "The wife is located in the narrator's home.",
@@ -1587,7 +1479,7 @@
       ]
     },
     {
-      "relationship_id": "a371ee0d-8251-4f64-b7e9-d556a11f1d6c",
+      "relationship_id": "085d87c9-6822-4771-adbd-622ea629209c",
       "source_entity_id": "19537d9e-64e1-4f48-8142-93bcf30646d2",
       "target_entity_id": "b6230ea4-f25d-4015-9b2f-f045666e620b",
       "relationship_type": "RELATED_TO",
@@ -1598,7 +1490,7 @@
       ]
     },
     {
-      "relationship_id": "06303ee3-4b54-4f67-8219-80b063554a66",
+      "relationship_id": "fb522ec8-6434-4f2c-9173-b356c4a607d8",
       "source_entity_id": "a596cf80-097c-4899-8836-6cb94ca342f4",
       "target_entity_id": "19537d9e-64e1-4f48-8142-93bcf30646d2",
       "relationship_type": "RELATED_TO",
@@ -1609,8 +1501,8 @@
       ]
     },
     {
-      "relationship_id": "d6caf624-b4ad-41bc-b329-4436396a9172",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "8a398d76-8bb2-4f1f-ac87-9f229e718459",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "02225b44-6ddf-4895-af93-684a49ae1555",
       "relationship_type": "CARES_FOR",
       "description": "The wife cares for the narrator who has a cold.",
@@ -1620,8 +1512,8 @@
       ]
     },
     {
-      "relationship_id": "03ee32c5-9f55-42e0-ad34-b3e6a77da2a6",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "f1294c26-19c3-41a5-b610-496ca00e77a4",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "a97bf396-51da-4db2-ab62-06299d4f061a",
       "relationship_type": "GIVES",
       "description": "The wife gives the narrator aspirin to help with his illness.",
@@ -1631,8 +1523,8 @@
       ]
     },
     {
-      "relationship_id": "7bb594e0-55be-44b2-aeff-c28a8e29ce90",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "9f5dff5b-2a81-4483-98db-5db7dd77d083",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "f4e545c5-89c2-4373-a8d3-9b7bdf060ebd",
       "relationship_type": "RELATED_TO",
       "description": "The narrator uses the mirror to check his appearance while his wife is out.",
@@ -1642,19 +1534,8 @@
       ]
     },
     {
-      "relationship_id": "ea9415ac-046d-4c16-bd9a-b9a4554e4fa4",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
-      "target_entity_id": "a55b20d7-dc4a-40ca-ab0b-653a813b0869",
-      "relationship_type": "RELATED_TO",
-      "description": "The narrator's wife is referred to by the name 연심",
-      "weight": 1.0,
-      "source_chunks": [
-        "11a84ce7-b308-477f-8c48-8b9abd7c62c8"
-      ]
-    },
-    {
-      "relationship_id": "e50bd12d-034f-4e4a-9654-a84f975fb56a",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "46dc67fa-c2f4-4b7b-8916-e2c5c02025ef",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "a97bf396-51da-4db2-ab62-06299d4f061a",
       "relationship_type": "GAVE",
       "description": "The wife gave the narrator aspirin",
@@ -1664,8 +1545,8 @@
       ]
     },
     {
-      "relationship_id": "6aff30a9-9492-44f3-b60f-a2894b4e9793",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "79155bcf-b9aa-43ec-8b3f-d9662ee685a0",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "7e5c48c2-e7dc-4a31-a77e-7a83c2381c05",
       "relationship_type": "RELATED_TO",
       "description": "The narrator tries to avoid thinking about his wife while going to the mountain",
@@ -1675,8 +1556,8 @@
       ]
     },
     {
-      "relationship_id": "400f0899-dada-44e7-b6db-8de9b3b71c12",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "e9209a71-9290-4797-8509-c9c605aded90",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "a97bf396-51da-4db2-ab62-06299d4f061a",
       "relationship_type": "DECEIVED_BY",
       "description": "The wife deceived the narrator by giving him 아달린 instead of 아스피린.",
@@ -1686,8 +1567,8 @@
       ]
     },
     {
-      "relationship_id": "bab62235-13a2-4858-828a-02efc356b03b",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "d0a694eb-2b96-4f84-b843-903e006294c6",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "5d3a14ef-72b4-4454-b175-4102d28cece8",
       "relationship_type": "USED",
       "description": "The wife used 아달린 to replace 아스피린.",
@@ -1697,19 +1578,8 @@
       ]
     },
     {
-      "relationship_id": "d9986b18-462f-469d-b64d-2c69670adb7d",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
-      "target_entity_id": "6992671f-e000-4c63-aba0-d534235c5b91",
-      "relationship_type": "RELATED_TO",
-      "description": "The wife is seen interacting with another man.",
-      "weight": 1.0,
-      "source_chunks": [
-        "086bd89b-3d2f-4f2d-9cd5-6f98a2b5973e"
-      ]
-    },
-    {
-      "relationship_id": "de98524f-f933-4acd-83cb-0d0cec8579a9",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "5dbafca4-7318-4101-8acc-df0481fa197f",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "c7eb9f15-5032-4478-9756-d971920cc15b",
       "relationship_type": "LOCATED_IN",
       "description": "The wife enters the room.",
@@ -1719,8 +1589,8 @@
       ]
     },
     {
-      "relationship_id": "d57a339b-28c7-404e-9452-26ab96bc9961",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "2a822e36-8837-4735-992d-af00a80a74b3",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "b846a23b-7c1b-4cdf-980b-954e27689689",
       "relationship_type": "RELATED_TO",
       "description": "The narrator considers money in the context of the situation.",
@@ -1730,7 +1600,7 @@
       ]
     },
     {
-      "relationship_id": "6ca9a627-26d4-4e0d-a9a9-11649f93535c",
+      "relationship_id": "f826cc9b-705a-45d0-8912-1363c1da8c6a",
       "source_entity_id": "8ccb1093-4595-4397-bdab-cde3ae686a9f",
       "target_entity_id": "2e22a7df-4bbc-4f03-967c-6cde04955016",
       "relationship_type": "LOCATED_IN",
@@ -1741,7 +1611,7 @@
       ]
     },
     {
-      "relationship_id": "71ca77b9-4e89-446d-ae58-947f1eb9e48a",
+      "relationship_id": "5aad7d72-aaca-4398-935e-f8782311a427",
       "source_entity_id": "98de6e60-2262-40cf-8b01-358b991e8637",
       "target_entity_id": "b27ac91a-86ed-419f-a00e-6ea57d863273",
       "relationship_type": "RELATED_TO",
@@ -1752,7 +1622,7 @@
       ]
     },
     {
-      "relationship_id": "1e6c4d4a-4dec-4834-b5d5-a8be53cc959d",
+      "relationship_id": "6002f0ec-caeb-4b8f-bef1-e3ee23af5772",
       "source_entity_id": "498bde42-03e3-4bec-89f3-ed7089f4541b",
       "target_entity_id": "98de6e60-2262-40cf-8b01-358b991e8637",
       "relationship_type": "REFLECTS_ON",
@@ -1763,8 +1633,8 @@
       ]
     },
     {
-      "relationship_id": "1f4569f1-dc3b-43a5-885d-f0305316401f",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "8f44e016-7d83-42af-a58a-5bd18060cce1",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "a97bf396-51da-4db2-ab62-06299d4f061a",
       "relationship_type": "RELATED_TO",
       "description": "The narrator questions if the wife gave him aspirin instead of adalin",
@@ -1774,8 +1644,8 @@
       ]
     },
     {
-      "relationship_id": "45c9474e-186b-4156-9487-a8abbdf2accd",
-      "source_entity_id": "93da7c62-27b9-490b-85ea-f3be24d4e276",
+      "relationship_id": "5ad3ed47-c307-4c21-84d7-a7c4a0f1d984",
+      "source_entity_id": "583785b4-f6ca-453e-bca9-21eea6eda58f",
       "target_entity_id": "5d3a14ef-72b4-4454-b175-4102d28cece8",
       "relationship_type": "RELATED_TO",
       "description": "The narrator questions if the wife gave him adalin instead of aspirin",
@@ -1785,7 +1655,7 @@
       ]
     },
     {
-      "relationship_id": "6f0a58f4-da12-4662-af93-736a3c16ddd8",
+      "relationship_id": "c71c8d0b-891b-4bb3-82e2-406f64c88835",
       "source_entity_id": "4de206df-15e8-435d-aab4-2e58601f1c89",
       "target_entity_id": "a333e3ce-2e99-4152-9b5d-a04c84c4b042",
       "relationship_type": "RELATED_TO",

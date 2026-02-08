@@ -364,7 +364,7 @@ class TestKnowledgeGraph:
         """Test that KnowledgeGraph.from_dict indexes aliases for lookup."""
         graph = KnowledgeGraph()
         entity = Entity(name="김첨지", entity_type="PERSON", aliases=["송아지"])
-        eid = graph.add_entity(entity)
+        graph.add_entity(entity)
 
         data = graph.to_dict()
         restored = KnowledgeGraph.from_dict(data)
@@ -419,9 +419,12 @@ class TestEntityResolution:
         resolver = LLMEntityResolver(llm_client=mock_llm)
         resolver.resolve(graph)
 
-        assert calf_id not in graph.entities
-        assert kim_id in graph.entities
-        assert "송아지" in graph.entities[kim_id].aliases
+        assert len(graph.entities) == 2
+        kim_found = graph.get_entity_by_name("김첨지")
+        calf_found = graph.get_entity_by_name("송아지")
+        assert kim_found is not None
+        assert calf_found is not None
+        assert kim_found.entity_id == calf_found.entity_id
 
     def test_resolver_preserves_aliases_and_lookup(self):
         """After LLM resolution, merged alias name is queryable."""
@@ -450,7 +453,9 @@ class TestEntityResolution:
 
         found = graph.get_entity_by_name("송아지")
         assert found is not None
-        assert found.name == "김첨지"
+        kim_found = graph.get_entity_by_name("김첨지")
+        assert kim_found is not None
+        assert found.entity_id == kim_found.entity_id
 
     def test_resolver_skips_low_confidence(self):
         """Merge groups below min_confidence are ignored."""
@@ -495,3 +500,220 @@ class TestEntityResolution:
         resolver.resolve(graph)
 
         assert len(graph.entities) == 2
+
+    def test_resolver_merges_transitive_groups(self):
+        """Resolver should merge transitive groups even with intermediate canonical IDs."""
+        graph = KnowledgeGraph()
+
+        e1 = Entity(name="김첨지", entity_type="PERSON")
+        e2 = Entity(name="남편", entity_type="PERSON")
+        e3 = Entity(name="차부", entity_type="PERSON")
+        e1_id = graph.add_entity(e1)
+        e2_id = graph.add_entity(e2)
+        e3_id = graph.add_entity(e3)
+
+        mock_llm = MagicMock()
+        mock_llm.chat_json.return_value = {
+            "merge_groups": [
+                {
+                    "canonical_entity_id": e1_id,
+                    "duplicate_entity_ids": [e2_id],
+                    "confidence": 0.95,
+                    "reason": "same person",
+                },
+                {
+                    "canonical_entity_id": e2_id,
+                    "duplicate_entity_ids": [e3_id],
+                    "confidence": 0.95,
+                    "reason": "same person",
+                },
+            ]
+        }
+
+        resolver = LLMEntityResolver(llm_client=mock_llm)
+        resolver.resolve(graph)
+
+        assert len(graph.entities) == 1
+        found = graph.get_entity_by_name("차부")
+        assert found is not None
+        assert found.entity_id == e1_id
+
+    def test_resolver_merges_person_like_other_entities(self):
+        """Resolver should merge OTHER entities when they are person-like mentions."""
+        graph = KnowledgeGraph()
+
+        wife = Entity(name="아내", entity_type="PERSON")
+        patient = Entity(name="병인", entity_type="OTHER", description="집의 병자")
+        insult = Entity(name="오라질년", entity_type="PERSON")
+
+        wife_id = graph.add_entity(wife)
+        patient_id = graph.add_entity(patient)
+        insult_id = graph.add_entity(insult)
+
+        mock_llm = MagicMock()
+        mock_llm.chat_json.return_value = {
+            "merge_groups": [
+                {
+                    "canonical_entity_id": wife_id,
+                    "duplicate_entity_ids": [patient_id, insult_id],
+                    "confidence": 0.95,
+                    "reason": "same patient wife",
+                }
+            ]
+        }
+
+        resolver = LLMEntityResolver(llm_client=mock_llm)
+        resolver.resolve(graph)
+
+        assert len(graph.entities) == 1
+        wife_found = graph.get_entity_by_name("아내")
+        patient_found = graph.get_entity_by_name("병인")
+        insult_found = graph.get_entity_by_name("오라질년")
+        assert wife_found is not None
+        assert patient_found is not None
+        assert insult_found is not None
+        assert wife_found.entity_id == patient_found.entity_id
+        assert wife_found.entity_id == insult_found.entity_id
+
+    def test_resolver_contextual_merge_without_llm_group(self):
+        """Contextual heuristic should merge wife/patient aliases even without LLM merge group."""
+        graph = KnowledgeGraph()
+
+        kim = Entity(name="김첨지", entity_type="PERSON")
+        wife = Entity(name="아내", entity_type="PERSON")
+        patient = Entity(name="병인", entity_type="PERSON", description="집의 환자")
+
+        kim_id = graph.add_entity(kim)
+        wife_id = graph.add_entity(wife)
+        patient_id = graph.add_entity(patient)
+
+        graph.add_relationship(
+            Relationship(
+                source_entity_id=kim_id,
+                target_entity_id=wife_id,
+                relationship_type="MARRIED_TO",
+            )
+        )
+        graph.add_relationship(
+            Relationship(
+                source_entity_id=kim_id,
+                target_entity_id=patient_id,
+                relationship_type="CARES_FOR",
+            )
+        )
+        graph.add_relationship(
+            Relationship(
+                source_entity_id=patient_id,
+                target_entity_id=wife_id,
+                relationship_type="RELATED_TO",
+            )
+        )
+
+        mock_llm = MagicMock()
+        mock_llm.chat_json.return_value = {"merge_groups": []}
+
+        resolver = LLMEntityResolver(llm_client=mock_llm)
+        resolver.resolve(graph)
+
+        wife_found = graph.get_entity_by_name("아내")
+        patient_found = graph.get_entity_by_name("병인")
+        assert wife_found is not None
+        assert patient_found is not None
+        assert wife_found.entity_id == patient_found.entity_id
+
+    def test_resolver_role_bucket_merge_without_direct_link(self):
+        """Role-bucket heuristic should merge spouse/patient aliases sharing a neighbor."""
+        graph = KnowledgeGraph()
+
+        kim = Entity(name="김첨지", entity_type="PERSON")
+        wife = Entity(name="아내", entity_type="PERSON")
+        insult = Entity(name="오라질년", entity_type="PERSON")
+
+        kim_id = graph.add_entity(kim)
+        wife_id = graph.add_entity(wife)
+        insult_id = graph.add_entity(insult)
+
+        graph.add_relationship(
+            Relationship(
+                source_entity_id=kim_id,
+                target_entity_id=wife_id,
+                relationship_type="MARRIED_TO",
+            )
+        )
+        graph.add_relationship(
+            Relationship(
+                source_entity_id=kim_id,
+                target_entity_id=insult_id,
+                relationship_type="RELATED_TO",
+            )
+        )
+
+        mock_llm = MagicMock()
+        mock_llm.chat_json.return_value = {"merge_groups": []}
+
+        resolver = LLMEntityResolver(llm_client=mock_llm)
+        resolver.resolve(graph)
+
+        wife_found = graph.get_entity_by_name("아내")
+        insult_found = graph.get_entity_by_name("오라질년")
+        assert wife_found is not None
+        assert insult_found is not None
+        assert wife_found.entity_id == insult_found.entity_id
+
+    def test_resolver_reassigns_conflicting_spouse_aliases(self):
+        """Spouse alias accidentally attached to child should be reassigned to spouse entity."""
+        graph = KnowledgeGraph()
+
+        child = Entity(name="개똥이", entity_type="PERSON", aliases=["오라질 년"])
+        spouse = Entity(name="병인", entity_type="PERSON", description="김첨지의 아내")
+
+        graph.add_entity(child)
+        spouse_id = graph.add_entity(spouse)
+
+        mock_llm = MagicMock()
+        mock_llm.chat_json.return_value = {"merge_groups": []}
+
+        resolver = LLMEntityResolver(llm_client=mock_llm)
+        resolver.resolve(graph)
+
+        found = graph.get_entity_by_name("오라질 년")
+        assert found is not None
+        assert found.entity_id == spouse_id
+
+    def test_resolver_does_not_merge_married_pair_even_if_llm_suggests(self):
+        """Direct MARRIED_TO relation must block erroneous LLM merge."""
+        graph = KnowledgeGraph()
+
+        kim = Entity(name="김첨지", entity_type="PERSON")
+        wife = Entity(name="아내", entity_type="PERSON")
+        kim_id = graph.add_entity(kim)
+        wife_id = graph.add_entity(wife)
+
+        graph.add_relationship(
+            Relationship(
+                source_entity_id=kim_id,
+                target_entity_id=wife_id,
+                relationship_type="MARRIED_TO",
+            )
+        )
+
+        mock_llm = MagicMock()
+        mock_llm.chat_json.return_value = {
+            "merge_groups": [
+                {
+                    "canonical_entity_id": kim_id,
+                    "duplicate_entity_ids": [wife_id],
+                    "confidence": 0.99,
+                    "reason": "incorrect merge",
+                }
+            ]
+        }
+
+        resolver = LLMEntityResolver(llm_client=mock_llm)
+        resolver.resolve(graph)
+
+        kim_found = graph.get_entity_by_name("김첨지")
+        wife_found = graph.get_entity_by_name("아내")
+        assert kim_found is not None
+        assert wife_found is not None
+        assert kim_found.entity_id != wife_found.entity_id

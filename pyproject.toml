@@ -10,6 +10,7 @@ dependencies = [
     "pyvis>=0.3.2",
     "streamlit>=1.30.0",
     "streamlit-agraph>=0.0.45",
+    "watchdog>=6.0.0",
 ]
 
 [project.optional-dependencies]
